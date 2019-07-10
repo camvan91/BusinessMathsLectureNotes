@@ -1,0 +1,140 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  File name: businessMaths.tex
+%  Title: An Introduction to Business Mathematics
+%  Author: Henk van Elst
+%  Version: 16.09.2015 (hve)
+%  First version (BusMath): 11.09.2015
+%  Completion of first version: 11.09.2015, 16:10 h (hve)
+%  arXiv:1509.04333v2 [q-fin.GN]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,12pt]{book}
+%\documentclass[12pt]{book}
+%\usepackage{a4wide}
+\usepackage{times}
+\usepackage{amssymb,amsmath,amsfonts,amsthm}
+\usepackage{hyperref}
+\usepackage{graphicx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\topskip 5mm
+\topmargin 0mm
+\headheight 0mm
+\textwidth 16.5cm
+\textheight 22.5cm
+%\footskip 1cm
+\oddsidemargin 0mm
+\evensidemargin 0mm
+\pagestyle{headings}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\bea{\begin{eqnarray}}
+\def\eea{\end{eqnarray}}
+\def\vec#1{\mbox{\boldmath$#1$}}
+\def\hsp5{\hspace{5mm}}
+\def\lb{\label}
+\def\bi{\bibitem}
+\def\ct{\cite}
+\def\ptl{\partial}
+%\def\stc{{\stackrel{\ast}{C}}}
+\newcommand{\sfrac}[2]{{\textstyle{#1\over#2}}}
+\def\case#1/#2{\textstyle\frac{#1}{#2}}
+\newcommand{\leftout}[1]{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\enl}{\\\hfill\rule{0pt}{0pt}} % extra newline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\includeonly{
+		abstr-engl,
+ 	  learnoutIMQM,
+  	intro-engl,
+    ch1-engl,
+    ch2-engl,
+    ch3-engl,
+    ch4-engl,
+    ch5-engl,
+    ch6-engl,
+    ch7-engl,
+    ch8-engl,
+    app-businessMaths,
+    ref-engl
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\hskip8cm
+%\begin{minipage}{8cm}
+%\scalebox{1}{
+%\includegraphics[angle=0,width=8cm]{Karlshochschule_logo}}
+%\end{minipage}
+
+\vspace*{1cm}
+\begin{center}
+{\Huge\sc
+										An Introduction to \\
+                    Business Mathematics
+\par}
+\par\vfill\vfill
+                           Lecture notes for
+                           the Bachelor degree programmes \\ 
+							IB/IMC/IMA/ITM/IEVM/ACM/IEM/IMM \\%/IR/PPE/CCE/GGL\\
+							at Karlshochschule International University
+\par\vfill
+							Module
+\par\vfill
+							0.1.1 IMQM: Introduction to Management and its
+							Quantitative Methods
+\par\vfill\vfill\vfill
+
+                    {\large\sc Henk van Elst}
+
+\par\vfill
+
+                 August 30, 2015
+\par\vfill\vfill
+
+                 Fakult\"at I: Betriebswirtschaft und Management\\
+                 Karlshochschule\\
+                 International University\\
+                 Karlstra\ss e 36--38\\
+                 76133 Karlsruhe\\
+                 Germany
+\par\vfill
+                 E--mail: {\tt hvanelst@karlshochschule.de}
+\par\vfill\vfill
+                 E--Print: 
+\href{http://arxiv.org/abs/1509.04333}{arXiv:1509.04333v2 
+[q-fin.GN]}
+\par\vfill\vfill\vfill
+									\copyright\ 2009--2015 Karlshochschule
+									International University
+									and Henk van Elst
+                    
+\end{center}
+\vspace*{1cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\sloppy
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      \renewcommand{\thepage}{}                 % no page numbering
+      \include{abstr-engl}
+      \newpage \thispagestyle{empty}
+      \setcounter{page}{1}
+\tableofcontents
+      \newpage \thispagestyle{empty}
+      \cleardoublepage \pagenumbering{arabic}
+      % start page 1 (default)
+\include{learnoutIMQM}
+\include{intro-engl}
+\include{ch1-engl}
+\include{ch2-engl}
+\include{ch3-engl}
+\include{ch4-engl}
+\include{ch5-engl}
+\include{ch6-engl}
+\include{ch7-engl}
+\include{ch8-engl}
+\include{app-businessMaths}
+\include{ref-engl}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

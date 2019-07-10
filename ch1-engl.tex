@@ -1,0 +1,488 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  File name: ch1-engl.tex
+%  Title:
+%  Version: 10.09.2015 (hve)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter[Vector algebra in Euclidian space ${\mathbb R}^{n}$
+]{Vector algebra in Euclidian space ${\mathbb R}^{n}$}
+\lb{ch1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Let us begin our elementary considerations of {\bf vector algebra} 
+with the introduction of a special class of mathematical objects. 
+These will be useful at a later stage, when we turn to formulate 
+certain problems of a quantitative nature in a compact and elegant 
+way. Besides introducing these mathematical objects, we also need 
+to define which kinds of mathematical operations they can be 
+subjected to, and what computational rules we have to take care of.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Basic concepts]%
+{Basic concepts}
+\lb{sec:vekeinf}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Given be a set $V$ of mathematical objects $\vec{a}$ which, for now, we want to consider merely as a collection of $n$ arbitrary real numbers $a_{1}$, \ldots, $a_{i}$, \ldots, $a_{n}$. In explicit terms,
+%
+\be
+\lb{vecsp}
+V =  \left\{
+\vec{a} = \left(
+\begin{array}{c}
+a_{1} \\ \vdots \\ a_{i} \\ \vdots \\ a_{n}
+\end{array}\right)
+\left|\, a_{i} \in {\mathbb R},\hspace{1mm}
+i=1, \dots, n\right.\right\} \ .
+\ee
+%
+Formally the $n$ real numbers considered can either be assembled in an ordered pattern as a column or a row. We define
+
+\medskip
+\noindent
+\underline{\bf Def.:}
+Real-valued {\bf column vector} with $n$ 
+components
+%
+\be
+\fbox{$\displaystyle
+\vec{a} := \left(
+\begin{array}{c}
+a_{1} \\ \vdots \\ a_{i} \\ \vdots \\ a_{n}
+\end{array}
+\right) \ ,
+\hspace{10mm}
+a_{i} \in {\mathbb R},\hspace{3mm}
+i=1, \dots, n \ ,
+$}
+\ee
+%
+Notation: $\vec{a} \in \mathbb{R}^{n \times 1}$,
+
+\medskip
+\noindent
+and
+
+\medskip
+\noindent
+\underline{\bf Def.:}
+Real-valued {\bf row vector} with $n$ 
+components
+%
+\be
+\fbox{$\displaystyle
+\vec{a}^{T} := \left(
+a_{1}, \dots, a_{i}, \dots, a_{n}\right) \ ,
+\hspace{10mm}
+a_{i} \in {\mathbb R},\hspace{3mm}
+i=1, \dots, n \ ,
+$}
+\ee
+%
+Notation: $\vec{a}^{T} \in \mathbb{R}^{1 \times n}$.
+
+\medskip
+\noindent
+Correspondingly, we define the $n$-component objects
+%
+\be
+\vec{0} := \left(
+\begin{array}{c}
+0 \\ \vdots \\ 0 \\ \vdots \\ 0
+\end{array}
+\right)
+\qquad\text{and}\qquad
+\vec{0}^{T} := \left(
+0, \dots, 0, \dots, 0\right)
+\ee
+%
+to constitute related {\bf zero vectors}.
+
+\medskip
+\noindent
+Next we define for like objects in the set $V$, i.e., either for 
+$n$-component column vectors or for $n$-component row vectors, two 
+simple computational operations. These are
+
+\medskip
+\noindent
+\underline{\bf Def.:}
+{\bf Addition} of vectors
+%
+\be
+\lb{vekadd}
+\fbox{$\displaystyle
+\vec{a} + \vec{b}
+:= \left(
+\begin{array}{c}
+a_{1} \\ \vdots \\ a_{i} \\ \vdots \\ a_{n}
+\end{array}
+\right)
++ \left(
+\begin{array}{c}
+b_{1} \\ \vdots \\ b_{i} \\ \vdots \\ b_{n}
+\end{array}
+\right)
+= \left(
+\begin{array}{c}
+a_{1}+b_{1} \\ \vdots \\ a_{i}+b_{i} \\ \vdots \\
+a_{n}+b_{n}
+\end{array}
+\right) \ ,
+\hspace{10mm}
+a_{i}, b_{i} \in {\mathbb R} \ ,
+$}
+\ee
+%
+
+\medskip
+\noindent
+and
+
+\medskip
+\noindent
+\underline{\bf Def.:}
+{\bf Rescaling} of vectors
+%
+\be
+\lb{vekskal}
+\fbox{$\displaystyle
+\lambda\vec{a}
+:= \left(
+\begin{array}{c}
+\lambda a_{1} \\ \vdots \\ \lambda a_{i} \\ \vdots \\
+\lambda a_{n}
+\end{array}
+\right) \ ,
+\hspace{10mm}
+\lambda, a_{i} \in {\mathbb R} \ .
+$}
+\ee
+%
+
+\medskip
+\noindent
+The rescaling of a vector $\vec{a}$ with an arbitrary non-zero real number  $\lambda$ has the following effects:
+%
+\begin{itemize}
+	\item $|\lambda| > 1$ --- stretching of the length of $\vec{a}$
+	\item $0 < |\lambda| < 1$ --- shrinking of the length of 
+	$\vec{a}$
+	\item $\lambda < 0$ --- directional reversal of $\vec{a}$.
+\end{itemize}
+%
+The notion of the length of a vector $\vec{a}$ will be made precise shortly.
+
+\medskip
+\noindent
+The addition and the rescaling of $n$-component vectors satisfy the following addition and multiplication laws:
+
+\medskip
+\noindent
+{\bf Computational rules for addition and rescaling of vectors}
+
+\noindent
+For vectors $\vec{a}, \vec{b}, \vec{c} \in {\mathbb R}^{n}$:
+%
+\begin{enumerate}
+	\item $\vec{a}+\vec{b} = \vec{b}+\vec{a}$
+	\hfill ({\bf commutative addition})
+	\item $\vec{a}+(\vec{b}+\vec{c}) = (\vec{a}+\vec{b})+\vec{c}$
+	\hfill ({\bf associative addition})
+	\item $\vec{a}+\vec{0}=\vec{a}$ \hfill ({\bf addition identity element})
+	\item For every $\vec{a}, \vec{b} \in {\mathbb R}^{n}$, there exists exactly one  $\vec{x} \in {\mathbb R}^{n}$ such that $\vec{a}+\vec{x}=\vec{b}$
+	
+{} \hfill ({\bf invertibility of addition})
+	\item $(\lambda\mu)\vec{a}=\lambda(\mu\vec{a})$ with $\lambda
+	\in {\mathbb R}$ \hfill ({\bf associative rescaling})
+	\item $1\vec{a}=\vec{a}$ \hfill ({\bf rescaling identity element})
+	\item $\lambda(\vec{a}+\vec{b}) = \lambda\vec{a}+\lambda\vec{b}$;
+	
+	$(\lambda+\mu)\vec{a} = \lambda\vec{a}+\mu\vec{a}$ with $\lambda,
+	\mu	\in {\mathbb R}$ \hfill ({\bf distributive rescaling}).
+\end{enumerate}
+%
+
+\medskip
+\noindent
+In conclusion of this section, we remark that every set of 
+mathematical objects $V$ constructed in line with 
+Eq.~(\ref{vecsp}), with an addition and a rescaling defined 
+according to Eqs.~(\ref{vekadd}) and~(\ref{vekskal}), and 
+satisfying the laws stated above, constitutes a {\bf linear vector 
+space over Euclidian space} ${\mathbb R}^{n}$.\footnote{This is 
+named after the ancient greek mathematician
+\href{http://www-groups.dcs.st-and.ac.uk/~history/Biographies/Euclid.html}{Euclid of Alexandria (about 325~BC--265~BC)}.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Dimension and basis of ${\mathbb R}^{n}$]%
+{Dimension and basis of ${\mathbb R}^{n}$}
+\lb{sec:vekdim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Let there be given $m$ $n$-component vectors\footnote{A slightly
+shorter notation for $n$-component column vectors $\vec{a} \in 
+\mathbb{R}^{n\times 1}$ is given by $\vec{a} \in \mathbb{R}^{n}$; 
+likewise $\vec{a}^{T} \in \mathbb{R}^{n}$ for $n$-component row 
+vectors $\vec{a}^{T} \in \mathbb{R}^{1\times n}$.} $\vec{a}_{1}, 
+\ldots, \vec{a}_{i}, \ldots, \vec{a}_{m} \in {\mathbb R}^{n}$, as 
+well as $m$ real numbers $\lambda_{1}, \ldots, \lambda_{i}, 
+\ldots, \lambda_{m} \in {\mathbb R}$. The new $n$-component vector 
+$\vec{b}$ resulting from the addition of arbitrarily rescaled 
+versions of these $m$ vectors according to
+%
+\be
+\lb{linkomb}
+\fbox{$\displaystyle
+\vec{b} = \lambda_{1}\vec{a}_{1}+\ldots+\lambda_{i}\vec{a}_{i}
++\ldots+\lambda_{m}\vec{a}_{m}
+=: \sum_{i=1}^{m}\lambda_{i}\vec{a}_{i} \in {\mathbb R}^{n}
+$}
+\ee
+%
+is referred to as a {\bf linear combination} 
+of the $m$ vectors $\vec{a}_{i},\,i=1, \ldots, m$.
+
+\medskip
+\noindent
+\underline{\bf Def.:} A set of $m$ vectors $\vec{a}_{1}, \ldots,
+\vec{a}_{i}, \ldots, \vec{a}_{m} \in {\mathbb R}^{n}$ is called 
+{\bf linearly independent} when the condition
+%
+\be
+\lb{linunabh}
+\boldsymbol{0} \stackrel{!}{=} \lambda_{1}\vec{a}_{1}+\ldots
++\lambda_{i}\vec{a}_{i}+\ldots+\lambda_{m}\vec{a}_{m}
+= \sum_{i=1}^{m}\lambda_{i}\vec{a}_{i} \ ,
+\ee
+%
+i.e., the problem of forming the {\bf zero vector} $\boldsymbol{0} 
+\in {\mathbb R}^{n}$ from a linear combination of the $m$ vectors 
+$\vec{a}_{1}, \ldots, \vec{a}_{i}, \ldots, \vec{a}_{m} \in 
+{\mathbb R}^{n}$, can \emph{only} be solved trivially, namely by 
+$0=\lambda_{1}=\ldots=\lambda_{i}=\ldots=\lambda_{m}$. When, 
+however, this condition can be solved non-trivially, with some 
+$\lambda_{i} \neq 0$, then the set of $m$ vectors $\vec{a}_{1},
+\ldots, \vec{a}_{i}, \ldots,\vec{a}_{m} \in {\mathbb R}^{n}$ is 
+called {\bf linearly dependent}.
+
+\medskip
+\noindent
+In Euclidian space ${\mathbb R}^{n}$, there is a maximum number 
+$n$ (!) of vectors which can be linearly independent. This maximum 
+number is referred to as the {\bf dimension of Euclidian 
+space} ${\mathbb R}^{n}$. Every set of $n$ linearly independent 
+vectors in Euclidian space ${\mathbb R}^{n}$ constitutes a 
+possible {\bf basis of Euclidian space} ${\mathbb R}^{n}$.
+If the set $\{\vec{a}_{1}, \ldots, \vec{a}_{i}, 
+\ldots,\vec{a}_{n}\}$ constitutes a basis of ${\mathbb R}^{n}$, 
+then every other vector $\vec{b} \in {\mathbb R}^{n}$ can be 
+expressed in terms of these basis vectors by
+%
+\be
+\vec{b} = \beta_{1}\vec{a}_{1}+\ldots+\beta_{i}\vec{a}_{i}
++\ldots+\beta_{n}\vec{a}_{n}
+= \sum_{i=1}^{n}\beta_{i}\vec{a}_{i} \ .
+\ee
+%
+The rescaling factors $\beta_{i}\in{\mathbb R}$ of the 
+$\vec{a}_{i}\in{\mathbb R}^{n}$ are called the {\bf components of 
+vector} $\vec{b}$ {\bf with respect to the basis}
+$\{\vec{a}_{1}, \ldots, \vec{a}_{i}, \ldots, \vec{a}_{n}\}$.
+
+\vspace{5mm}
+\noindent
+\underline{\bf Remark:} The $n$ {\bf unit vectors}
+%
+\be
+\lb{kanbasis}
+\vec{e}_{1} := \left(
+\begin{array}{c}
+1 \\ 0 \\ \vdots \\ 0
+\end{array}
+\right) \ , \hspace{5mm}
+\vec{e}_{2} := \left(
+\begin{array}{c}
+0 \\ 1 \\ \vdots \\ 0
+\end{array}
+\right) \ , \hspace{5mm}
+\dots \ , \hspace{5mm}
+\vec{e}_{n} := \left(
+\begin{array}{c}
+0 \\ 0 \\ \vdots \\ 1
+\end{array}
+\right) \ , \hspace{5mm}
+\ee
+%
+constitute the so-called {\bf canonical basis of Euclidian 
+space} ${\mathbb R}^{n}$. With respect to this basis, all vectors 
+$\vec{b} \in \mathbb{R}^{n}$ can be represented as a linear 
+combination
+%
+\be
+\vec{b} = \left(
+\begin{array}{c}
+b_{1} \\ b_{2} \\ \vdots \\ b_{n}
+\end{array}
+\right)
+= b_{1}\vec{e}_{1}+b_{2}\vec{e}_{2}+\dots
++b_{n}\vec{e}_{n}
+= \sum_{i=1}^{n}b_{i}\vec{e}_{i} \ .
+\ee
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Euclidian scalar product]%
+{Euclidian scalar product}
+\lb{sec:vekskal}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Finally, to conclude this section, we introduce a third mathematical operation defined for vectors on $\mathbb{R}^{n}$.
+
+\medskip
+\noindent
+\underline{\bf Def.:} For an $n$-component row vector $\vec{a}^{T} 
+\in \mathbb{R}^{1 \times n}$ and an $n$-component column vector 
+$\vec{b} \in \mathbb{R}^{n \times 1}$, the {\bf Euclidian scalar 
+product}
+%
+\be
+\lb{skalprod}
+\fbox{$\displaystyle
+\vec{a}^{T}\cdot\vec{b}
+:= \left(
+a_{1}, \ldots, a_{i}, \ldots a_{n}\right)
+\left(
+\begin{array}{c}
+b_{1} \\ \vdots \\ b_{i} \\ \vdots \\ b_{n}
+\end{array}
+\right)
+= a_{1}b_{1}+\ldots+a_{i}b_{i}\ldots+a_{n}b_{n}
+=: \sum_{i=1}^{n}a_{i}b_{i}
+$}
+\ee
+%
+defines a mapping $f: \mathbb{R}^{1 \times n} \times \mathbb{R}^{n 
+\times 1} \rightarrow \mathbb{R}$ from the product set of 
+$n$-component row and column vectors to the set of real numbers. 
+Note that, in contrast to the addition and the rescaling of 
+$n$-component vectors, the outcome of forming a Euclidian scalar 
+product between two $n$-component vectors is a \emph{single real 
+number}.
+
+\medskip
+\noindent
+In the context of the Euclidian scalar product, two non-zero 
+vectors $\vec{a}, \vec{b} \in {\mathbb R}^{n}$ (wit $\vec{a}
+\neq \vec{0} \neq \vec{b}$) are referred to as {\bf mutually 
+orthogonal} when they exhibit the property that $0 = 
+\vec{a}^{T}\cdot\vec{b} = \vec{b}^{T}\cdot\vec{a}$.
+
+%\pagebreak
+\medskip
+\noindent
+{\bf Computational rules for Euclidian scalar product of 
+vectors}
+
+\noindent
+For vectors $\vec{a}, \vec{b}, \vec{c} \in {\mathbb R}^{n}$:
+
+\begin{enumerate}
+	\item $(\vec{a}+\vec{b})^{T}\cdot\vec{c}
+	= \vec{a}^{T}\cdot\vec{c}+\vec{b}^{T}\cdot\vec{c}$
+	\hfill ({\bf distributive scalar product})
+	\item $\vec{a}^{T}\cdot\vec{b} = \vec{b}^{T}\cdot\vec{a}$
+	\hfill ({\bf commutative scalar product})
+	\item $(\lambda\vec{a}^{T})\cdot\vec{b} =
+	\lambda(\vec{a}^{T}\cdot\vec{b})$ with $\lambda \in {\mathbb R}$
+	\hfill ({\bf homogeneous scalar product})
+	\item $\vec{a}^{T}\cdot\vec{a} > 0$ for all $\vec{a}
+	\neq \vec{0}$ \hfill ({\bf positive definite scalar product}).
+\end{enumerate}
+
+\medskip
+\noindent
+Now we turn to introduce the notion of the length of an 
+$n$-component vector.
+
+\medskip
+\noindent
+\underline{\bf Def.:} The {\bf length} of a vector $\vec{a} \in 
+\mathbb{R}^{n}$ is defined via the Euclidian scalar product as
+%
+\be
+\fbox{$\displaystyle
+|\vec{a}| :=
+\sqrt{\vec{a}^{T}\cdot\vec{a}}
+= \sqrt{a_{1}^{2}+\ldots+a_{i}^{2}+\ldots+a_{n}^{2}}
+=: \sqrt{\sum_{i=1}^{n}a_{i}^{2}} \ .
+$}
+\ee
+%
+
+\medskip
+\noindent
+Technically one refers to the non-negative real number $|\vec{a}|$ 
+as the {\bf absolute value} or the {\bf Euclidian norm} of the 
+vector $\vec{a}\in \mathbb{R}^{n}$. The length of $\vec{a} \in
+\mathbb{R}^{n}$ has the following properties: 
+%
+\begin{itemize}
+	\item $|\vec{a}| \geq 0$, and $|\vec{a}|=0 \Leftrightarrow
+	\vec{a}=\vec{0}$;
+	\item $|\lambda\vec{a}| = |\lambda||\vec{a}|$ for $\lambda \in
+	{\mathbb R}$;
+	\item $|\vec{a}+\vec{b}| \leq |\vec{a}|+|\vec{b}|$
+	\hfill ({\bf triangle inequality}).
+\end{itemize}
+
+\medskip
+\noindent
+Every non-zero vector $\vec{a} \in \mathbb{R}^{n}$, i.e., 
+$|\vec{a}|>0$, can be rescaled by the reciprocal of its length. 
+This procedure defines the
+
+\medskip
+\noindent
+\underline{\bf Def.:}
+{\bf Normalisation} of a vector $\vec{a} \in
+\mathbb{R}^{n}$;
+%
+\be
+\hat{\vec{a}} := \frac{\vec{a}}{|\vec{a}|}
+\qquad\Rightarrow\qquad
+|\hat{\vec{a}}| = 1 \ .
+\ee
+%
+
+\medskip
+\noindent
+By this method one generates a vector of length $1$, i.e., a {\bf 
+unit vector} $\hat{\vec{a}}$. To denote unit vectors we will 
+employ the ``hat'' symbol.
+
+\medskip
+\noindent
+Lastly, also by means of the Euclidian scalar product, we introduce the angle enclosed between two non-zero vectors.
+
+\medskip
+\noindent
+\underline{\bf Def.:}
+{\bf Angle} enclosed between $\vec{a},\vec{b} \neq \vec{0}
+\in {\mathbb R}^{n}$ 
+%
+\be
+\fbox{$\displaystyle
+\cos[\varphi(\vec{a},\vec{b})]
+= \frac{\vec{a}^{T}}{|\vec{a}|}\cdot
+\frac{\vec{b}}{|\vec{b}|}
+= \hat{\vec{a}}{}^{T}\cdot\hat{\vec{b}}
+\hspace{5mm} \Rightarrow \hspace{5mm}
+\varphi(\vec{a},\vec{b})
+= \cos^{-1}(\hat{\vec{a}}{}^{T}\cdot\hat{\vec{b}}) \ .
+$}
+\ee
+%
+\underline{\bf Remark:} The inverse cosine function\footnote{The 
+notion of on inverse function will be discussed later in 
+Ch.~\ref{ch7}.} $\cos^{-1}(\ldots)$ is available on every standard 
+GDC or spreadsheet.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

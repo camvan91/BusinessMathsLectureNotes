@@ -1,0 +1,561 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  File name: ch3-engl.tex
+%  Title:
+%  Version: 11.09.2015 (hve)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter[Systems of linear algebraic equations]{Systems of linear 
+algebraic equations}
+\lb{ch3}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\hfill\hbox{\fbox{\vbox{\hsize=10cm
+%Der Inhalt dieses Kapitels ist relevant f\"ur das
+%Verst\"andnis der in Kapitel 5.2
+%des Lehrbuchs von Schrey\"ogg und Koch (2010)~\ct{schkoc2010}
+%behandelten quantitativen Themen.
+%%Gleichfalls f\"ur Kapitel 10.5, 11.4 des Lehrbuchs von
+%%Schmalen und Pechtl 2006~\ct{schpec2006}.
+%}}}
+
+\vspace{10mm}
+\noindent
+In this chapter, we turn to address a particular field of 
+application of the notions of matrices and vectors, or of linear 
+mappings in general.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Basic concepts]%
+{Basic concepts}
+\lb{sec:lgsgrund}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Let us begin with a system of $m \in \mathbb{N}$ \emph{linear} 
+algebraic equations, wherein every single equation can be 
+understood to constitute a {\bf constraint} on the range of values 
+of $n \in \mathbb{N}$ variables $x_{1}, %\ldots, x_{j},
+\ldots, x_{n} \in \mathbb{R}$. The objective is to determine all 
+possible values of $x_{1}, \ldots, x_{n} \in \mathbb{R}$ which 
+satisfy these constraints simultaneously. Problems of this kind, 
+namely {\bf systems of linear algebraic equations}, are often 
+represented in the form
+
+\medskip
+\noindent
+$\bullet$ Representation~1:\\[-7mm]
+%
+\bea
+a_{11}x_{1}+\ldots+a_{1j}x_{j}+\ldots+a_{1n}x_{n} & = & b_{1} 
+\nonumber \\
+%
+ & \vdots & \nonumber \\
+%
+a_{i1}x_{1}+\ldots+a_{ij}x_{j}+\ldots+a_{in}x_{n} & = & b_{i} \\
+%
+ & \vdots & \nonumber \\
+%
+a_{m1}x_{1}+\ldots+a_{mj}x_{j}+\ldots+a_{mn}x_{n} & = & b_{m}
+\nonumber \ .
+\eea
+%
+Depending on how the natural numbers $m$ and $n$ relate to one 
+another, systems of linear algebraic equations can be classified 
+as follows:\\[-7mm]
+%
+\begin{itemize}
+\item $m < n$: fewer equations than variables; the linear system 
+is {\bf under-determined},\\[-7mm]
+
+\item $m = n$: same number of equations as variables;
+the linear system is {\bf well-determined},\\[-7mm]
+
+\item $m > n$: more equations than variables; the linear system is 
+{\bf over-determined}.\\[-7mm]
+\end{itemize}
+%
+A more compact representation of a linear system of format
+$(m \times n)$ is given by
+
+\medskip
+\noindent
+$\bullet$ Representation~2:
+%
+\be
+\fbox{$\displaystyle
+\mathbf{A}\vec{x} =
+\left(\begin{array}{ccccc}
+a_{11} & \ldots & a_{1j} & \ldots & a_{1n} \\
+\vdots & \ddots & \vdots & \ddots & \vdots \\
+a_{i1} & \ldots & a_{ij} & \ldots & a_{in} \\
+\vdots & \ddots & \vdots & \ddots & \vdots \\
+a_{m1} & \ldots & a_{mj} & \ldots & a_{mn}
+\end{array}\right)
+\left(\begin{array}{c}
+x_{1} \\
+\vdots \\
+x_{j} \\
+\vdots \\
+x_{n}
+\end{array}\right)
+= \left(
+\begin{array}{c}
+b_{1} \\
+\vdots \\
+b_{i} \\
+\vdots \\
+b_{m}
+\end{array}\right)
+= \vec{b} \ .
+$}
+\ee
+%
+The mathematical objects employed in this variant of a linear 
+system are as follows: $\mathbf{A}$ takes the central role of the 
+{\bf coefficient matrix} of the linear system, of format $(m 
+\times n)$, $\vec{x}$ is its {\bf variable vector}, of format $(n 
+\times 1)$, and, lastly, $\vec{b}$ is its {\bf image vector}, of 
+format $(m \times 1)$.
+
+\medskip
+\noindent
+When dealing with systems of linear algebraic equations in the 
+form of Representation 2, i.e. $\mathbf{A}\vec{x} = \vec{b}$, the 
+main question to be answered is:
+
+\medskip
+\noindent
+\underline{\bf Question:}
+For given {\bf coefficient matrix} $\mathbf{A}$ and {\bf image 
+vector} $\vec{b}$, can we find a {\bf variable vector} $\vec{x}$ 
+that $\mathbf{A}$ maps onto $\vec{b}$?
+
+\medskip
+\noindent
+In a sense this describes the inversion of the photographic 
+process we had previously referred to: we \emph{have} given the 
+camera and we already \emph{know} the image, but we have yet to 
+find a matching object. Remarkably, to address this issue, we can 
+fall back on a simple algorithmic method due to the German 
+mathematician and astronomer 
+\href{http://www-groups.dcs.st-and.ac.uk/~history/Biographies/Gauss.html}{Carl Friedrich Gau\ss\ (1777--1855)}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Gau\ss ian elimination]%
+{Gau\ss ian elimination}
+\lb{sec:lgsgauss}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The algorithmic solution technique developed by Gau\ss\ is based 
+on the insight that the solution set of a {\bf linear system} of 
+$m$ algebraic equations for $n$ real-valued variables, i.e.
+%
+\be
+\fbox{$\displaystyle
+\mathbf{A}\vec{x} = \vec{b} \ ,
+$}
+\ee
+%
+remains unchanged under the following algebraic {\bf equivalence 
+transformations} of the linear system:
+%
+\begin{enumerate}
+\item changing the order amongst the equations,
+\item multiplication of any equation by a non-zero real number $c \neq 0$,
+\item addition of a multiple of one equation to another equation,
+\item changing the order amongst the equations.
+\end{enumerate}
+%
+Specifically, this implies that we may manipulate a given linear 
+system by means of these four different kinds of equivalence 
+transformations without ever changing its identity. In concrete 
+cases, however, one should not apply these equivalence 
+transformations at random but rather follow a target oriented 
+strategy. This is what Gau\ss ian elimination can provide.
+
+\medskip
+\noindent
+\underline{\bf Target:} To cast the {\bf augmented coefficient 
+matrix} $(\mathbf{A}|\vec{b})$, i.e., the array
+%
+\be
+\begin{array}{ccccc|c}
+a_{11} & \ldots & a_{1j} & \ldots & a_{1n} & b_{1} \\
+\vdots & \ddots & \vdots & \ddots & \vdots & \vdots \\
+a_{i1} & \ldots & a_{ij} & \ldots & a_{in} & b_{i} \\
+\vdots & \ddots & \vdots & \ddots & \vdots & \vdots \\
+a_{m1} & \ldots & a_{mj} & \ldots & a_{mn} & b_{m}
+\end{array} \ ,
+\ee
+%
+when possible, into {\bf upper triangular form}
+%
+\be
+\begin{array}{ccccc|c}
+1 & \ldots & \tilde{a}_{1j} & \ldots & \tilde{a}_{1n} & \tilde{b}_{1} \\
+\vdots & \ddots & \vdots & \ddots & \vdots & \vdots \\
+0 & \ldots & \tilde{a}_{ij} & \ldots & \tilde{a}_{in} & \tilde{b}_{i} \\
+\vdots & \ddots & \vdots & \ddots & \vdots & \vdots \\
+0 & \ldots & 0 & \ldots & \tilde{a}_{mn} & \tilde{b}_{m}
+\end{array} \ ,
+\ee
+%
+by means of the four kinds of equivalence transformations such 
+that the resultant simpler final linear system may easily be 
+solved using {\bf backward substitution}.
+
+\medskip
+\noindent
+Three exclusive cases of possible {\bf solution content} for a 
+given system of linear algebraic equations do exist. The linear 
+system may possess either
+%
+\begin{enumerate}
+\item \emph{no solution} at all, or
+
+\item a \emph{unique solution}, or
+
+\item \emph{multiple solutions}.
+\end{enumerate}
+%
+\underline {\bf Remark:} Linear systems that are under-determined, 
+i.e., when $m < n$, can \emph{never} be solved uniquely due to the 
+fact that in such a case there not exist enough equations to 
+constrain the values of \emph{all} of the $n$ variables.
+
+\medskip
+\noindent
+\underline {\bf GDC:} For a stored augmented coefficient matrix 
+${\tt [A]}$ of format $(m \times n+1)$, associated with a given  
+$(m \times n)$ linear system, select mode {\tt MATRIX} 
+$\rightarrow$ {\tt MATH} and then call the function ${\tt 
+rref([A])}$. It is possible that backward substitution needs to be 
+employed to obtain the final solution.
+
+\medskip
+\noindent
+For completeness, we want to turn briefly to the issue of 
+solvability of a system of linear algebraic equations. To this 
+end, we need to introduce the notion of the rank of a matrix.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Rank of a matrix]%
+{Rank of a matrix}
+\lb{sec:lgsrang}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent
+\underline{\bf Def.:}
+A real-valued matrix $\mathbf{A} \in \mathbb{R}^{m \times n}$ 
+possesses the {\bf rank}
+%
+\be
+\fbox{$\displaystyle
+\text{rank}(\mathbf{A}) = r \ , \qquad
+r \leq \text{min}\{m,n\}
+$}
+\ee
+%
+if and only if $r$ is the {\bf maximum number} of row resp.~column 
+vectors of $\mathbf{A}$ which are linearly independent. Clearly, 
+$r$ can only be as large as the smaller of the numbers $m$ and $n$ 
+that determine the format of $\mathbf{A}$.
+
+\medskip
+\noindent
+For {\bf quadratic matrices} $\mathbf{A} \in
+\mathbb{R}^{n \times n}$, there is available a more elegant 
+measure to determine its rank. This (in the present case 
+real-valued) measure is referred to as the {\bf determinant} of 
+matrix $\mathbf{A}$, $\det(\mathbf{A})$, and is defined as follows.
+
+\medskip
+\noindent
+\underline{\bf Def.:}
+%
+\begin{itemize}
+\item[(i)]~When $\mathbf{A} \in \mathbb{R}^{2 \times 2}$,
+its {\bf determinant} is given by
+%
+\be
+\det(\mathbf{A})
+:= \left|\begin{array}{cc}
+   	a_{11} & a_{12} \\
+   	a_{21} & a_{22}
+	\end{array}\right|
+:= a_{11}a_{22} - a_{12}a_{21} \ ,
+\ee
+%
+i.e. the difference between the products of $\mathbf{A}$'s 
+on-diagonal elements and $\mathbf{A}$'s off-diagonal elements.
+
+\item[(ii)]~When $\mathbf{A} \in \mathbb{R}^{3 \times 3}$, the 
+definition of $\mathbf{A}$'s {\bf determinant} is more complex. In 
+that case it is given by
+%
+\bea
+\det(\mathbf{A})
+& := & \left|\begin{array}{ccc}
+   	a_{11} & a_{12} & a_{13} \\
+   	a_{21} & a_{22} & a_{23} \\
+   	a_{31} & a_{32} & a_{33}
+	\end{array}\right| \nonumber \\
+	%
+& := & a_{11}(a_{22}a_{33}-a_{32}a_{23})
++ a_{21}(a_{32}a_{13}-a_{12}a_{33})
++ a_{31}(a_{12}a_{23}-a_{22}a_{13}) \ .
+\eea
+%
+Observe, term by term, the cyclic permutation of the first index 
+of the elements $a_{ij}$ according to the rule $1 \rightarrow 2 
+\rightarrow 3 \rightarrow 1$.
+
+\item[(iii)]~Finally, for the (slightly involved) definition of 
+the {\bf determinant} of a higher-dimensional matrix $\mathbf{A} 
+\in \mathbb{R}^{n \times n}$, please refer to the literature; e.g. 
+Bronstein \emph{et al} (2005)~\ct[p~267]{broetal2005}.
+\end{itemize}
+%
+
+\medskip
+\noindent
+To determine the rank of a given quadratic matrix $\mathbf{A}
+\in \mathbb{R}^{n \times n}$, one now installs the following 
+criteria: $\text{rank}(\mathbf{A}) = r = n$, if $\det(\mathbf{A}) 
+\neq 0$, and $\text{rank}(\mathbf{A}) = r < n$, if 
+$\det(\mathbf{A}) = 0$. In the first case, $\mathbf{A}$ is 
+referred to as {\bf regular}, in the second as {\bf singular}. For 
+quadratic matrices $\mathbf{A}$ that are singular, 
+$\text{rank}(\mathbf{A}) = r$ (with $r < n$) is given by the 
+number $r$ of rows (or columns) of the largest possible non-zero 
+subdeterminant of $\mathbf{A}$.
+
+\medskip
+\noindent
+\underline {\bf GDC:} For a stored quadratic matrix ${\tt [A]}$, 
+select mode {\tt MATRIX} $\rightarrow$ {\tt MATH} and obtain its 
+determinant by calling the function ${\tt det([A])}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Solution criteria]%
+{Criteria for solving systems of linear algebraic equations}
+\lb{sec:lgsloes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Making use of the concept of the {\bf rank} of a real-valued 
+matrix $\mathbf{A} \in \mathbb{R}^{m \times n}$, we can now 
+summarise the solution content of a specific system of linear 
+algebraic equations of format $(m \times n)$ in a table. For given 
+linear system
+%
+$$
+\mathbf{A}\vec{x} = \vec{b} \ ,
+$$
+%
+with coefficient matrix $\mathbf{A} \in \mathbb{R}^{m \times n}$, 
+variable vector $\vec{x} \in \mathbb{R}^{n \times 1}$ and image 
+vector $\vec{b} \in \mathbb{R}^{m \times 1}$,
+%as indicated in the table below,
+there exist(s)
+%
+\begin{center}
+	\begin{tabular}[h]{c|c|c}
+		\hline\hline
+		 & & \\
+		 & $\vec{b} \neq \vec{0}$ &
+		 $\vec{b} = \vec{0}$ \\
+		 & & \\
+		\hline
+		 & & \\
+		1. $\text{rank}(\mathbf{A}) \neq \text{rank}(\mathbf{A}|\vec{b})$ &
+		no solution & -------- \\
+		 & & \\
+		\hline
+		 & & \\
+		2. $\text{rank}(\mathbf{A}) = \text{rank}(\mathbf{A}|\vec{b}) = r$ &
+		& \\
+		 & & \\
+		(a) \quad $r = n$ & a unique & $\vec{x} = \vec{0}$ \\
+		 & solution & \\
+		 & & \\
+		(b) \quad $r < n$ & multiple & multiple \\
+		 & solutions: & solutions: \\
+		 & $n-r$ free &  $n-r$ free \\
+		 & parameters & parameters \\
+		 & & \\
+		\hline\hline
+	 \end{tabular}
+\end{center}
+%
+
+\noindent
+$(\mathbf{A}|\vec{b})$ here denotes the augmented coefficient 
+matrix.
+
+\medskip
+\noindent
+Next we discuss a particularly useful property of \emph{regular} 
+quadratic matrices.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Inverse of a regular $(n\times n)$-matrix]%
+{Inverse of a regular $(n\times n)$-matrix}
+\lb{sec:lgsinv}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent
+\underline{\bf Def.:}
+Let a real-valued quadratic matrix $\mathbf{A} \in
+\mathbb{R}^{n \times n}$ be {\bf regular}, i.e., $\det(\mathbf{A}) 
+\in \mathbb{R}\backslash\{0\}$. Then there exists an {\bf inverse 
+matrix} $\mathbf{A}^{-1}$ to $\mathbf{A}$ defined by the 
+characterising properties
+%
+\be
+\fbox{$\displaystyle
+\mathbf{A}^{-1}\mathbf{A} = \mathbf{A}\mathbf{A}^{-1}
+= \mathbf{1} \ .
+$}
+\ee
+%
+Here $\mathbf{1}$ denotes the $\boldsymbol{(n \times n)}${\bf -unit matrix} [cf.\ Eq.~(\ref{einmatr})].
+
+\medskip
+\noindent
+When a computational device is not at hand, the inverse matrix 
+$\mathbf{A}^{-1}$ of a regular quadratic matrix $\mathbf{A}$ can 
+be obtained by solving the matrix-valued linear system
+%
+\be
+\mathbf{A}\mathbf{X} \stackrel{!}{=} \mathbf{1}
+\ee
+%
+for the unknown matrix $\mathbf{X}$ by means of {\bf simultaneous 
+Gau\ss ian elimination}.
+
+\medskip
+\noindent
+\underline{\bf GDC:} For a stored quadratic matrix ${\tt [A]}$, 
+its inverse matrix can be simply obtained as ${\tt [A]}^{-1}$, 
+where the $x^{-1}$ function key needs to be used.
+
+\pagebreak
+\medskip
+\noindent
+{\bf Computational rules for the inverse operation}
+
+\nopagebreak
+\noindent
+For $\mathbf{A},\mathbf{B} \in \mathbb{R}^{n \times n}$,
+with $\det(\mathbf{A}) \neq 0 \neq \det(\mathbf{B})$, it holds that
+
+\begin{enumerate}
+\item $(\mathbf{A}^{-1})^{-1} = \mathbf{A}$
+\item $(\mathbf{A}\mathbf{B})^{-1}
+= \mathbf{B}^{-1}\mathbf{A}^{-1}$
+\item $(\mathbf{A}^{T})^{-1} = (\mathbf{A}^{-1})^{T}$
+\item $\displaystyle (\lambda\mathbf{A})^{-1}
+= \frac{1}{\lambda}\,\mathbf{A}^{-1}$.
+\end{enumerate}
+
+\medskip
+\noindent
+The special interest in applications in the concept of {\bf 
+inverse matrices} arises for the following reason. Consider given 
+a well-determined linear system
+\[
+\mathbf{A}\vec{x}=\vec{b} \ ,
+\]
+with \emph{regular} quadratic coefficient matrix $\mathbf{A} 
+\in \mathbb{R}^{n \times n}$, i.e., $\det(\mathbf{A}) \neq 0$. 
+Then, for $\mathbf{A}$, there exists an inverse matrix 
+$\mathbf{A}^{-1}$. Matrix-multiplying both sides of the equation 
+above \emph{from the left~(!)} by the inverse $\mathbf{A}^{-1}$, 
+results in
+%
+\be
+\underbrace{\mathbf{A}^{-1}(\mathbf{A}\vec{x})
+= (\mathbf{A}^{-1}\mathbf{A})\vec{x}
+= \mathbf{1}\vec{x}
+= \vec{x}}_{\text{left-hand side}}
+= \underbrace{\mathbf{A}^{-1}\vec{b}}_{\text{right-hand side}} \ .
+\ee
+%
+In this case, the \emph{unique solution~(!)} $\vec{x} = 
+\mathbf{A}^{-1}\vec{b}$ of the linear system arises simply from 
+matrix multiplication of the image vector $\vec{b}$ by the inverse 
+matrix of $\mathbf{A}$. (Of course, it might actually require a 
+bit of computational work to determine $\mathbf{A}^{-1}$.)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Outlook]{Outlook}
+\lb{sec:lgsausblick}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+There are a number of exciting advanced topics in {\bf Linear 
+Algebra}. Amongst them one finds the concept of the characteristic 
+{\bf eigenvalues} and associated {\bf eigenvectors} of {\bf 
+quadratic matrices}, which has particularly high relevance in 
+practical applications. The question to be answered here is the 
+following: for given real-valued quadratic matrix $\mathbf{A} \in 
+\mathbb{R}^{n \times n}$, do there exist real numbers $\lambda_{n} 
+\in \mathbb{R}$ and real-valued vectors $\vec{v}_{n} \in 
+\mathbb{R}^{n \times 1}$ which satisfy the condition
+%
+\be
+\lb{eigenveq1}
+\mathbf{A}\vec{v}_{n} \stackrel{!}{=} \lambda_{n}\vec{v}_{n} \ ?
+\ee
+%
+Put differently: for which vectors $\vec{v}_{n} \in \mathbb{R}^{n 
+\times 1}$ does their mapping by a quadratic matrix $\mathbf{A} 
+\in \mathbb{R}^{n \times n}$ amount to simple rescalings by real 
+numbers $\lambda_{n} \in \mathbb{R}$?
+
+\medskip
+\noindent
+By re-arranging, Eq.~(\ref{eigenveq1}) can be recast into the form
+%
+\be
+\lb{eigenveq2}
+\boldsymbol{0} \stackrel{!}{=}
+\left(\mathbf{A}-\lambda_{n}\boldsymbol{1}\right)\vec{v}_{n} \ ,
+\ee
+%
+with $\boldsymbol{1}$ an $(n \times n)$-unit matrix
+[cf.\ Eq.~(\ref{einmatr})] and $\boldsymbol{0}$ an $n$-component 
+zero vector. This condition corresponds to a homogeneous system of 
+linear algebraic equations of format $(n \times n)$. Non-trivial 
+solutions $\vec{v}_{n} \neq \boldsymbol{0}$ to this system exist 
+provided that the so-called {\bf characteristic equation}
+%
+\be
+0 \stackrel{!}{=} 
+\det\left(\mathbf{A}-\lambda_{n}\boldsymbol{1}\right) \ ,
+\ee
+%
+a polynomial of degree $n$ (cf. Sec.~\ref{subsec:polynomials}), 
+allows for real-valued roots $\lambda_{n} \in \mathbb{R}$. Note 
+that \emph{symmetric} quadratic matrices (cf. 
+Sec.~\ref{sec:matrech}) possess exclusively real-valued 
+eigenvalues $\lambda_{n}$. When these eigenvalues turn out to be 
+all \emph{different}, then the associated 
+eigenvectors~$\vec{v}_{n}$ prove to be mutually orthogonal.
+
+\medskip
+\noindent
+Knowledge of the spectrum of {\bf eigenvalues} $\lambda_{n} \in 
+\mathbb{R}$ and associated {\bf eigenvectors} $\vec{v}_{n} \in 
+\mathbb{R}^{n \times 1}$ of a real-valued matrix
+$\mathbf{A} \in \mathbb{R}^{n \times n}$ provides the basis of a 
+transformation of $\mathbf{A}$ to its {\bf diagonal 
+form}~$\mathbf{A}_{\lambda_{n}}$, thus yielding a diagonal matrix 
+which features the eigenvalues $\lambda_{n}$ as its on-diagonal 
+elements; cf. Leon (2009)~\ct{leo2009}.
+
+\medskip
+\noindent
+Amongst other examples, the concept of eigenvalues and 
+eigenvectors of quadratic real-valued matrices plays a special 
+role in {\bf Statistics}, in the context of exploratory {\bf 
+principal component analyses} of multivariate data sets, where the 
+objective is to identify dominant intrinsic structures; cf. Hair 
+\emph{et al} (2010)~\ct[Ch.~3]{haietal2010} and 
+Ref.~\ct[App.~A]{hve2015}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

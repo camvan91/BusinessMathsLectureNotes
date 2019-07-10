@@ -1,0 +1,412 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  File name: ch5-engl.tex
+%  Title:
+%  Version: 11.09.2014 (hve)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter[Linear programming]{Linear programming}
+\lb{ch5}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\hfill\hbox{\fbox{\vbox{\hsize=10cm
+%Der Inhalt dieses Kapitels ist relevant f\"ur das
+%Verst\"andnis der in Kapitel 5.3 und 5.4 des Lehrbuchs von
+%Schrey\"ogg und Koch (2010)~\ct{schkoc2010} behandelten
+%quantitativen Themen.
+%%Gleichfalls f\"ur Kapitel 5.3
+%%des Lehrbuchs von Schmalen und Pechtl 2006~\ct{schpec2006}.
+%}}}
+
+\vspace{10mm}
+\noindent
+On the backdrop of the {\bf economic principle}, we discuss in 
+this chapter a special class of quantitative problems that 
+frequently arise in specific practical applications in {\bf 
+Business} and {\bf Management}. Generally one distinguishes 
+between two variants of the {\bf economic principle}: either 
+(i)~to draw maximum utility from limited resources, or (ii)~to 
+reach a specific target with minimum effort (costs). With regard 
+to the ratio $(\text{OUTPUT})/(\text{INPUT})$ put into focus in 
+the Introduction, the issue is to find an {\bf optimal value} for 
+this ratio under given {\bf boundary conditions}. This aim can be 
+realised either (i)~by increasing the (positive) value of the 
+numerator for fixed (positive) value of the denominator, or 
+(ii)~by decreasing the (positive) value of the denominator for 
+fixed (positive) value of the numerator. The class of quantitative 
+problems to be looked at in some detail in this chapter typically 
+relate to boundary conditions according to case~(i).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Exposition of a quantitative problem]{Exposition of a
+quantitative problem}
+\lb{sec:lopeinf}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+To be maximised is a (non-negative) real-valued quantity~$z$, 
+which depends in a \emph{linear functional fashion} on a fixed 
+number of ~$n$ (non-negative) real-valued variables $x_{1}, 
+\ldots, x_{n}$. We suppose that the $n$~variables $x_{1}, \ldots, 
+x_{n}$ in turn are constrained by a fixed number~$m$ of algebraic 
+conditions, which also are assumed to depend on $x_{1}, \ldots, 
+x_{n}$ in a \emph{linear fashion}. These $m$~constraints, or 
+restrictions, shall have the character of imposing upper limits on 
+$m$~different kinds of resources.
+
+\medskip
+\noindent
+\underline{\bf Def.:}
+Consider a matrix~$\mathbf{A} \in
+\mathbb{R}^{m \times n}$, a vector~$\vec{b} \in
+\mathbb{R}^{m \times 1}$, two vectors $\vec{c},\vec{x} \in
+\mathbb{R}^{n \times 1}$, and a constant $d \in \mathbb{R}$. A quantitative problem of the form
+%
+\be
+\fbox{$\displaystyle
+\text{max}\left\{z=\vec{c}^{T}\cdot\vec{x}
++d\left|\mathbf{A}\vec{x}
+\leq \vec{b}, \vec{x} \geq \vec{0}\right.\right\} \ ,
+$}
+\ee
+%
+or, expressed in terms of a component notation,
+%
+\begin{eqnarray}
+\lb{lops1}
+\text{max}\ z(x_{1},\ldots,x_{n})
+= c_{1}x_{1} + \ldots + c_{n}x_{n} + d & & \\
+a_{11}x_{1}+\ldots+a_{1n}x_{n} & \leq & b_{1} \\
+%
+ & \vdots & \nonumber \\
+%
+a_{m1}x_{1}+\ldots+a_{mn}x_{n} & \leq & b_{m} \\
+%
+x_{1} & \geq & 0 \\
+%
+ & \vdots & \nonumber \\
+%
+\lb{lopsm1}
+x_{n} & \geq & 0 \ ,
+\end{eqnarray}
+%
+is referred to as a  {\bf standard maximum problem of 
+linear programming} with $n$~real-valued variables. The different 
+quantities and relations appearing in this definition are 
+called
+
+\begin{itemize}
+
+\item $z(x_{1},\ldots,x_{n})$ --- {\bf linear objective function}, the dependent variable,
+
+\item $x_{1},\ldots,x_{n}$ --- $n$ {\bf independent variables},
+
+\item $\mathbf{A}\vec{x} \leq \vec{b}$ --- $m$ {\bf restrictions},
+
+\item $\vec{x} \geq \vec{0}$ ---
+$n$ {\bf non-negativity constraints}.
+
+\end{itemize}
+
+\noindent
+\underline{\bf Remark:} In an analogous fashion one may also formulate a {\bf standard minimum problem of linear programming}, which can be cast into the form
+%
+\[
+\text{min}\left\{z=\vec{c}^{T}\cdot\vec{x}
++d\left|\mathbf{A}\vec{x}
+\geq \vec{b}, \vec{x} \geq \vec{0}\right.\right\} \ .
+\]
+%
+In this case, the components of the vector $\vec{b}$ need to be 
+interpreted as lower limits on certain capacities.
+
+\medskip
+\noindent
+For given linear objective function $z(x_{1},\ldots,x_{n})$, the set of points $\vec{x} = (x_{1},\ldots,x_{n})^{T}$ satisfying the condition
+%
+\be
+\fbox{$\displaystyle
+z(x_{1},\ldots,x_{n}) = C = \text{constant} \in \mathbb{R} \ ,
+$}
+\ee
+%
+for fixed value of $C$, is referred to as an {\bf isoquant} of 
+$z$. {\bf Isoquants} of linear objective functions of $n=2$ 
+independent variables constitute straight lines, of $n=3$ 
+independent variables Euclidian planes, of $n=4$ independent 
+variables Euclidian 3-spaces (or hyperplanes), and of $n\geq 5$ 
+independent variables Euclidian $(n-1)$-spaces (or hyperplanes).
+
+\medskip
+\noindent
+In the simplest cases of {\bf linear programming}, the linear {\bf 
+objective function}~$z$ depends on $n=2$ {\bf variables}~$x_{1}$ 
+and $x_{2}$ only. An illustrative and efficient method of solving 
+problems of this kind will be looked at in the following section.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Graphical solution method]%
+{Graphical method for solving problems with two independent 
+variables}
+\lb{sec:lopgraf}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The systematic graphical solution method of standard maximum 
+problems of {\bf linear programming} with $n=2$~independent 
+variables comprises the following steps:
+%
+\begin{enumerate}
+
+\item Derivation of the {\bf linear objective function}
+%
+$$
+z(x_{1},x_{2})=c_{1}x_{1}+c_{2}x_{2}+d
+$$
+%
+in dependence on the {\bf variables}~$x_{1}$ and $x_{2}$.
+
+\item Identification in the $x_{1},x_{2}$--plane of the {\bf feasible region} $D$ of $z$ which is determined by the $m$ restrictions imposed on $x_{1}$ and $x_{2}$. Specifically, $D$ constitutes the domain of $z$ (cf. Ch.~\ref{ch7}).
+
+\item Plotting in the $x_{1},x_{2}$--plane of the projection of the {\bf isoquant} of the linear objective function~$z$ which intersects the origin ($0=x_{1}=x_{2}$). When $c_{2} \neq 0$, this projection is described by the equation
+%
+\[
+x_{2} = -(c_{1}/c_{2})x_{1} \ .
+\]
+%
+
+\item Erecting in the origin of the $x_{1},x_{2}$--plane the {\bf direction of optimisation} for $z$ which is determined by the constant $z$-gradient
+%
+$$
+(\boldsymbol{\nabla} z)^{T}
+=\left(\begin{array}{c}\frac{\ptl z}{\ptl x_{1}} \\
+\frac{\ptl z}{\ptl x_{2}}\end{array}\right)
+=\left(\begin{array}{c} c_{1} \\ c_{2}\end{array}\right) \ .
+$$
+%
+
+\item {\bf Parallel displacement} in the $x_{1},x_{2}$--plane of the projection of the $(0,0)$-isoquant of~$z$ along the direction of optimisation~$(\boldsymbol{\nabla} z)^{T}$ across the feasible region~$D$ out to a distance where the projected isoquant just about touches~$D$.
+
+\item Determination of the {\bf optimal solution} $(x_{1{\rm O}},
+x_{2{\rm O}})$ as the point resp.~set of points of intersection between the displaced projection of the $(0,0)$-isoquant of~$z$ and the \emph{far} boundary of~$D$.
+
+\item Computation of the {\bf optimal value} of the linear objective function~$z_{{\rm O}}=z(x_{1{\rm O}},x_{2{\rm O}})$ from the optimal solution~$(x_{1{\rm O}}, x_{2{\rm O}})$.
+
+\item Specification of potential {\bf remaining resources} by substitution of the optimal solution $(x_{1{\rm O}}, x_{2{\rm O}})$ into the $m$~restrictions.
+
+\end{enumerate}
+%
+In general one finds that for a linear {\bf objective 
+function}~$z$ with $n=2$ {\bf independent variables}~$x_{1}$ and 
+$x_{2}$, the feasible region~$D$, when \emph{non-empty and 
+bounded}, constitutes an area in the $x_{1},x_{2}$--plane with 
+straight edges and a certain number of vertices. In these cases, 
+the {\bf optimal values} of the linear objective function~$z$ are 
+always to be found either at the vertices or on the edges of the 
+feasible region~$D$. When $D$ is an empty set, then there exists 
+no solution to the corresponding linear programming problem. When 
+$D$ is unbounded, again there may not exist a solution to the 
+linear programming problem, but this then depends on the specific 
+circumstances that apply.
+
+\medskip
+\noindent
+\underline{\bf Remark:} To solve a {\bf standard minimum problem 
+of linear programming} with $n=2$ independent variables by means 
+of the graphical method, one needs to parallelly displace in the 
+$x_{1},x_{2}$--plane the projection of the $(0,0)$-isoquant of~$z$ 
+along the direction of optimisation~$(\boldsymbol{\nabla} z)^{T}$ 
+until contact is made with the feasible region~$D$ for the first 
+time. The optimal solution is then given by the point resp.~set of 
+points of intersection between the displaced projection of the 
+$(0,0)$-isoquant of~$z$ and the \emph{near} boundary of~$D$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Dantzig's simplex algorithm]%
+{Dantzig's simplex algorithm}
+\lb{sec:lopsimplex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The main disadvantage of the graphical solution method is its 
+limitation to problems with only $n=2$~independent variables. In 
+actual practice, however, one is often concerned with {\bf linear 
+programming problems} that depend on \emph{more} than two {\bf 
+independent variables}. To deal with these more complex problems 
+in a systematic fashion, the US-American mathematician 
+\href{http://www-groups.dcs.st-and.ac.uk/~history/Biographies/Dantzig_George.html}{George
+Bernard Dantzig (1914--2005)} has devised during the 1940ies an 
+efficient algorithm which can be programmed on a computer in a 
+fairly straightforward fashion; cf. Dantzig 
+(1949,1955)~\ct{dan1949,dan1955}.
+
+\medskip
+\noindent
+In mathematics, {\bf simplex} is an alternative name used to refer 
+to a convex polyhedron, i.e.,~a body of finite (hyper-)volume in 
+two or more dimensions bounded by linear (hyper-)surfaces which 
+intersect in linear edges and vertices. In general the feasible 
+regions of linear programming problems constitute such simplexes. 
+Since the {\bf optimal solutions} for the {\bf independent 
+variables} of {\bf linear programming problems},
+%corresponding to an extremal value of the objective function,
+when they exist, are always to be found at a vertex or along an 
+edge of simplex feasible regions, Dantzig developed his so-called 
+{\bf simplex algorithm} such that it systematically scans the 
+edges and vertices of a feasible region to identify the {\bf 
+optimal solution} (when it exists) in as few steps as possible.
+
+\medskip
+\noindent
+The starting point be a {\bf standard maximum problem of linear 
+programming} with $n$~{\bf independent variables} in the form of 
+relations~(\ref{lops1})--(\ref{lopsm1}). First, by introducing $m$ 
+non-negative {\bf slack variables} $s_{1}, \ldots, s_{m}$, one 
+transforms the $m$ linear {\bf restrictions} (inequalities) into 
+an equivalent set of $m$ linear equations. In this way, potential 
+differences between the left-hand and the right-hand sides of the 
+$m$ inequalities are represented by the slack variables. In 
+combination with the defining equation of the linear {\bf objective
+function}~$z$, one thus is confronted with a system of $1+m$ 
+linear algebraic equations for the $1+n+m$ variables $z, x_{1},
+\ldots, x_{n}, s_{1}, \ldots, s_{m}$, given by
+
+\medskip
+\noindent
+{\bf Maximum problem of linear programming in canonical form}
+\nopagebreak
+%
+\begin{eqnarray}
+\lb{lopk1}
+z - c_{1}x_{1} - c_{2}x_{2} - \ldots - c_{n}x_{n} & = & d \\
+%
+a_{11}x_{1} + a_{12}x_{2} + \ldots + a_{1n}x_{n} + s_{1} & = & b_{1} \\
+%
+a_{21}x_{1} + a_{22}x_{2} + \ldots + a_{2n}x_{n} + s_{2} & = & b_{2} \\
+%
+ & \vdots & \nonumber \\
+%
+\lb{lopkm1}
+a_{m1}x_{1} + a_{m2}x_{2} + \ldots + a_{mn}x_{n} + s_{m} & = & b_{m} \ .
+\end{eqnarray}
+%
+As discussed previously in Ch.~\ref{ch3}, a system of linear 
+algebraic equations of format $(1+m) \times (1+n+m)$ is 
+\emph{under-determined} and so, at most, allows for \emph{multiple 
+solutions}. The general $(1+n+m)$-dimensional solution vector
+%
+\be
+\vec{x}_{L} = \left(z_{L}, x_{1, L}, \ldots, x_{n, L},
+s_{1, L}, \ldots, s_{m, L}\right)^{T}
+\ee
+%
+thus contains $n$ variables the values of which can be chosen 
+\emph{arbitrarily}. It is very important to be aware of this fact. 
+It implies that, given the linear system is solvable in the first 
+place, one has a \emph{choice} amongst different solutions, and so 
+one can pick the solution which proves {\bf optimal} for the given 
+problem at hand. {\bf Dantzig's simplex algorithm} constitues a 
+tool for determining such an {\bf optimal solution} in a 
+systematic way.
+
+\medskip
+\noindent
+Let us begin by transferring the coefficients and right-hand sides 
+(RHS) of the under-determined linear system introduced above into 
+a particular kind of {\bf simplex tableau}.
+
+\medskip
+\noindent
+{\bf Initial simplex tableau}
+%
+\be
+\lb{tableau1}
+\begin{array}{c|rrcr|cccc|r}
+z & x_{1} & x_{2} & \ldots & x_{n} & s_{1} & s_{2} & \ldots
+& s_{m} & \text{RHS} \\
+\hline
+1 & -c_{1} & -c_{2} & \ldots & -c_{n} & 0 & 0 & \ldots & 0 & d \\
+\hline
+0 & a_{11} & a_{12} & \ldots & a_{1n} & 1 & 0 & \ldots & 0 & b_{1} \\
+0 & a_{21} & a_{22} & \ldots & a_{2n} & 0 & 1 & \ldots & 0 & b_{2} \\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots &
+\ddots & \vdots & \vdots \\
+0 & a_{m1} & a_{m2} & \ldots & a_{mn} & 0 & 0 & \ldots & 1 & b_{m}
+\end{array}
+\ee
+%
+In such a {\bf simplex tableau} one distinguishes so-called {\bf 
+basis variables} from {\bf non-basis variables}. Basis variables 
+are those that contain in their respective columns in the number 
+tableau a $(1+m)$-component canonical unit vector [cf.\ 
+Eq.~(\ref{kanbasis})]; in total the {\bf simplex tableau} contains 
+$1+m$~of these. Non-basis variables are the remaining ones that do 
+\emph{not} contain a canonical basis vector in their respective 
+columns; there exist $n$ of this kind. The complete basis can thus 
+be perceived as spanning a $(1+m)$-dimensional Euclidian space 
+${\mathbb R}^{1+m}$. Initially, always $z$ and the $m$ slack 
+variables $s_{1}, \ldots, s_{m}$ constitute the basis variables, 
+while the $n$ independent variables $x_{1}, \ldots, x_{n}$ 
+classify as non-basis variables [cf.\ the initial 
+tableau~(\ref{tableau1})]. The corresponding so-called (first) 
+{\bf basis solution} has the general appearance
+%
+\[
+\vec{x}_{B_{1}} = \left(z_{B_{1}},
+x_{1,B_{1}}, \ldots, x_{n, B_{1}},
+s_{1, B_{1}}, \ldots, s_{m, B_{1}}\right)^{T}
+= \left(d, 0, \ldots, 0,
+b_{1}, \ldots, b_{m}\right)^{T} \ ,
+\]
+%
+since, for simplicity, each of the $n$ arbitrarily specifiable 
+non-basis variables may be assigned the special value zero. In 
+this respect basis solutions will always be \emph{special 
+solutions} (as opposed to general ones) of the under-determined 
+system~(\ref{lopk1})--(\ref{lopkm1}) --- the maximum problem of 
+linear programming in canonical form.
+
+\medskip
+\noindent
+Central aim of the {\bf simplex algorithm} is to bring as many of 
+the $n$~{\bf independent variables}~$x_{1}, \ldots, x_{n}$ as 
+possible into the $(1+m)$-dimensional basis, at the expense of one 
+of the $m$~{\bf slack variables}~$s_{1}, \ldots, s_{m}$, one at a 
+time, in order to construct successively more favourable special 
+vector-valued solutions to the optimisation problem at hand. 
+Ultimately, the {\bf simplex algorithm} needs to be viewed as a 
+special variant of Gau\ss ian elimination as discussed in 
+Ch.~\ref{ch3}, with a set of systematic instructions concerning 
+allowable equivalence transformations of the underlying 
+under-determined linear system~(\ref{lopk1})--(\ref{lopkm1}), 
+resp.\ the initial {\bf simplex tableau}~(\ref{tableau1}). This 
+set of systematic algebraic simplex operations can be summarised 
+as follows:
+
+\medskip
+\noindent
+{\bf Simplex operations}
+\nopagebreak
+\begin{itemize}
+\item[S1:] Does the current simplex tableau show $-c_{j} \geq 0$
+for all $j \in \{1,\ldots,n\}$? If so, then the corresponding basis solution is {\bf optimal}. {\it END}. Otherwise goto S2.
+
+\item[S2:] Choose a {\bf pivot column index} $j^{*} \in
+\{1,\ldots,n\}$ such that $-c_{j^{*}}:= \text{min}\{-c_{j}|j
+\in \{1,\ldots,n\}\} < 0$.
+
+\item[S3:] Is there a row index $i^{*} \in \{1,\ldots,m\}$ such that $a_{i^{*}j^{*}} > 0$? If not, the objective function $z$ is unbounded from above. {\it END}. Otherwise goto S4.
+
+\item[S4:] Choose a {\bf pivot row index} $i^{*}$ such that
+$a_{i^{*}j^{*}} > 0$ and $b_{i^{*}}/a_{i^{*}j^{*}}
+:=\text{min}\{b_{i}/a_{i^{*}j^{*}}|a_{i^{*}j^{*}} > 0,
+i \in \{1,\ldots,m\}\}$. Perform a {\bf pivot operation} with the 
+{\bf pivot element} $a_{i^{*}j^{*}}$. Goto S1.
+\end{itemize}
+
+\medskip
+\noindent
+When the final {\bf simplex tableau} has been arrived at, one 
+again assigns the non-basis variables the value zero. The values 
+of the final basis variables corresponding to the {\bf optimal 
+solution} of the given {\bf linear programming problem} are then 
+to be determined from the final {\bf simplex tableau} by backward 
+substitution, beginning at the bottom row. Note that slack 
+variables with positive values belonging to the basis variables in 
+the {\bf optimal solution} provide immediate information on 
+existing remaining capacities in the problem at hand.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,324 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  File name: ch8-engl.tex
+%  Title:
+%  Version: 11.09.2015 (hve)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter[Integral calculus of real-valued functions]%
+{Integral calculus of real-valued functions of one real variable}
+\lb{ch8}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\hfill\hbox{\fbox{\vbox{\hsize=10cm
+%Der Inhalt dieses Kapitels dient unter anderem der Vorbereitung
+%auf elementare Teilaspekte der Wahrscheinlichkeitstheorie, welche
+%im Rahmen der Module 0.1.3 WISS: Einf\"uhrung in das
+%wissenschaftliche Arbeiten und die empirische Sozialforschung
+%und 1.3.2 MARE: Marketing Research in der Schlie\ss enden 
+%Statistik ben\"otigt wird.
+%}}}
+
+\vspace{10mm}
+\noindent
+In the final chapter of these lecture notes we give a brief 
+overview of the main definitions and laws of the {\bf integral 
+calculus} of real-valued functions of one variable. Subsequently 
+we consider a simple application of this tool in {\bf economic 
+theory}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Indefinite integrals]{Indefinite integrals}
+\lb{sec:unbint}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\underline{\bf Def.:} Let $f$ be a continuous real-valued function 
+of one real variable and $F$ a differentiable real-valued function 
+of the same real variable, with $D(f)=D(F)$. Given that $f$ and 
+$F$ are related according to
+%
+\be
+\fbox{$\displaystyle
+F^{\prime}(x) = f(x)
+\quad\quad\text{\emph{for all}}\quad x\in D(f) \ ,
+$}
+\ee
+%
+then $F$ is referred to as a {\bf primitive} of $f$.
+
+\medskip
+\noindent
+\underline{\bf Remark:} The primitive of a given continuous 
+real-valued function $f$ \emph{cannot} be unique. By the rules of 
+differentiation discussed in Sec.~\ref{sec:ablt}, besides $F$ 
+also $F+c$, with $c \in \mathbb{R}$ a real-valued constant, 
+constitutes a primitive of $f$ since $(c)^{\prime} = 0$.
+
+\medskip
+\noindent
+\underline{\bf Def.:} If $F$ is a primitive of a continuous 
+real-valued function $f$ of one real variable, then
+%
+\be
+\fbox{$\displaystyle
+\int f(x)\,{\rm d}x = F(x) + c \ , \quad
+c~=~\text{constant}~\in~\mathbb{R} \ ,
+\quad \text{with}\ F^{\prime}(x) = f(x)
+$}
+\ee
+%
+defines the {\bf indefinite integral} of the function $f$. The 
+following names are used to refer to the different ingredients in 
+this expression:
+%
+\begin{itemize}
+\item $x$ --- the {\bf integration variable},
+\item $f(x)$ --- the {\bf integrand},
+\item ${\rm d}x$ --- the {\bf differential}, and, lastly,
+\item $c$ --- the {\bf constant of integration}.
+\end{itemize}
+%
+
+\medskip
+\noindent
+For the elementary, continuous real-valued functions of one 
+variable introduced in Sec.~\ref{sec:fkt}, the following rules of 
+indefinite integration apply:
+
+\medskip
+\noindent
+{\bf Rules of indefinite integration}
+%
+\begin{enumerate}
+\item $\int \alpha\,{\rm d}x = \alpha x + c$ with $\alpha
+= \text{constant} \in \mathbb{R}$ \hfill ({\bf constants})
+\item $\displaystyle \int x\,{\rm d}x = \frac{x^{2}}{2} + c$
+ \hfill ({\bf linear functions})
+\item $\displaystyle \int x^{n}\,{\rm d}x = \frac{x^{n+1}}{n+1} + 
+c$ for $n \in \mathbb{N}$ \hfill ({\bf natural power-law 
+functions})
+\item $\displaystyle \int x^{\alpha}\,{\rm d}x = 
+\frac{x^{\alpha+1}}{\alpha+1}
++ c$ for $\alpha \in \mathbb{R}\backslash\{-1\}$ and
+$x \in \mathbb{R}_{> 0}$ \hfill ({\bf general power-law functions})
+\item $\displaystyle \int a^{x}\,{\rm d}x = \frac{a^{x}}{\ln(a)} + c$ for $a \in \mathbb{R}_{> 0}\backslash\{1\}$
+\hfill ({\bf exponential functions})
+\item $\displaystyle \int e^{ax}\,{\rm d}x = \frac{e^{ax}}{a} + c$
+for $a \in \mathbb{R}\backslash\{0\}$
+\hfill ({\bf natural exponential functions})
+\item $\int x^{-1}\,{\rm d}x = \ln|x| + c$ for $x \in \mathbb{R}\backslash\{0\}$.
+\end{enumerate}
+%
+Special methods of integration need to be employed when the 
+integrand consists of a concatanation of elementary real-valued 
+functions. Here we provide a list with the main tools for this 
+purpose. For differentiable real-valued functions $f$ and $g$, it 
+holds that
+%
+\begin{enumerate}
+\item $\int(\alpha f(x) \pm \beta g(x))\,{\rm d}x
+= \alpha\int f(x)\,{\rm d}x \pm \beta\int g(x)\,{\rm d}x$ \\
+with $\alpha,\beta = \text{constant} \in \mathbb{R}$
+\hfill ({\bf summation rule})
+\item $\int f(x)g^{\prime}(x)\,{\rm d}x = f(x)g(x)
+- \int f^{\prime}(x)g(x)\,{\rm d}x$
+\hfill ({\bf integration by parts})
+\item $\int f(g(x))g^{\prime}(x)\,{\rm d}x
+\overbrace{=}^{u=g(x)\ \text{and}\ {\rm d}u=g^{\prime}(x){\rm d}x}
+\int f(u)\,{\rm d}u = F(g(x)) + c$
+\hfill ({\bf substitution method})
+\item $\displaystyle \int\frac{f^{\prime}(x)}{f(x)}\,{\rm d}x
+= \ln|f(x)| + c$ for $f(x) \neq 0$\hfill ({\bf logarithmic integration}).
+\end{enumerate}
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Definite integrals]{Definite integrals}
+\lb{sec:bint}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\medskip
+\noindent
+\underline{\bf Def.:} Let $f$ be a real-valued function of one variable which is continuous on an interval $[a,b] \subset D(f)$, and let $F$ be a primitive of $f$. Then the expression
+%
+\be
+\fbox{$\displaystyle
+\int_{a}^{b}f(x)\,{\rm d}x
+= {\displaystyle\left.F(x)\right|_{x=a}^{x=b}}
+= F(b) - F(a)
+$}
+\ee
+%
+defines the {\bf definite integral} of $f$ in the 
+{\bf limits of integration} $a$ and $b$.
+
+\medskip
+\noindent
+For definite integrals the following general rules apply:
+%
+\begin{enumerate}
+\item $\displaystyle\int_{a}^{a}f(x)\,{\rm d}x = 0$
+\hfill ({\bf identical limits of integration})
+\item $\displaystyle\int_{b}^{a}f(x)\,{\rm d}x = 
+-\int_{a}^{b}f(x)\,{\rm d}x$
+\hfill ({\bf interchange of limits of integration})
+\item $\displaystyle\int_{a}^{b}f(x)\,{\rm d}x = 
+\int_{a}^{c}f(x)\,{\rm d}x
++ \int_{c}^{b}f(x)\,{\rm d}x$ for $c \in [a,b]$
+\hfill ({\bf split of integration interval}).
+\end{enumerate}
+%
+
+\medskip
+\noindent
+\underline{\bf Remark:} The main qualitative difference between an 
+(i)~indefinite integral and a (ii)~definite integral of a 
+continuous real-valued function of one variable reveals intself in 
+the different kinds of outcome: while (i)~yields as a result a 
+real-valued (primitive) \emph{function}, (ii)~simply yields a 
+single real \emph{number}.
+
+\medskip
+\noindent
+\underline{\bf GDC:} For a stored real-valued function, the 
+evaluation of a definite integral can be performed in mode {\tt 
+CALC} with the pre-programmed function $\int${\tt f(x)dx}. The 
+corresponding limits of integration need to be specified 
+interactively.
+
+\medskip
+\noindent
+As indicated in Sec.~\ref{sec:elast}, the scale-invariant 
+power-law functions $f(x)=x^{\alpha}$ for $\alpha \in \mathbb{R}$
+and $x \in \mathbb{R}_{> 0}$ play a special role in practical 
+applications. For $x \in \left[a,b\right] \subset \mathbb{R}_{> 
+0}$ and $\alpha \neq -1$ it holds that
+%
+\be
+\int_{a}^{b}x^{\alpha}\,{\rm d}x
+= \left.\frac{x^{\alpha+1}}{\alpha+1}\right|_{x=a}^{x=b}
+= \frac{1}{\alpha+1}\left(b^{\alpha+1}-a^{\alpha+1}\right) \ .
+\ee
+%
+Problematic in this context can be considerations of taking limits 
+of the form $a \to 0$ resp. $b \to \infty$, since for either of 
+the two cases
+%
+\begin{itemize}
+\item[(i)] case $\alpha < -1$:
+%
+\be
+\lim_{a \to 0}\int_{a}^{b}x^{\alpha}\,{\rm d}x \to \infty \ ,
+\ee
+%
+\item[(ii)] case $\alpha > -1$:
+%
+\be
+\lim_{b \to \infty}\int_{a}^{b}x^{\alpha}\,{\rm d}x \to \infty \ ,
+\ee
+%
+\end{itemize}
+%
+one ends up with {\bf divergent} mathematical expressions.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Applications in economic theory]{Applications in economic 
+theory}
+\lb{sec:intanw}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The starting point shall be a simple market situation for a single 
+product. For this product, on the one-hand side, there be a {\bf 
+demand function}~$N(p)$ (in $\text{units}$) which is monotonously 
+decreasing on the price interval $[p_{u},p_{o}]$; the limit values 
+$p_{u}$ and $p_{o}$ denote the minimum and maximum prices per unit 
+(in CU/u) acceptable for the product. On the other hand, the 
+market situation be described by a {\bf supply function}~$A(p)$ 
+(in $\text{units}$) which is monotonously increasing on 
+$[p_{u},p_{o}]$.
+
+\medskip
+\noindent
+The {\bf equilibrium unit price} $p_{M}$ (in 
+$\text{CU}/\text{unit}$) for this product is defined by assuming a 
+state of {\bf economic equilibrium} of the market, quantitatively 
+expressed by the condition
+%
+\be
+A(p_{M}) = N(p_{M}) \ .
+\ee
+%
+Geometrically, this condition defines common points of 
+intersection for the functions $A(p)$ and $N(p)$ (when they exist).
+
+\medskip
+\noindent
+\underline{\bf GDC:} Common points of intersection for stored 
+functions $f$ and $g$ can be easily determined interactively in 
+mode {\tt CALC} employing the routine {\tt intersect}.
+
+\medskip
+\noindent
+In a drastically simplified fashion, we now turn to compute the 
+revenue made on the market by the suppliers of a new product for 
+either of three possible {\bf strategies of market entry}.
+%
+\begin{enumerate}
+
+\item {\bf Strategy~1:} The revenue obtained by the suppliers when 
+the new product is being sold straight at the equilibrium unit 
+price $p_{M}$, in an amount $N(p_{M})$, is simply given by
+%
+\be
+U_{1} = U(p_{M}) = p_{M}N(p_{M}) \qquad
+(\text{in\ CU}) \ .
+\ee
+%
+
+\item {\bf Strategy~2:} Some consumers would be willing to 
+purchase the product intially also at a unit price which is higher 
+than $p_{M}$. If, hence, the suppliers decide to offer the product 
+initially at a unit price $p_{o} > p_{M}$, and then, in order to 
+generate further demand, to continuously\footnote{This is a strong 
+mathematical assumption aimed at facilitating the actual 
+calculation to follow.} (!) \emph{reduce} the unit price to the 
+lower $p_{M}$, the revenue obtained yields the larger value
+%
+\be
+U_{2} = U(p_{M}) + \int_{p_{M}}^{p_{o}}N(p)\,{\rm d}p \ .
+\ee
+%
+Since the amount of money
+%
+\be
+K := \int_{p_{M}}^{p_{o}}N(p)\,{\rm d}p \qquad
+(\text{in\ CU})
+\ee
+%
+is (theoretically) safed by the consumers when the product is 
+introduced to the market according to strategy~1, this amount is 
+referred to in the economic literature as {\bf consumer surplus}.
+
+\item {\bf Strategy~3:} Some suppliers would be willing to 
+introduce the product to the market initially at a unit price 
+which is lower than $p_{M}$. If, hence, the suppliers decide to 
+offer the product initially at a unit price $p_{u} < p_{M}$, and 
+then to continuously\footnote{See previous footnote.} (!) 
+\emph{raise} it to the higher $p_{M}$, the revenue obtaines 
+amounts to the smaller value
+%
+\be
+U_{3} = U(p_{M}) - \int_{p_{u}}^{p_{M}}A(p)\,{\rm d}p \ .
+\ee
+%
+Since the suppliers (theoretically) earn the extra amount
+%
+\be
+P := \int_{p_{u}}^{p_{M}}A(p)\,{\rm d}p \qquad
+(\text{in\ CU})
+\ee
+%
+when the product is introduced to the market according to 
+strategy~1, this amount is referred to in the economic literature 
+as {\bf producer surplus}.
+
+\end{enumerate}
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

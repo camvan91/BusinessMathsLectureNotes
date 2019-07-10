@@ -1,0 +1,585 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  File name: ch4-engl.tex
+%  Title:
+%  Version: 11.09.2015 (hve)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter[Leontief's 
+input--output matrix model]{Leontief's stationary
+input--output matrix model}
+\lb{ch4}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\hfill\hbox{\fbox{\vbox{\hsize=10cm
+%Der Inhalt dieses Kapitels ist relevant f\"ur das
+%Verst\"andnis der in Kapitel 5.2 des Lehrbuchs von Schrey\"ogg
+%und Koch (2010)~\ct{schkoc2010} behandelten quantitativen Themen.
+%%Gleichfalls f\"ur Kapitel 10.5 des Lehrbuchs von Schmalen und
+%%Pechtl 2006~\ct{schpec2006}.
+%}}}
+
+\vspace{10mm}
+\noindent
+We now turn to discuss some specific applications of {\bf Linear 
+Algebra} in economic theory. To begin with, let us consider 
+quantitative aspects of the exchange of goods between a certain 
+number of {\bf economic agents}. We here aim at a simplified 
+abstract description of real economic processes.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[General considerations]%
+{General considerations}
+\lb{sec:leongrund}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The quantitative model to be described in the following is due to 
+the Russian economist 
+\href{http://en.wikipedia.org/wiki/Leontief}{Wassily Wassilyovich 
+Leontief (1905--1999)}, cf. Leontief (1936)~\ct{leo1936}, for 
+which, besides other important contributions, he was awarded the 
+1973 
+\href{http://www.nobelprize.org/nobel_prizes/economics/laureates/1973/}{Sveriges Riksbank Prize in Economic Sciences in Memory of 
+Alfred Nobel}. 
+
+\medskip
+\noindent
+Suppose given an economic system consisting of $n \in 
+\mathbb{N}$~{\bf interdependent economic agents} exchanging 
+between them the goods they produce. For simplicity we want to 
+\emph{assume} that every one of these {\bf economic agents} 
+represents the production of a \emph{single} good only. Presently 
+we intend to monitor the flow of goods in this simple economic 
+system during a specified {\bf reference period of time}. The 
+total numbers of the $n$~goods leaving the production sector of 
+this model constitute the {\bf OUTPUT quantities}. The {\bf INPUT 
+quantities} to the production sector are twofold. On the one hand, 
+there are {\bf exogenous} INPUT quantities which we take to be 
+given by $m \in \mathbb{N}$ different kinds of external {\bf 
+resources} needed in differing proportions to produce the 
+$n$~goods. On the other hand, due to their mutual interdependence, 
+some of the {\bf economic agents} require {\bf goods made by their 
+neighbours} to be able to produce their own goods; these 
+constitute the {\bf endogenous} INPUT quantities of the system. 
+Likewise, the production sector's total OUTPUT during the chosen 
+reference period of the $n$~goods can be viewed to flow through 
+one of \emph{two} separate channels: (i)~the {\bf exogenous} 
+channel linking the production sector to {\bf external consumers} 
+representing an open market, and (ii)~the {\bf endogenous} channel 
+linking the {\bf economic agents} to their {\bf neighbours} (thus 
+respresenting their interdependencies). It is supposed that 
+momentum is injected into the economic system, triggering the flow 
+of goods between the different actors, by the prospect of {\bf 
+increasing the value} of the INPUT quantities, in line with the 
+notion of the economic {\bf value chain}.
+
+%\pagebreak
+\medskip
+\noindent
+Leontief's model is based on the following three elementary
+
+\medskip
+\noindent
+{\bf Assumptions}:
+%
+\begin{enumerate}
+\item For all goods involved the functional relationship between 
+INPUT and OUTPUT quantities be of a {\bf linear nature} [cf.\ 
+Eq.~(\ref{lin})].
+
+\item The proportions of ``INPUT quantities to OUTPUT quantities'' be {\bf constant} over the reference period of time considered; the flows of goods are thus considered to be {\bf stationary}.
+
+\item {\bf Economic equilibrium} obtains during the reference period of time: the numbers of goods then supplied equal the numbers of goods then demanded.
+\end{enumerate}
+%
+The mathematical formulation of Leontief's quantitative
+model employs the following
+
+\medskip
+\noindent
+{\bf Vector- and matrix-valued quantities}:
+%\footnote{We use the letter ``u'' to represent adequate units of 
+%measurement.}
+%
+\begin{enumerate}
+
+\item $\vec{q}$ --- {\bf total output vector}
+$\in \mathbb{R}^{n \times 1}$, components $q_{i} \geq 
+0~\text{units}$
+\hfill (dim: $\text{units}$)
+
+\item $\vec{y}$ --- {\bf final demand vector}
+$\in \mathbb{R}^{n \times 1}$, components $y_{i} \geq 
+0~\text{units}$
+\hfill (dim: $\text{units}$)
+
+\item $\mathbf{P}$ --- {\bf input--output matrix}
+$\in \mathbb{R}^{n \times n}$, components $P_{ij} \geq 0$
+\hfill (dim: 1)
+
+\item $(\mathbf{1}-\mathbf{P})$ --- {\bf technology matrix}
+$\in \mathbb{R}^{n \times n}$, regular, hence, invertible
+\hfill (dim: 1)
+
+\item $(\mathbf{1}-\mathbf{P})^{-1}$ --- {\bf total demand matrix}
+$\in \mathbb{R}^{n \times n}$
+\hfill (dim: 1)
+
+\item $\vec{v}$ --- {\bf resource vector}
+$\in \mathbb{R}^{m \times 1}$, components $v_{i} \geq 
+0~\text{units}$
+\hfill (dim: $\text{units}$)
+
+\item $\mathbf{R}$ --- {\bf resource consumption matrix}
+$\in \mathbb{R}^{m \times n}$, components $R_{ij} \geq 0$,
+\hfill (dim: 1)
+
+\end{enumerate}
+%
+where $\mathbf{1}$ denotes the {\bf $\boldsymbol{(n \times 
+n)}$-unit matrix} [cf.\ Eq.~(\ref{einmatr})]. Note that the 
+components of all the vectors involved, as well as of the 
+input--output matrix and of the resource consumption matrix, can 
+assume \emph{non-negative values (!)} only.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Input--output matrix and resource consumption matrix]%
+{Input--output matrix and resource consumption matrix}
+\lb{sec:inoutmat}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+We now turn to provide the definition of the two central matrix-valued quantities in Leontief's model. We will also highlight their main characteristic features.
+
+%------------------------------------------------------------------
+\subsection{Input--output matrix}
+%------------------------------------------------------------------
+Suppose the {\bf reference period of time} has ended for the 
+economic system in question, i.e. the stationary {\bf flows of 
+goods} have stopped eventually. We now want to take stock of the 
+{\bf numbers of goods} that have been delivered by each of the 
+$n$~{\bf economic agents} in the system. Say that during the 
+reference period considered, agent~$1$ delivered of their good the 
+number $n_{11}$ to themselves, the number $n_{12}$ to agent~$2$, 
+the number $n_{13}$ to agent~$3$, and so on, and, lastly, the 
+number $n_{1n}$ to agent~$n$. The number delivered by agent~$1$ to 
+external consumers shall be denoted by $y_{1}$. Since in this 
+model a good produced \emph{cannot} all of a sudden disappear 
+again, and since by Assumption~3 above the number of goods 
+supplied must be equal to the number of goods demanded, we find 
+that for the total output of agent~$1$ it holds that 
+$q_{1}:=n_{11} + \ldots + n_{1j} + \ldots + n_{1n} + y_{1}$. 
+Analogous relations hold for the total output $q_{2}$, $q_{3}$, 
+\ldots, $q_{n}$ of each of the remaining $n-1$ agents. We thus 
+obtain the intermediate result
+%
+\begin{eqnarray}
+q_{1} & = & n_{11} + \ldots + n_{1j} + \ldots + n_{1n} + y_{1} > 0
+\\
+ & \vdots & \nonumber \\
+q_{i} & = & n_{i1} + \ldots + n_{ij} + \ldots + n_{in} + y_{i} > 0
+\\
+ & \vdots & \nonumber \\
+q_{n} & = & n_{n1} + \ldots + n_{nj} + \ldots + n_{nn} + y_{n} > 0
+\ .
+\end{eqnarray}
+%
+This simple system of {\bf balance equations} can be summarised in terms of a standard {\bf input--output table} as follows:
+%
+\begin{center}
+    \begin{tabular}[h]{c|ccccc|c|c}
+    \hline\hline
+    [Values in $\text{units}$] & agent~$1$ & $\cdots$ & agent~$j$ & $\cdots$ & agent~$n$ & external consumers & $\Sigma$: total output  \\
+    \hline
+    agent~$1$ & $n_{11}$ & $\ldots$ & $n_{1j}$ & $\ldots$ & $n_{1n}$ & $y_{1}$ & $q_{1}$ \\
+    $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\vdots$ & $\vdots$ \\
+    agent~$i$ & $n_{i1}$ & \ldots & $n_{ij}$ & \ldots & $n_{in}$ & $y_{i}$ & $q_{i}$ \\
+    $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\vdots$ & $\vdots$ \\
+    agent~$n$ & $n_{n1}$ & \ldots & $n_{nj}$ & \ldots & $n_{nn}$ & $y_{n}$ & $q_{n}$ \\
+    \hline\hline
+    \end{tabular}
+\end{center}
+%
+The first column of this table lists all the $n$ different {\bf 
+sources of flows of goods} (or suppliers of goods), while its 
+first row shows the $n+1$ different {\bf sinks of flows of goods} 
+(or consumers of goods). The last column contains the total output 
+of each of the $n$ agents in the {\bf reference period of time}.
+
+\medskip
+\noindent
+Next we compute for each of the $n$ agents the respective values 
+of the \emph{non-negative ratios}
+%
+\be
+P_{ij} := \frac{\text{INPUT\ (in\ units)\ of\ agent\ $i$\ for
+\ agent $j$\ (during\ reference\ period)}}{
+\text{OUTPUT\ (in\ units)\ of\ agent\ $j$\ (during\ reference
+\ period)}} \ ,
+\ee
+%
+or, employing a compact and economical index 
+notation,\footnote{Note that the normalisation quantities in these 
+ratios $P_{ij}$ are given by the total output $q_{j}$ of the 
+receiving agent~$j$ and \emph{not} by the total output $q_{i}$ of 
+the supplying agent~$i$. In the latter case the $P_{ij}$ would 
+represent percentages of the total output $q_{i}$.}
+%
+\be
+\fbox{$\displaystyle
+P_{ij} := \frac{n_{ij}}{q_{j}} \ ,
+$}
+\ee
+%
+with $i,j = 1, \ldots, n$. These $n \times n = n^{2}$ different 
+ratios may be naturally viewed as the elements of a quadratic 
+matrix $\mathbf{P}$ of format $(n \times n)$. In general, this 
+matrix is given by
+%
+\be
+\fbox{$\displaystyle
+\mathbf{P} =
+\left(\begin{array}{ccccc}
+\frac{n_{11}}{n_{11}+\ldots+n_{1j}+\ldots+n_{1n}+y_{1}} &
+\ldots &
+\frac{n_{1j}}{n_{j1}+\ldots+n_{jj}+\ldots+n_{jn}+y_{j}} &
+\ldots &
+\frac{n_{1n}}{n_{n1}+\ldots+n_{nj}+\ldots+n_{nn}+y_{n}} \\
+\vdots & \ddots & \vdots & \ddots & \vdots \\
+\frac{n_{i1}}{n_{11}+\ldots+n_{1j}+\ldots+n_{1n}+y_{1}} &
+\ldots &
+\frac{n_{ij}}{n_{j1}+\ldots+n_{jj}+\ldots+n_{jn}+y_{j}} &
+\ldots &
+\frac{n_{in}}{n_{n1}+\ldots+n_{nj}+\ldots+n_{nn}+y_{n}} \\
+\vdots & \ddots & \vdots & \ddots & \vdots \\
+\frac{n_{n1}}{n_{11}+\ldots+n_{1j}+\ldots+n_{1n}+y_{1}} &
+\ldots &
+\frac{n_{nj}}{n_{j1}+\ldots+n_{jj}+\ldots+n_{jn}+y_{j}} &
+\ldots &
+\frac{n_{nn}}{n_{n1}+\ldots+n_{nj}+\ldots+n_{nn}+y_{n}}
+\end{array}\right) \ ,
+$}
+\ee
+%
+and is referred to as Leontief's {\bf input--output matrix} of the 
+stationary economic system under investigation.
+
+\medskip
+\noindent
+For the very simple case with just $n=3$ producing agents, the 
+input--output matrix reduces to
+%
+\[
+\displaystyle
+\mathbf{P} =
+\left(\begin{array}{ccc}
+\frac{n_{11}}{n_{11}+n_{12}+n_{13}+y_{1}} &
+\frac{n_{12}}{n_{21}+n_{22}+n_{23}+y_{2}} &
+\frac{n_{13}}{n_{31}+n_{32}+n_{33}+y_{3}} \\
+\frac{n_{21}}{n_{11}+n_{12}+n_{13}+y_{1}} &
+\frac{n_{22}}{n_{21}+n_{22}+n_{23}+y_{2}} &
+\frac{n_{23}}{n_{31}+n_{32}+n_{33}+y_{3}} \\
+\frac{n_{31}}{n_{11}+n_{12}+n_{13}+y_{1}} &
+\frac{n_{32}}{n_{21}+n_{22}+n_{23}+y_{2}} &
+\frac{n_{33}}{n_{31}+n_{32}+n_{33}+y_{3}}
+\end{array}\right) \ .
+\]
+%
+It is important to realise that for an actual economic system the 
+input--output matrix $\mathbf{P}$ can be determined only once 
+\emph{the reference period of time chosen has come to an end}.
+
+\medskip
+\noindent
+The utility of Leontief's stationary input--output matrix model is 
+in its application for the purpose of {\bf forecasting}. This is 
+done on the basis of an {\bf extrapolation}, namely by 
+\emph{assuming} that an input--output matrix 
+$\mathbf{P}_{\text{reference\ period}}$ obtained from data taken 
+during a specific reference period also is valid (to an 
+acceptable degree of accuracy) during a subsequent period, i.e.,
+%
+\be
+\fbox{$\displaystyle
+\mathbf{P}_{\text{subsequent\ period}}
+\approx
+\mathbf{P}_{\text{reference period}} \ ,
+$}
+\ee
+%
+or, in component form,
+%
+\be
+\left.P_{ij}\right|_{\text{subsequent\ period}}
+= \left.\frac{n_{ij}}{q_{j}}\right|_{\text{subsequent\ period}}
+\approx
+\left.P_{ij}\right|_{\text{reference\ period}}
+= \left.\frac{n_{ij}}{q_{j}}\right|_{\text{reference\ period}} \ .
+\ee
+%
+In this way it becomes possible to compute for a given (idealised) 
+economic system approximate numbers of {\bf INPUT quantities} 
+required during a near future production period from the known 
+numbers of {\bf OUTPUT quantities} of the most recent production 
+period. Long-term empirical experience has shown that this method 
+generally leads to useful results to a reasonable approximation. 
+All of these  calculations are grounded on linear relationships 
+describing the quantitative aspects of stationary flows of goods, 
+as we will soon elucidate.
+
+%------------------------------------------------------------------
+\subsection{Resource consumption matrix}
+%------------------------------------------------------------------
+The second matrix-valued quantity central to Leontief's stationary 
+model is the {\bf resource consumption matrix} $\mathbf{R}$. This 
+may be interpreted as providing a recipe for the amounts of the 
+$m$~different kinds of external resources (the exogenous {\bf 
+INPUT quantities}) that are needed in the production of the 
+$n$~goods (the {\bf OUTPUT quantities}). Its elements are defined 
+as the ratios
+%
+\be
+\fbox{$\displaystyle
+R_{ij} := \text{amounts\ (in\ units)\ required\ of\ resource\ $i$
+\ for\ the\ production\ of\ one\ unit\ of\ good\ $j$} \ ,
+$}
+\ee
+%
+with $i=1,\ldots,m$ und $j=1,\ldots,n$. The rows of matrix 
+$\mathbf{R}$ thus contain information concerning the 
+$m$~resources, the columns information concerning the $n$~goods. 
+Note that in general the $(m \times n)$ {\bf resource consumption 
+matrix}~$\mathbf{R}$ is \emph{not (!)} a quadratic matrix and, 
+therefore, in general \emph{not} invertible.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Stationary linear flows of goods]%
+{Stationary linear flows of goods}
+\lb{sec:qstroeme}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------------------------------------------------------------------
+\subsection{Flows of goods: endogenous INPUT to total OUTPUT}
+%------------------------------------------------------------------
+We now turn to a quantitative description of the stationary {\bf 
+flows of goods} that are associated with the {\bf total 
+output}~$\vec{q}$ during a specific period of time considered. 
+According to Leontief's Assumption~1, there exists a \emph{linear} 
+functional relationship between the endogenous vector-valued {\bf 
+INPUT quantity} $\vec{q}-\vec{y}$ and the vector-valued {\bf 
+OUTPUT quantity}~$\vec{q}$. This may be represented in terms of a 
+matrix-valued relationship as
+%
+\be
+\lb{strom1}
+\fbox{$\displaystyle
+\vec{q}-\vec{y} = \mathbf{P}\vec{q}
+\quad \Leftrightarrow \quad
+q_{i}-y_{i} = \sum_{j=1}^{n}P_{ij}q_{j} \ ,
+$}
+\ee
+%
+with $i = 1, \ldots, n$, in which the {\bf input--output 
+matrix}~$\mathbf{P}$ takes the role of mediating a mapping between 
+either of these vector-valued quantities. According to 
+Assumption~2, the elements of the {\bf input--output 
+matrix}~$\mathbf{P}$ remain \emph{constant} for the period of time 
+considered, i.e. the corresponding flows of goods are assumed to 
+be {\bf stationary}.
+
+\medskip
+\noindent
+Relation~(\ref{strom1}) may also be motivated from an alternative 
+perspective that takes the {\bf physical sciences} as a guidline. 
+Namely, the total numbers~$\vec{q}$ of the $n$~goods produced 
+during the period of time considered which, by Assumption~3, are 
+equal to the numbers supplied of the $n$~goods satisfy a {\bf  
+conservation law}: ``whatever has been produced of the $n$ goods 
+during the period of time considered \emph{cannot} get lost in 
+this period.'' In quantitative terms this simple relationship may 
+be cast into the form
+%
+\[
+\underbrace{\vec{q}}_{\text{total output}}
+=\underbrace{\vec{y}}_{\text{final demand (exogenous)}}
++\underbrace{\mathbf{P}\vec{q}}_{\text{deliveries to production sector (endogenous)}} \ .
+\]
+%
+
+\medskip
+\noindent
+For computational purposes this central stationary flow of goods 
+relation~(\ref{strom1}) may be rearranged as is convenient. In 
+this context it is helpful to make use of the matrix identity  
+$\vec{q}=\mathbf{1}\vec{q}$, where $\mathbf{1}$ denotes the
+{\bf $\boldsymbol{(n \times n)}$-unit matrix} [cf.\ 
+Eq.~(\ref{einmatr})].
+
+%\pagebreak
+\medskip
+\noindent
+{\bf Examples:}
+%
+\begin{itemize}
+\item[(i)]~given/known: $\mathbf{P}$, $\vec{q}$
+
+\medskip
+\noindent
+Then it applies that
+%
+\be
+\lb{strom12}
+\vec{y} = (\mathbf{1}-\mathbf{P})\vec{q}
+\quad \Leftrightarrow \quad
+y_{i} = \sum_{j=1}^{n}(\delta_{ij}-P_{ij})q_{j} \ ,
+\ee
+%
+with $i = 1, \ldots, n$; $(\mathbf{1}-\mathbf{P})$ represents the 
+invertible  {\bf technology matrix} of the economic system 
+regarded.
+
+\item[(ii)]~given/known: $\mathbf{P}$, $\vec{y}$
+
+\medskip
+\noindent
+Then it holds that
+%
+\be
+\lb{strom13}
+\vec{q} = (\mathbf{1}-\mathbf{P})^{-1}\vec{y}
+\quad \Leftrightarrow \quad
+q_{i} = \sum_{j=1}^{n}(\delta_{ij}-P_{ij})^{-1}y_{j} \ ,
+\ee
+%
+with $i = 1, \ldots, n$; $(\mathbf{1}-\mathbf{P})^{-1}$ here 
+denotes the {\bf total demand matrix}, i.e., the inverse of the 
+technology matrix.
+\end{itemize}
+%
+
+%------------------------------------------------------------------
+\subsection{Flows of goods: exogenous INPUT to total OUTPUT}
+%------------------------------------------------------------------
+Likewise, by Assumption~1, a \emph{linear} functional relationship 
+is supposed to exist between the exogenous vector-valued {\bf 
+INPUT quantity}~$\vec{v}$ and the vector-valued {\bf OUTPUT 
+quantity}~$\vec{q}$. In matrix language this can be expressed by
+
+%
+\be
+\lb{strom2}
+\fbox{$\displaystyle
+\vec{v} = \mathbf{R}\vec{q}
+\quad\Leftrightarrow\quad
+v_{i} = \sum_{j=1}^{n}R_{ij}q_{j} \ ,
+$}
+\ee
+%
+with $i = 1, \ldots, m$. By Assumption~2, the elements of the {\bf 
+resource consumption matrix}~$\mathbf{R}$ remain \emph{constant} 
+during the period of time considered, i.e., the corresponding 
+resource flows are supposed to be {\bf stationary}.
+
+\medskip
+\noindent
+By combination of Eqs.~(\ref{strom2}) and~(\ref{strom13}), it is 
+possible to compute the numbers~$\vec{v}$ of resources required 
+(during the period of time considered) for the production of the 
+$n$~goods for given final demand~$\vec{y}$. It applies that
+%
+\be
+\lb{strom22}
+\vec{v} = \mathbf{R}\vec{q}
+= \mathbf{R}(\mathbf{1}-\mathbf{P})^{-1}\vec{y}
+\quad\Leftrightarrow\quad
+v_{i} = \sum_{j=1}^{n}\sum_{k=1}^{n}R_{ij}
+(\delta_{jk}-P_{jk})^{-1}y_{k} \ ,
+\ee
+%
+with $i = 1, \ldots, m$.
+
+\medskip
+\noindent
+\underline{\bf GDC:} For problems with $n \leq 5$, and known matrices $\mathbf{P}$ and $\mathbf{R}$, Eqs.~(\ref{strom12}), (\ref{strom13}) and (\ref{strom22}) can be immediately used to calculate the quantities $\vec{q}$ from given quantities $\vec{y}$, or vice versa.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Outlook]%
+{Outlook}
+\lb{sec:geldstroeme}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Leontief's input--output matrix model may be extended in a 
+straightforward fashion to include more advanced considerations of 
+{\bf economic theory}. Supposing a closed though not necessarily 
+stationary economic system~$G$ comprising $n$ interdependent {\bf 
+economic agents} producing $n$ different goods, one may assign 
+{\bf monetary values} to the {\bf INPUT quantity}~$\vec{v}$ as 
+well as to the {\bf OUTPUT quantities} $\vec{q}$ and $\vec{y}$ of 
+the system. Besides the numbers of goods produced and the 
+associated flows of goods one may monitor with respect to~$G$ for 
+a given period of time, one can in addition analyse in time and 
+space the {\bf amount of money} coupled to the different goods, 
+and the corresponding {\bf flows of money}. However, contrary to 
+the number of goods, in general there does \emph{not} exist a 
+{\bf conservation law} for the amount of money with respect 
+to~$G$. This may render the analysis of flows of money more 
+difficult, because, in the sense of an {\bf increase in value}, 
+\emph{money can either be generated inside~$G$ during the period 
+of time considered or it can likewise be annihilated}; it is 
+\emph{not} just limited to either flowing into respectively 
+flowing out of $G$. Central to considerations of this kind is a 
+{\bf balance equation} for the amount of money contained in $G$ 
+during a given period of time, which is an \emph{additive} 
+quantity. Such balance equations constitute familiar tools in {\bf 
+Physics} (cf. Herrmann (2003)~\ct[p~7ff]{her2003}). Its structure 
+in the present case is given by\footnote{Here the symbols CU and 
+TU denote ``currency units'' and ``time units,'' respectively.} 
+%
+\[
+\left(\begin{array}{c}
+\text{{\bf rate\ of\ change\ in\ time}} \\
+\text{of\ the\ {\bf amount of money}}\\
+\text{in}\ G\ \text{[in CU/TU]}
+\end{array}\right)
+= \left(\begin{array}{c}
+\text{{\bf flux of money}} \\
+\text{into}\ G\ \text{[in CU/TU]}
+\end{array}\right)
++ \left(\begin{array}{c}
+\text{{\bf rate of generation of money}} \\
+\text{in}\ G\ \text{[in CU/TU]}
+\end{array}\right) \ .
+\]
+%
+Note that, with respect to $G$, both fluxes of money and rates of 
+generation of money can in principle possess either sign, positive 
+or negative. To deal with these quantitative issues properly, one 
+requires the technical tools of the {\bf differential and integral 
+calculus} which we will discuss at an elementary level in 
+Chs.~\ref{ch7} and~\ref{ch8}. We make contact here with the 
+interdisciplinary science of {\bf Econophysics} (cf., e.g., 
+Bouchaud and Potters (2003) \ct{boupot2003}), a very interesting 
+and challenging subject which, however, is beyond the scope of 
+these lecture notes.
+
+
+\medskip
+\noindent
+Leontief's input--output matrix model, and its possible extension 
+as outlined here, provide the quantitative basis for 
+considerations of economical ratios of the kind
+%
+\[
+\frac{\text{OUTPUT [in~$\text{units}$]}}{\text{INPUT 
+[in~$\text{units}$]}} \ ,
+\]
+%
+as mentioned in the Introduction. In addition, \emph{dimensionless}
+(scale-invariant) ratios of the form
+%
+\[
+\frac{\text{REVENUE [in~$\text{CU}$]}}{\text{COSTS 
+[in~$\text{CU}$]}} \ ,
+\]
+%
+%
+referred to as {\bf economic efficiency}, can be computed for and 
+compared between different economic systems and their underlying 
+production sectors. In Ch.~\ref{ch7} we will briefly reconsider 
+this issue.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

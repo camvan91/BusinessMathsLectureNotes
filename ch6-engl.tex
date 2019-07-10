@@ -1,0 +1,1008 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  File name: ch6-engl.tex
+%  Title:
+%  Version: 23.11.2017 (hve)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter[Elementary financial mathematics]%
+{Elementary financial mathematics}
+\lb{ch6}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\hfill\hbox{\fbox{\vbox{\hsize=10cm
+%Der Inhalt dieses Kapitels diskutiert grundlegende
+%finanzmathematische Themen,
+%welche im Rahmen des Drittsemestermoduls 0.3.2 RESO: Resources:
+%Financial Resources, Human Resources, Organisation wiederkehren
+%werden.
+%}}}
+
+\vspace{10mm}
+\noindent
+In this chapter we want to provide a brief introduction into some 
+basic concepts of {\bf financial mathematics}. As we will try to 
+emphasise, many applications of these concepts (that have 
+immediate practical relevance) are founded on only two simple and 
+easily accessible mathematical structures: the so-called 
+arithmetical and geometrical real-valued sequences and their 
+associated finite series.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Arithmetical and geometrical sequences and series]%
+{Arithmetical and geometrical sequences and series}
+\lb{sec:folgreih}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------------------------------------------------------------------
+\subsection{Arithmetical sequence and series}
+\lb{subsec:arithseq}
+%------------------------------------------------------------------
+An {\bf arithmetical sequence} of $n \in \mathbb{N}$ real 
+numbers~$a_{n} \in \mathbb{R}$,
+%
+\[
+(a_{n})_{n \in \mathbb{N}} \ ,
+\]
+%
+is defined by the property that the {\bf difference} $d$ between 
+neighbouring elements in the sequence be \emph{constant}, i.e., 
+for  $n>1$
+%
+\be
+\lb{arifolrek}
+\fbox{$\displaystyle
+a_{n}-a_{n-1}=:d=\text{constant}\neq 0 \ ,
+$}
+\ee
+%
+with $a_{n}, a_{n-1}, d \in \mathbb{R}$. Given this recursive 
+formation rule, one may infer the {\bf explicit representation} of 
+an {\bf arithmetical sequence} as
+%
+\be
+\lb{arifolex}
+a_{n} = a_{1} + (n-1)d
+\quad\text{with}\quad
+n \in \mathbb{N} \ .
+\ee
+%
+Note that any {\bf arithmetical sequence} is \emph{uniquely 
+determined} by the two free parameters $a_{1}$ and $d$, the 
+starting value of the sequence and the constant difference between 
+neighbours in the sequence, respectively. 
+Equation~(\ref{arifolex}) shows that the elements $a_{n}$ in a 
+non-trivial {\bf arithmetical sequence} exhibit either {\bf 
+linear} growth or {\bf linear} decay with $n$.
+
+\medskip
+\noindent
+When one calculates for an {\bf arithmetical sequence} of $n+1$ 
+real numbers the {\bf arithmetical mean} of the immediate 
+neighbours of any particular element $a_{n}$ (with $n \geq 2$), 
+one finds that
+%
+\be
+\frac{1}{2}\,(a_{n-1}+a_{n+1})
+= \frac{1}{2}\left(a_{1}+(n-2)d+a_{1}+nd\right)
+= a_{1}+(n-1)d
+= a_{n} \ .
+\ee
+%
+
+\medskip
+\noindent
+Summation of the first $n$ elements of an arbitrary {\bf 
+arithmetical sequence} of real numbers leads to a {\bf finite 
+arithmetical series},
+%
+\be
+S_{n} := a_{1}+a_{2}+\ldots+a_{n} = \sum_{k=1}^{n}a_{k}
+= \sum_{k=1}^{n}\left[a_{1} + (k-1)d\right]
+= na_{1}+ \frac{d}{2}\,(n-1)n \ .
+\ee
+%
+In the last algebraic step use was made of the Gau\ss ian {\bf 
+identity}\footnote{Analogously, the modified Gau\ss ian identity 
+$\displaystyle \sum_{k=1}^{n}(2k-1) \equiv n^{2}$ applies.} (cf., 
+e.g., Bosch (2003)~\ct[p~21]{bos2003})
+%
+\be
+\lb{id1}
+\fbox{$\displaystyle
+\sum_{k=1}^{n-1}k \equiv \frac{1}{2}\,(n-1)n \ .
+$}
+\ee
+%
+
+%------------------------------------------------------------------
+\subsection{Geometrical sequence and series}
+\lb{subsec:geomseq}
+%------------------------------------------------------------------
+A {\bf geometrical sequence} of $n \in \mathbb{N}$ real 
+numbers~$a_{n} \in \mathbb{R}$,
+%
+\[
+(a_{n})_{n \in \mathbb{N}} \ ,
+\]
+%
+is defined by the property that the {\bf quotient} $q$ between 
+neighbouring elements in the sequence be \emph{constant}, i.e., 
+for $n>1$
+%
+\be
+\lb{geofolrek}
+\fbox{$\displaystyle
+\frac{a_{n}}{a_{n-1}}=:q=\text{constant}\neq 0 \ ,
+$}
+\ee
+%
+with $a_{n}, a_{n-1} \in \mathbb{R}$ and $q \in 
+\mathbb{R}\backslash\{0,1\}$. Given this recursive formation rule, 
+one may infer the {\bf explicit representation} of a {\bf 
+geometrical sequence} as
+%
+\be
+\lb{geofolex}
+a_{n} = a_{1}q^{n-1}
+\quad\text{with}\quad
+n \in \mathbb{N}.
+\ee
+%
+Note that any {\bf geometrical sequence} is \emph{uniquely 
+determined} by the two free parameters $a_{1}$ and $q$, the 
+starting value of the sequence and the constant quotient between 
+neighbours in the sequence, respectively. 
+Equation~(\ref{geofolex}) shows that the elements $a_{n}$ in a 
+non-trivial {\bf geometrical sequence} exhibit either {\bf 
+exponential} growth or {\bf exponential} decay with $n$ (cf. 
+Sec.~\ref{subsec:exponentials}).
+
+\medskip
+\noindent
+When one calculates for a {\bf geometrical sequence} of $n+1$ real 
+numbers the {\bf geometrical mean} of the immediate neighbours of 
+any particular element $a_{n}$ (with $n \geq 2$), one finds that
+%
+\be
+\sqrt{a_{n-1}\cdot a_{n+1}}
+= \sqrt{a_{1}q^{n-2}\cdot a_{1}q^{n}}
+= a_{1}q^{n-1}
+= a_{n} \ .
+\ee
+%
+
+\medskip
+\noindent
+Summation of the first $n$ elements of an arbitrary {\bf 
+geometrical sequence} of real numbers leads to a {\bf finite 
+geometrical series},
+%
+\be
+S_{n} := a_{1}+a_{2}+\ldots+a_{n} = \sum_{k=1}^{n}a_{k}
+= \sum_{k=1}^{n}\left[a_{1}q^{k-1}\right]
+= a_{1}\sum_{k=0}^{n-1}q^{k}
+= a_{1}\,\frac{q^{n}-1}{q-1} \ .
+\ee
+%
+In the last algebraic step use was made of the {\bf identity} (cf., e.g., Bosch (2003)~\ct[p~27]{bos2003})
+%
+\be
+\lb{id2}
+\fbox{$\displaystyle
+\sum_{k=0}^{n-1}q^{k} \equiv \frac{q^{n}-1}{q-1}
+\quad\text{for}\quad
+q \in \mathbb{R}\backslash\{0,1\} \ .
+$}
+\ee
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Interest and compound interest]%
+{Interest and compound interest}
+\lb{sec:zins}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Let us consider a first rather simple interest model. Suppose 
+given an {\bf initial capital} of positive value $K_{0} > 0~{\rm 
+CU}$ paid into a bank account at some initial instant, and a time 
+interval consisting of $n \in \mathbb{N}$ {\bf periods} of equal 
+lengths. At the end of each period, the money in this bank account 
+shall earn a service fee corresponding to an {\bf interest rate} 
+of $p>0$ percent. Introducing the dimensionless {\bf interest 
+factor}\footnote{Inverting this defining relation for $q$ leads to 
+$p=100\cdot(q-1)$.}
+%
+\be
+q:=1+\frac{p}{100} > 1 \ ,
+\ee
+%
+one finds that by the end of the first interest period a total 
+capital of value (in CU)
+%
+\[
+K_{1} = K_{0} + K_{0}\cdot\frac{p}{100}
+= K_{0}\left(1+\frac{p}{100}\right) = K_{0}q
+\]
+%
+will have accumulated. When the entire time interval of $n$ 
+interest periods has ended, a {\bf final capital} worth of (in CU)
+%
+\be
+\lb{kap1}
+\fbox{$\displaystyle
+\text{recursively:}\ K_{n}=K_{n-1}q \ , \quad
+n\in\mathbb{N} \ ,
+$}
+\ee
+%
+will have accumulated, where $K_{n-1}$ denotes the capital (in CU) 
+accumulated by the end of $n-1$ interest periods. This recursive 
+representation of the growth of the initial capital $K_{0}$ due to 
+a total of $n$ interest payments and the effect of {\bf compound 
+interest} makes explicit the direct link with the mathematical 
+structure of a {\bf geometrical sequence} of real 
+numbers~(\ref{geofolrek}).
+
+\medskip
+\noindent
+It is a straightforward exercise to show that in this simple 
+interest model the final capital $K_{n}$ is related to the initial 
+capital $K_{0}$ by
+%
+\be
+\lb{kap2}
+\fbox{$\displaystyle
+\text{explicitly:}\ K_{n}=K_{0}q^{n} \ , \quad
+n\in\mathbb{N} \ .
+$}
+\ee
+%
+Note that this equation links the four non-negative quantities 
+$K_{n}$, $K_{0}$, $q$ and $n$ to one another. Hence, knowing the 
+values of three of these quantities, one may solve 
+Eq.~(\ref{kap2}) to obtain the value of the fourth. For example, 
+solving Eq.~(\ref{kap2}) for $K_{0}$ yields
+%
+\be
+K_{0} = \frac{K_{n}}{q^{n}} =: B_{0} \ .
+\ee
+%
+In this particular variant, $K_{0}$ is referred to as the {\bf 
+present value} $B_{0}$ of the final capital $K_{n}$; this is 
+obtained from $K_{n}$ by an $n$-fold division with the interest 
+factor $q$. 
+
+\medskip
+\noindent
+Further possibilities of re-arranging Eq.~(\ref{kap2}) are:
+%
+\begin{itemize}
+\item[(i)] Solving for the {\bf interest factor} $q$:
+%
+\be
+q = \sqrt[n]{\frac{K_{n}}{K_{0}}} \ ,
+\ee
+%
+\item[(ii)] Solving for the {\bf contract period} $n$:
+%
+\be
+n = \frac{\ln\left(K_{n}/K_{0}\right)}{\ln(q)} \ .
+\ee
+%
+\end{itemize}
+%
+{}From now on, $n \in \mathbb{N}$ shall denote the number of full years that have passed in a specific interest model.
+
+\medskip
+\noindent
+Now we turn to discuss a second, more refined interest model. Let 
+us suppose that an {\bf initial capital} $K_{0}>0~{\rm CU}$ earns 
+interest during one full year $m \in \mathbb{N}$ times at the 
+$m$th part of a {\bf nominal annual interest rate} $p_{\rm 
+nom}>0$. At the end of the first out of $m$ periods of equal 
+length $1/m$, the initial capital $K_{0}$ will thus have increased 
+to an amount
+%
+\[
+K_{1/m} = K_{0} + K_{0}\cdot\frac{p_{\rm nom}}{m\cdot 100}
+= K_{0}\left(1+\frac{p_{\rm nom}}{m\cdot 100}\right) \ .
+\]
+%
+By the end of the $k$th ($k \leq m$) out of $m$ periods the {\bf 
+account balance} will have become
+%
+\[
+K_{k/m} = K_{0}\left(1+\frac{p_{\rm nom}}{m\cdot 100}\right)^{k}
+\ ;
+\]
+%
+the interest factor $\displaystyle
+\left(1+\frac{p_{\rm nom}}{m\cdot 100}\right)$ will then have been 
+applied $k$ times to $K_{0}$. At the end of the full year, $K_{0}$ 
+in this interest model will have increased to
+%
+\[
+K_{1} = K_{m/m} = K_{0}\left(1+\frac{p_{\rm nom}}{m\cdot 100}
+\right)^{m} \ , \quad
+m \in \mathbb{N} \ .
+\]
+%
+This relation defines an {\bf effective interest factor}
+%
+\be
+\lb{qeff}
+q_{\rm eff} := \left(1+\frac{p_{\rm nom}}{m\cdot 100}
+\right)^{m} \ ,
+\ee
+%
+with associated {\bf effective annual interest rate}
+%
+\be
+\lb{peff}
+\fbox{$\displaystyle
+p_{\rm eff} = 100\cdot\left[\left(1+\frac{p_{\rm nom}}{m\cdot 100}
+\right)^{m}-1\right] \ , \quad m\in\mathbb{N} \ ,
+$
+}
+\ee
+%
+obtained from re-arranging $\displaystyle q_{\rm 
+eff}=1+\frac{p_{\rm eff}}{100}$.
+
+\medskip
+\noindent
+When, ultimately, $n \in \mathbb{N}$ full years will have passed 
+in the second interest model, the initial capital~$K_{0}$ will 
+have been transformed into a final capital of value
+%
+\be
+\lb{kap3}
+\fbox{$\displaystyle
+K_{n}=K_{0}\left(1+\frac{p_{\rm nom}}{m\cdot 100}\right)^{n\cdot m}
+= K_{0}q_{\rm eff}^{n} \ , \quad n,m\in\mathbb{N} \ .
+$}
+\ee
+%
+The {\bf present value} $B_{0}$ of $K_{n}$ is thus given by
+%
+\be
+B_{0} = \frac{K_{n}}{q_{\rm eff}^{n}} = K_{0} \ .
+\ee
+%
+
+\medskip
+\noindent
+Finally, as a third interest model relevant to applications in 
+{\bf Finance}, we turn to consider the concept of {\bf installment 
+savings}. For simplicity, let us restrict our discussion to the 
+case when $n \in \mathbb{N}$ equal {\bf installments} of 
+\emph{constant} value $E>0~{\rm CU}$ are paid into an account that 
+earns $p>0$ percent annual interest (i.e., $q>1$) at the beginning 
+of each of $n$~full years. The initial account balance be 
+$K_{0}=0~{\rm CU}$. At the end of a first full year in this 
+interest model, the account balance will have increased to
+%
+\[
+K_{1} = E + E\cdot\frac{p}{100}
+= E\left(1+\frac{p}{100}\right)
+= Eq \ .
+\]
+%
+At the end of two full years one finds, substituting for $K_{1}$,
+%
+\[
+K_{2} = (K_{1}+E)q = (Eq+E)q = E(q^{2}+q) = Eq(q+1) \ .
+\]
+%
+At the end of $n$ full years we have, recursively substituting for $K_{n-1}$, $K_{n-2}$, etc.,
+%
+\[
+K_{n} = (K_{n-1}+E)q
+= \cdots
+=E(q^{n}+\ldots+q^{2}+q)
+=Eq(q^{n-1}+\ldots+q+1)
+= Eq\sum_{k=0}^{n-1}q^{k} \ .
+\]
+%
+Using the identity~(\ref{id2}), since presently $q>1$, the {\bf 
+account balance} at the end of $n$ full years can be reduced to 
+the expression
+%
+\be
+\lb{kap4}
+\fbox{$\displaystyle
+K_{n}=Eq\,\frac{q^{n}-1}{q-1} \ , \quad
+q \in \mathbb{R}_{>1} \ , \quad
+n\in\mathbb{N} \ .
+$}
+\ee
+%
+The {\bf present value} $B_{0}$ associated with $K_{n}$ is 
+obtained by $n$-fold division of $K_{n}$ with the interest 
+factor~$q$:
+%
+\be
+B_{0} := \frac{K_{n}}{q^{n}}
+\overbrace{=}^{\text{Eq.}~\ref{kap4}}
+ = \frac{E(q^{n}-1)}{q^{n-1}(q-1)} \ .
+\ee
+%
+This gives the value of an initial capital $B_{0}$ which will grow 
+to the \emph{same} final value $K_{n}$ after $n$ annual interest 
+periods with constant interest factor $q>1$.
+
+\medskip
+\noindent
+Lastly, re-arranging Eq.~(\ref{kap4}) to solve for the {\bf 
+contract period} $n$ yields.
+%
+\be
+n = \frac{\ln\left[1+(q-1)(K_{n}/Eq)\right]}{\ln(q)} \ .
+\ee
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Redemption payments in constant annuities]%
+{Redemption payments in constant annuities}
+\lb{sec:tilg}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The starting point of the next discussion be a {\bf mortgage loan} 
+of amount $R_{0}>0~{\rm CU}$ that an {\bf economic agent} borrowed 
+from a bank at the obligation of annual service payments of $p>0$ 
+percent (i.e., $q>1$) on the {\bf remaining debt}. We suppose that 
+the contract between the agent and the bank fixes the following 
+conditions:
+%
+\begin{itemize}
+\item[(i)]~the first {\bf redemption payment} $T_{1}$ amount to 
+$t>0$ percent of the mortgage $R_{0}$,
+
+\item[(ii)]~the remaining debt shall be paid back to the bank in 
+\emph{constant} {\bf annuities} of value $A>0~{\rm CU}$ at the end 
+of each full year that has passed.
+\end{itemize}
+%
+The {\bf annuity} $A$ is defined as the \emph{sum} of the variable 
+$n$th {\bf interest payment} $Z_{n} > 0~{\rm CU}$ and the variable 
+$n$th {\bf redemption payment} $T_{n} > 0~{\rm CU}$. In the 
+present model we impose on the annuity the condition that it be 
+\emph{constant} across full years,
+%
+\be
+\lb{annuity1}
+A = Z_{n} + T_{n}
+\stackrel{!}{=} \text{constant} \ .
+\ee
+%
+For $n=1$, for example, we thus obtain
+%
+\be
+\lb{annuity2}
+A = Z_{1} + T_{1}
+= R_{0}\cdot\frac{p}{100} + R_{0}\cdot\frac{t}{100}
+= R_{0}\left(\frac{p+t}{100}\right)
+= R_{0}\left[(q-1)+\frac{t}{100}\right]
+\stackrel{!}{=} \text{constant} \ .
+\ee
+%
+For the first full year of a running mortgage contract, the 
+interest payment, the redemption payment, and, following the 
+payment of a first annuity, the remaining debt take the values
+%
+\begin{eqnarray*}
+Z_{1} & = & R_{0}\cdot\frac{p}{100} \ = \ R_{0}(q-1) \\
+%
+T_{1} & = & A - Z_{1} \\
+%
+R_{1} & = & R_{0} + Z_{1} - A
+\ \overbrace{=}^{\text{substitute for}\ Z_{1}}
+\ R_{0} + R_{0}\cdot\frac{p}{100} - A
+\ = \ R_{0}q - A \ .
+\end{eqnarray*}
+%
+By the end of a second full year, these become
+%
+\begin{eqnarray*}
+Z_{2} & = & R_{1}(q-1) \\
+%
+T_{2} & = & A - Z_{2} \\
+%
+R_{2} & = & R_{1} + Z_{2} - A
+\ \overbrace{=}^{\text{substitute for}\ Z_{2}}
+\ R_{1}q - A
+\ \overbrace{=}^{\text{substitute for}\ R_{1}}
+\ R_{0}q^{2} - A(q+1) \ .
+\end{eqnarray*}
+%
+At this stage, it has become clear according to which patterns the 
+different quantities involved in the redemption payment model need 
+to be formed. The {\bf interest payment} for the $n$th full year 
+in a mortgage contract of constant anuities amounts to 
+(recursively)
+%
+\be
+\lb{zinsn}
+Z_{n}=R_{n-1}(q-1) \ , \quad n\in\mathbb{N} \ ,
+\ee
+%
+where $R_{n-1}$ denotes the remaining debt at the end of the 
+previous full year. The {\bf redemption payment} for full year $n$ 
+is then given by (recursively)
+%
+\be
+\lb{tilgn}
+T_{n} = A - Z_{n} \ , \quad n\in\mathbb{N} \ .
+\ee
+%
+The {\bf remaining debt} at the end of the $n$th full year then is 
+(in CU)
+%
+\be
+\lb{remdebtrek}
+\fbox{$\displaystyle
+\text{recursively:} \quad
+R_{n} = R_{n-1}+Z_{n}-A
+\ = \ R_{n-1}q-A \ , \quad n\in\mathbb{N} \ .
+$}
+\ee
+%
+By successive backward substitution for $R_{n-1}$, $R_{n-2}$, etc.,
+$R_{n}$ can be re-expressed as
+%
+\[
+R_{n} = R_{0}q^{n}-A(q^{n-1}+\ldots+q+1)
+= R_{0}q^{n}-A\sum_{k=0}^{n-1}q^{k} \ .
+\]
+%
+Now employing the identity~(\ref{id2}), we finally obtain (since $q>1$)
+%
+\be
+\lb{remdebtex}
+\fbox{$\displaystyle
+\text{explicitly:} \quad
+R_{n} = R_{0}q^{n}-A\,\frac{q^{n}-1}{q-1} \ , \quad
+n\in\mathbb{N} \ .
+$}
+\ee
+%
+
+\medskip
+\noindent
+All the formulae we have now derived
+%, in the present context,
+for computing the values of the quantities $\{n, Z_{n}, T_{n}, 
+R_{n}\}$ form the basis of a formal {\bf redemption payment plan}, 
+given by
+%
+\begin{center}
+		\begin{tabular}{c||c|c|c}
+		$n$ & $Z_{n}$ [CU] & $T_{n}$ [CU] & $R_{n}$ [CU] \\
+		\hline\hline
+		$0$ & -- & -- & $R_{0}$ \\
+		$1$ & $Z_{1}$ & $T_{1}$ & $R_{1}$ \\
+		$2$ & $Z_{2}$ & $T_{2}$ & $R_{2}$ \\
+		\vdots & \vdots & \vdots & \vdots
+		\end{tabular} \ ,
+\end{center}
+%
+a standard scheme that banks must make available to their mortgage 
+customers for the purpose of financial orientation.
+
+\medskip
+\noindent
+\underline{\bf Remark:} For known values of the free parameters 
+$R_{0}>0~{\rm CU}$, $q>1$ and $A>0~{\rm CU}$, the simple recursive 
+formulae (\ref{zinsn}), (\ref{tilgn}) and (\ref{remdebtrek}) can 
+be used to implement a redemption payment plan in a modern 
+spreadsheet programme such as EXCEL or OpenOffice.
+
+\medskip
+\noindent
+We emphasise the following observation concerning 
+Eq.~(\ref{remdebtex}): since the constant annuity $A$ contains 
+implicitly a factor $(q-1)$ [cf. Eq.~(\ref{annuity2})], the two 
+competing terms in this relation each grow exponentially with $n$. 
+For the redemption payments to eventually terminate, it is thus 
+essential to fix the free parameter $t$ (for known $p>0 
+\Leftrightarrow q>1$) in such a way that the second term on the 
+right-hand side of Eq.~(\ref{remdebtex}) is given the possibility 
+to catch up with the first as $n$ progresses (the latter of which 
+has a head start of $R_{0}>0~{\rm CU}$ at $n=0$). The necessary 
+condition following from the requirement that $R_{n} 
+\stackrel{!}{\leq} R_{n-1}$ is thus $t>0$.
+
+\medskip
+\noindent
+Equation~(\ref{remdebtex}) links the five non-negative quantities 
+$R_{n}$, $R_{0}$, $q$, $n$ and $A$ to one another. Given one knows 
+the values of four of these, one can solve for the fifth. For 
+example:
+%
+\begin{itemize}
+\item[(i)] Calculation of the {\bf contract period} $n$ of a 
+mortgage contract, knowing the mortgage $R_{0}$, the interest 
+factor $q$ and the annuity $A$. Solving the condition  $R_{n} 
+\stackrel{!}{=} 0$ imposed on $R_{n}$ for $n$ yields (after a few 
+algebraic steps)
+%
+\be
+n = \frac{\ln\left(1+\frac{p}{t}\right)}{\ln(q)} \ ;
+\ee
+%
+the contract period is thus independent of the value of the 
+mortgage loan, $R_{0}$.
+
+\item[(ii)] Evaluation of the {\bf annuity} $A$, knowing the 
+contract period $n$, the mortgage loan~$R_{0}$, and the interest 
+factor $q$. Solving the condition $R_{n} \stackrel{!}{=} 0$ 
+imposed on $R_{n}$ for $A$ immediately yields
+%
+\be
+\lb{annuity3}
+A = \frac{q^{n}(q-1)}{q^{n}-1}\,R_{0} \ .
+\ee
+%
+Now equating the two expressions (\ref{annuity3}) and
+(\ref{annuity2}) for the annuity $A$, one finds in addition that
+%
+\be
+\frac{t}{100} = \frac{q-1}{q^{n}-1} \ .
+\ee
+%
+\end{itemize}
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Pension calculations]{Pension calculations}
+\lb{sec:rente}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Quantitative models for {\bf pension calculations} assume given an 
+{\bf initial capital} $K_{0}>0~{\rm CU}$ that was paid into a bank 
+account at a particular moment in time. The issue is to monitor 
+the subsequent evolution in {\bf discrete time} $n$ of the {\bf 
+account balance} $K_{n}$ (in CU), which is subjected to two 
+competing influences: on the one-hand side, the bank account earns 
+interest at an {\bf annual interest rate} of $p>0$ percent (i.e., 
+$q>1$), on the other, it is supposed that throughout one full year 
+a total of~$m \in \mathbb{N}$ pension payments of the 
+\emph{constant} {\bf amount}~$a$ are made from this bank account, 
+always at the beginning of each of $m$ intervals of equal duration 
+per year.
+
+\medskip
+\noindent
+Let us begin by evaluating the amount of interest earned per year 
+by the bank account. An important point in this respect is the 
+fact that throughout one full year there is a total of $m$ 
+deductions of value $a$ from the bank account, i.e., in general 
+the account balance does \emph{not} stay constant throughout that 
+year but rather decreases in discrete steps. For this reason, the 
+account is credited by the bank with interest only at the $m$th 
+part of $p>0$ percent for each interval (out of the total of $m$) 
+that has passed, with \emph{no} compound interest effect. Hence, 
+at the end of the first out of $m$ intervals per year the bank 
+account has earned interest worth of (in CU)
+%
+\[
+Z_{1/m} = (K_{0}-a)\cdot\frac{p}{m\cdot 100}
+= (K_{0}-a)\,\frac{(q-1)}{m} \ .
+\]
+%
+The interest earned for the $k$th interval (out of $m$; $k \leq m$) is then given by
+%
+\[
+Z_{k/m} = (K_{0}-ka)\,\frac{(q-1)}{m} \ .
+\]
+%
+Summation over the contributions of each of the $m$ intervals to 
+the interest earned then yields for the entire interest earned 
+during the first full year (in CU)
+%
+\[
+Z_{1} = \sum_{k=1}^{m}Z_{k/m}
+= \sum_{k=1}^{m}(K_{0}-ka)\,\frac{(q-1)}{m}
+= \frac{(q-1)}{m}\left[mK_{0}-a\sum_{k=1}^{m}k\right] \ .
+\]
+%
+By means of substitution from the identity~(\ref{id1}), this 
+result can be recast into the equivalent form
+%
+\be
+\lb{rentezins1}
+Z_{1} = \left[K_{0}-\frac{1}{2}\,(m+1)a\right](q-1) \ .
+\ee
+%
+Note that this quantity decreases linearly with the number of 
+deductions $m$ made per year resp.~with the pension payment 
+amount~$a$.
+
+\medskip
+\noindent
+One now finds that the account balance at the end of the first 
+full year that has passed is given by
+%
+\[
+K_{1} = K_{0} - ma + Z_{1}
+\overbrace{=}^{\text{Eq.}~(\ref{rentezins1})} K_{0}q
+- \left[m+\frac{1}{2}\,(m+1)(q-1)\right]a \ .
+\]
+%
+At the end of a second full year of the pension payment contract the interest earned is
+%
+\[
+Z_{2} = \left[K_{1}-\frac{1}{2}\,(m+1)a\right](q-1) \ ,
+\]
+%
+while the account balance amounts to
+%
+\[
+K_{2} = K_{1} - ma + Z_{2}
+\overbrace{=}^{\text{substitute for}\ K_{1}
+\ \text{and}\ Z_{2}} K_{0}q^{2}
+- \left[m+\frac{1}{2}\,(m+1)(q-1)\right]a(q+1) \ .
+\]
+%
+At this stage, certain fairly simple patterns for the {\bf 
+interest earned} during full year $n$, and the {\bf account 
+balance} after $n$ full years, reveal themselves. For $Z_{n}$ we 
+have
+%
+\be
+Z_{n} = \left[K_{n-1}-\frac{1}{2}\,(m+1)a\right](q-1) \ ,
+\ee
+%
+and for $K_{n}$ one obtains
+
+%
+\[
+K_{n} = K_{n-1} - ma + Z_{n}
+\overbrace{=}^{\text{substitute for}\ K_{n-1}
+\ \text{and}\ Z_{n}} K_{0}q^{n}
+- \left[m+\frac{1}{2}\,(m+1)(q-1)\right]a\sum_{k=0}^{n-1}q^{k} \ .
+\]
+%
+The latter result can be re-expressed upon substitution from the 
+identity~(\ref{id2}). Thus, $K_{n}$ can finally be given by
+%
+\be
+\lb{pensionex}
+\fbox{$\displaystyle
+\text{explicitly:} \quad
+K_{n} = K_{0}q^{n} - \left[m+\frac{1}{2}\,(m+1)(q-1)\right]
+a\,\frac{q^{n}-1}{q-1} \ , \quad
+n, m \in \mathbb{N} \ .
+$
+}
+\ee
+%
+In a fashion practically identical to our discussion of the 
+redemption payment model in Sec.~\ref{sec:tilg}, the two competing 
+terms on the right-hand side of Eq.~(\ref{pensionex}) likewise 
+exhibit exponential growth with the number $n$ of full years 
+passed. Specifically, it depends on the values of the parameters 
+$K_{0} > 0~{\rm CU}$, $q>1$, $a>0~{\rm CU}$, as well as $m \geq 1$,
+whether the second term eventually manages to catch up with the 
+first as $n$ progresses (the latter of which, in this model, is 
+given a head start of value $K_{0} > 0~{\rm CU}$ at $n=0$).
+
+\medskip
+\noindent
+We remark that Eq.~(\ref{pensionex}), again, may be algebraically 
+re-arranged at one's convenience (as long as division by zero is 
+avoided). For example:
+%
+\begin{itemize}
+
+\item[(i)] The {\bf duration} $n$ (in full years) of a particular 
+pension contract is obtained from solving the condition 
+$K_{n}\stackrel{!}{=}0$ accordingly. Given that 
+$[\ldots]a-K_{0}(q-1)>0$, one thus finds\footnote{To avoid 
+notational overload, the brackets $[\ldots]$ here represent the 
+term $\left[m+\frac{1}{2}\,(m+1)(q-1)\right]$.}
+%
+\be
+\lb{rentelaufzeit}
+n = \frac{\ln\left(\frac{[\ldots]a}{
+[\ldots]a-K_{0}(q-1)}\right)}{\ln(q)} \ .
+\ee
+%
+
+\item[(ii)] The {\bf present value} $B_{0}$ of a pension scheme 
+results from the following consideration: for fixed interest 
+factor $q>1$, which initial capital $K_{0} > 0~{\rm CU}$ must be 
+paid into a bank account such that for a duration of $n$ full 
+years one can receive payments of constant amount $a$ at the 
+beginning of each of $m$ intervals (of equal length) per year? The 
+value of $B_{0}=K_{0}$ is again obtained from imposing on 
+Eq.~(\ref{pensionex}) the condition $K_{n}\stackrel{!}{=}0$ and 
+solving for $K_{0}$. This yields
+%
+\be
+\lb{rentebarwert}
+B_{0} = K_{0} = \left[m+\frac{1}{2}\,(m+1)(q-1)\right]a\,
+\frac{q^{n}-1}{q^{n}(q-1)} \ .
+\ee
+%
+
+\item[(iii)] The idea of so-called {\bf everlasting pension 
+payments} of amount $a_{\rm ever} >0~{\rm CU}$ is based on the 
+strategy to consume only the annual interest earned by an initial 
+capital $K_{0}>0~{\rm CU}$ residing in a bank account with 
+interest factor $q>1$. Imposing now on Eq.~(\ref{pensionex}) the 
+condition $K_{n}\stackrel{!}{=}K_{0}$ to hold for all values of 
+$n$, and then solving for $a$, yields the result
+%
+\be
+a_{\rm ever} = \frac{q-1}{m+\frac{1}{2}\,(m+1)(q-1)}\,K_{0} \ ;
+\ee
+%
+Note that, naturally, $a_{\rm ever}$ is directly proportional to 
+the initial capital $K_{0}$!
+
+\end{itemize}
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Linear and declining-balance depreciation methods]%
+{Linear and declining-balance depreciation methods}
+\lb{sec:abschr}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Attempts at the quantitative description of the process of 
+declining material value of industrial goods, properties or other 
+assets, of {\bf initial value} $K_{0}>0~{\rm CU}$, are referred to 
+as {\bf depreciation}. International tax laws generally provide 
+investors with a choice between two particular mathematical 
+methods of calculating {\bf depreciation}. We will discuss 
+these options in turn.
+
+%------------------------------------------------------------------
+\subsection{Linear depreciation method}
+%------------------------------------------------------------------
+When the {\bf initial value} $K_{0}>0~{\rm CU}$ is supposed to 
+decline to $0~{\rm CU}$ in the space of $N$ full years by equal 
+annual amounts, the {\bf remaining value} $R_{n}$ (in CU) at the 
+end of $n$ full years is described by
+%
+\be
+\fbox{$\displaystyle
+R_{n} = K_{0} - n\left(\frac{K_{0}}{N}\right) \ ,
+\quad n=1,\ldots,N \ .
+$}
+\ee
+%
+Note that for the difference of remaining values for years 
+adjacent one obtains $\displaystyle R_{n}-R_{n-1}
+= -\left(\frac{K_{0}}{N}\right) =: d < 0$. The underlying 
+mathematical structure of the {\bf straight line depreciation 
+method} is thus an {\bf arithmetical sequence} of real numbers, 
+with constant \emph{negative} difference $d$ between neighbouring 
+elements (cf. Sec.~\ref{subsec:arithseq}).
+
+%------------------------------------------------------------------
+\subsection{Declining-balance depreciation method}
+%------------------------------------------------------------------
+The foundation of the second depreciation method to be described 
+here, for an industrial good of {\bf initial value} $K_{0}>0~{\rm 
+CU}$, is the idea that per year the value declines by a certain 
+{\bf percentage rate} $p>0$ of the value of the good during the 
+previous year. Introducing a dimensionless {\bf depreciation 
+factor} by
+%
+\be
+q := 1-\frac{p}{100} < 1 \ ,
+\ee
+%
+the {\bf remaining value} $R_{n}$ (in CU) after $n$ full years 
+amounts to
+%
+\be
+\lb{deprrec}
+\fbox{$\displaystyle
+\text{recursively:} \quad
+R_{n} = R_{n-1}q \ , \quad R_{0} \equiv K_{0} \ ,\quad
+n\in\mathbb{N} \ .
+$}
+\ee
+%
+The underlying mathematical structure of the {\bf declining 
+balance depreciation method} is thus a {\bf geo\-metrical 
+sequence} of real numbers, with constant ratio $0<q<1$ between 
+neighbouring elements (cf. Sec.~\ref{subsec:geomseq}). With 
+increasing $n$ the values of these elements become ever smaller. 
+By means of successive backward substitution 
+expression~(\ref{deprrec}) can be transformed to
+%
+\be
+\lb{deprex}
+\fbox{$\displaystyle
+\text{explicitly:} \quad
+R_{n} = K_{0}q^{n} \ , \quad 0 < q < 1 \ , \quad
+n\in\mathbb{N} \ .
+$}
+\ee
+%
+
+\medskip
+\noindent
+{}From Eq.~(\ref{deprex}), one may derive results concerning the 
+following questions of a quantitative nature:
+
+%
+\begin{itemize}
+
+\item[(i)] Suppose given a depreciation factor $q$ and a projected 
+remaining value $R_{n}$ for some industrial good. After which {\bf 
+depreciation period} $n$ will this value be attained? One finds
+%
+\be
+n = \frac{\ln\left(R_{n}/K_{0}\right)}{\ln(q)} \ .
+\ee
+%
+
+\item[(ii)] Knowing a projected depreciation period $n$ and 
+corresponding remaining value $R_{n}$, at which {\bf percentage 
+rate} $p>0$ must the depreciation method be operated? This yields
+%
+\be
+q = \sqrt[n]{\frac{R_{n}}{K_{0}}}
+\quad\Rightarrow\quad
+p = 100 \cdot \left(1-\sqrt[n]{\frac{R_{n}}{K_{0}}}\right) \ .
+\ee
+%
+
+\end{itemize}
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Summarising formula]{Summarising formula}
+\lb{sec:zus}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+To conclude this chapter, let us summarise the results on {\bf 
+elementary financial mathematics} that we derived along the way. 
+Remarkably, these can be condensed in a single formula which 
+contains the different concepts discussed as special cases. This 
+formula, in which $n$ represents the number of full years that 
+have passed, is given by (cf. Zeh--Marschke (2010) \ct{zeh2010}):
+%
+\be
+\lb{fincmastereq}
+\fbox{$\displaystyle
+K_{n} = K_{0}q^{n} + R\,\frac{q^{n}-1}{q-1} \ , \quad
+q \in \mathbb{R}_{>0}\backslash\{1\} \ , \quad
+n\in\mathbb{N} \ .
+$}
+\ee
+%
+
+\medskip
+\noindent
+The different special cases contained therein are:
+%
+\begin{itemize}
+\item[(i)] {\bf Compound interest} for an initial capital 
+$K_{0}>0~{\rm CU}$: with $R=0$ and $q>1$, Eq.~(\ref{fincmastereq}) 
+reduces to Eq.~(\ref{kap2}).
+
+\item[(ii)] {\bf Installment savings} with constant installments 
+$E>0~{\rm CU}$: with $K_{0}=0~{\rm CU}$, $q>1$ and $R=Eq$,
+Eq.~(\ref{fincmastereq}) reduces to Eq.~(\ref{kap4}).
+
+\item[(iii)] {\bf Redemption payments in constant annuities}:
+with $K_{0}=-R_{0}<0~{\rm CU}$, $q>1$ and $R=A>0~{\rm CU}$, 
+Eq.~(\ref{fincmastereq}) reduces to the \emph{negative (!)} of 
+Eq.~(\ref{remdebtex}). In this dual formulation, remaining debt 
+$K_{n}=-R_{n}$ is (meaningfully) expressed as a negative account 
+balance.
+
+\item[(iv)] {\bf Pension payments} of constant amount $a>0~{\rm 
+CU}$: with $q>1$ and $\displaystyle R=-\left[m
++\frac{1}{2}\,(m+1)(q-1)\right]a$, Eq.~(\ref{fincmastereq}) 
+transforms to Eq.~(\ref{pensionex}).
+
+\item[(v)] {\bf Declining balance depreciation} of an asset of 
+initial value $K_{0}>0~{\rm CU}$: with $R=0$ and $0<q<1$, 
+Eq.~(\ref{fincmastereq}) converts to Eq.~(\ref{deprex}) for the 
+remaining value $K_{n}=R_{n}$.
+
+\end{itemize}
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,1611 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  File name: ch7-engl.tex
+%  Title:
+%  Version: 11.09.2015 (hve)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter[Differential calculus of real-valued functions]%
+{Differential calculus of real-valued functions of one real 
+variable}
+\lb{ch7}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{10mm}
+\noindent
+In Chs.~\ref{ch1} to \ref{ch5} of these lecture notes, we confined 
+our considerations to functional relationships between {\bf INPUT 
+quantities} and {\bf OUTPUT quantities} of a \emph{linear} nature. 
+In this chapter now, we turn to discuss characteristic properties 
+of truly {\bf non-linear functional relationships} between one 
+{\bf INPUT quantity} and one {\bf OUTPUT quantity}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Real-valued functions]%
+{Real-valued functions of one real variable}
+\lb{sec:fkt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Let us begin by introducing the concept of a {\bf real-valued 
+function of one real variable}. This constitutes a special 
+kind of a {\bf mapping}\footnote{Cf. our introduction in 
+Ch.~\ref{ch2} of matrices as a particular class of mathematical 
+objects.} that needs to satisfy the following simple but very 
+strict rule:
+
+\medskip
+a mapping $f$ that assigns to \emph{every element} $x$ from a 
+subset $D$ of the real numbers $\mathbb{R}$ (i.e., $D \subseteq 
+\mathbb{R}$) \emph{one and only one element} $y$ from a second 
+subset $W$ of the real numbers $\mathbb{R}$ (i.e., $W\subseteq 
+\mathbb{R}$).
+
+\medskip
+\noindent
+\underline{\bf Def.:}
+A {\bf unique} mapping $f$ of a subset $D\subseteq\mathbb{R}$ of 
+the real numbers onto a subset $W\subseteq\mathbb{R}$ of the real 
+numbers,
+%
+\be
+\fbox{$\displaystyle
+f\!: D \rightarrow W \ ,
+\hspace{10mm} x \mapsto y=f(x)
+$}
+\ee
+%
+is referred to as a {\bf real-valued function of one real 
+variable}.
+
+\medskip
+\noindent
+We now fix some terminology concerning the concept of a 
+real-valued function of one real variable:
+%\pagebreak
+%
+\begin{itemize}
+\item $D$: {\bf domain} of $f$,
+\item $W$: {\bf target space} of $f$,
+\item $x \in D$: {\bf independent variable} of $f$, also referred 
+to as the \emph{argument} of $f$,
+\item $y \in W$: {\bf dependent variable} of $f$,
+\item $f(x)$: {\bf mapping prescription},
+\item {\bf graph} of $f$: the set of pairs of values 
+$G=\{(x,f(x))|x \in D\} \subseteq \mathbb{R}^{2}$.
+\end{itemize}
+%
+
+\medskip
+\noindent
+For later analysis of the mathematical properties of real-valued 
+functions of one real variable, we need to address a few more 
+technical issues.
+
+\medskip
+\noindent
+\underline{\bf Def.:}
+Given a mapping $f$ that is {\bf one-to-one and onto}, with domain 
+$D(f) \subseteq \mathbb{R}$ and target space $W(f) \subseteq 
+\mathbb{R}$, not only is every $x \in D(f)$ assigned to one and 
+only one $y \in W(f)$, but also every $y \in W(f)$ is assigned to 
+one and only one $x \in D(f)$. In this case, there exists an 
+associated mapping $f^{-1}$, with $D(f^{-1})=W(f)$ and 
+$W(f^{-1})=D(f)$, which is referred to as the {\bf inverse 
+function} of $f$.
+
+\medskip
+\noindent
+\underline{\bf Def.:}
+A real-valued function $f$ of one real variable $x$ is {\bf continuous} at some value $x \in D(f)$ when for $\Delta x \in \mathbb{R}_{>0}$ the condition
+%
+\be
+\lim_{\Delta x \to 0}f(x-\Delta x)
+= \lim_{\Delta x \to 0}f(x+\Delta x)
+= f(x)
+\ee
+%
+obtains, i.e., when at $x$ the left and right limits of the 
+function $f$ coincide and are equal to the value $f(x)$. A 
+real-valued function $f$ as such is {\bf continuous} when $f$ is 
+continuous \emph{for all} $x \in D(f)$.
+
+\medskip
+\noindent
+\underline{\bf Def.:}
+When a real-valued function $f$ of one real variable $x$ satisfies 
+the condition
+%
+\be
+f(a) < f(b)
+\quad\quad\text{\emph{for all}}\quad
+a,b \in D(f)\ \text{with}\ a < b \ ,
+\ee
+%
+then $f$ is called {\bf strictly monotonously increasing}. When, 
+however, $f$ satisfies the condition
+%
+\be
+f(a) > f(b)
+\quad\quad\text{\emph{for all}}\quad
+a,b \in D(f)\ \text{with}\ a < b \ ,
+\ee
+%
+then $f$ is called {\bf strictly monotonously decreasing}.
+
+\medskip
+\noindent
+Note, in particular, that real-valued functions of one real 
+variable that are strictly monotonous and continous are always 
+one-to-one and onto and, therefore, are invertible.
+
+\medskip
+\noindent
+In the following, we briefly review five elementary classes of 
+real-valued functions of one real variable that find frequent 
+application in the modelling of quantitative problems in {\bf 
+economic theory}.
+
+%------------------------------------------------------------------
+\subsection{Polynomials of degree $n$}
+\lb{subsec:polynomials}
+%------------------------------------------------------------------
+Polynomials of degree $n$ are real-valued functions of one real variable of the form
+%
+\be
+\lb{npol}
+\fbox{$\displaystyle\begin{array}{c}
+y = f(x) = a_{n}x^{n}+a_{n-1}x^{n-1}+\ldots
++a_{i}x^{i}+\ldots+a_{2}x^{2}+a_{1}x+a_{0}
+\\[5mm]
+\text{with}\ a_{i}\in\mathbb{R},\ i=1,\ldots,n,
+\ \ n\in\mathbb{N},\ a_{n}\neq 0 \ .
+\end{array}
+$}
+\ee
+%
+Their domain comprises the entire set of real numbers, i.e., 
+$D(f)=\mathbb{R}$. The extent of their target space depends 
+specifically on the values of the real constant {\bf coefficients} 
+$a_{i}\in\mathbb{R}$. Functions in this class possess a maximum of 
+$n$ real {\bf roots}.
+
+%------------------------------------------------------------------
+\subsection{Rational functions}
+%------------------------------------------------------------------
+Rational functions are constructed by forming the {\bf ratio of two polynomials} of degrees $m$ resp.\ $n$, i.e.,
+%
+\be
+\fbox{$\displaystyle\begin{array}{c}
+y = f(x) = \displaystyle{\frac{p_{m}(x)}{q_{n}(x)}
+= \frac{a_{m}x^{m}+\ldots+a_{1}x+a_{0}}{
+b_{n}x^{n}+\ldots+b_{1}x+b_{0}}}
+\\[5mm]
+\text{with}\ a_{i},b_{j}\in\mathbb{R},\ i=1,\ldots,m,
+\ j=1,\ldots,n,
+\ \ m,n\in\mathbb{N},\ a_{m},b_{n}\neq 0 \ .
+\end{array}
+$}
+\ee
+%
+Their domain is given by $D(f) = \mathbb{R} \backslash 
+\{x|q_{n}(x)=0\}$. When for the degrees $m$ and $n$ of the 
+polynomials $p_{m}(x)$ and $q_{n}(x)$ we have
+%
+\begin{itemize}
+\item[(i)] $m<n$, then $f$ is referred to as a {\bf proper 
+rational function}, or
+\item[(ii)] $m\geq n$, then $f$ is referred to as an {\bf improper 
+rational function}.
+\end{itemize}
+%
+In the latter case, application of \emph{polynomial division} 
+leads to a separation of $f$ into a purely polynomial part and a 
+proper rational part. The {\bf roots} of $f$ always correspond to 
+those roots of the numerator polynomial $p_{m}(x)$ for which 
+simultaneously $q_{n}(x) \neq 0$ applies. The roots of the 
+denominator polynomial $q_{n}(x)$ constitute {\bf poles} of $f$. 
+Proper rational functions always tend for very small (i.e., $x \to 
+-\infty$) and for very large (i.e., $x \to +\infty$) values of 
+their argument to zero.
+%{\bf Asymptoten}
+
+%------------------------------------------------------------------
+\subsection{Power-law functions}
+%------------------------------------------------------------------
+Power-law functions exhibit the specific structure given by
+%
+\be
+\fbox{$\displaystyle
+y = f(x) = x^{\alpha} \quad
+\text{with}\ \alpha\in\mathbb{R} \ .
+$}
+\ee
+%
+We here confine ourselves to cases with domains $D(f) = 
+\mathbb{R}_{>0}$, such that for the coresponding target spaces we 
+have $W(f) = \mathbb{R}_{>0}$. Under these conditions, power-law 
+functions are strictly monotonously increasing when $\alpha > 0$, 
+and strictly monotonously decreasing when $\alpha < 0$. Hence, 
+they are inverted by $y = \sqrt[\alpha]{x} = x^{1/\alpha}$. There 
+do \emph{not} exist any roots under the conditions stated here.
+
+%------------------------------------------------------------------
+\subsection{Exponential functions}
+\lb{subsec:exponentials}
+%------------------------------------------------------------------
+Exponential functions have the general form
+%
+\be
+\fbox{$\displaystyle
+y = f(x) = a^{x} \quad
+\text{with}\ a\in\mathbb{R}_{>0}\backslash\{1\} \ .
+$}
+\ee
+%
+Their domain is $D(f)=\mathbb{R}$, while their target space is 
+$W(f)=\mathbb{R}_{>0}$. They exhibit strict monotonous increase 
+for $a>1$, and strict monotonous decrease for $0<a<1$. Hence, they 
+too are invertible. Their $y$-intercept is generally located at 
+$y=1$. For $a>1$, exponential functions are also known as {\bf 
+growth functions}.
+
+\medskip
+\noindent
+\underline{Special case:} When the \emph{constant (!)} base number 
+is chosen to be $a=e$, where $e$ denotes the irrational {\bf 
+Euler's number} (according to the Swiss mathematician 
+\href{http://turnbull.mcs.st-and.ac.uk/history/Biographies/Euler.html}{Leonhard Euler, 1707--1783}) defined by the infinite series
+%
+\[
+e := \sum_{k=0}^{\infty}\frac{1}{k!}
+= \frac{1}{0!} + \frac{1}{1!} + \frac{1}{2!}
++ \frac{1}{3!} + \ldots \ ,
+\]
+%
+one obtains the {\bf natural exponential function}
+%
+\be
+y=f(x)=e^{x} =: \exp(x) \ .
+\ee
+%
+In analogy to the definition of $e$, the relation
+%
+\[
+e^{x} = \exp(x)
+= \sum_{k=0}^{\infty}\frac{x^{k}}{k!}
+= \frac{x^{0}}{0!} + \frac{x^{1}}{1!} + \frac{x^{2}}{2!}
++ \frac{x^{3}}{3!} + \ldots
+\]
+%
+applies.
+
+%------------------------------------------------------------------
+\subsection{Logarithmic functions}
+%------------------------------------------------------------------
+Logarithmic functions, denoted by
+%
+\be
+\fbox{$\displaystyle
+y = f(x) = \log_{a}(x) \quad
+\text{with}\ a\in\mathbb{R}_{>0}\backslash\{1\} \ ,
+$}
+\ee
+%
+are defined as \emph{inverse functions} of the strictly monotonous 
+exponential functions $y=f(x)=a^{x}$ --- and vice versa. 
+Correspondingly, $D(f)=\mathbb{R}_{>0}$ and $W(f)=\mathbb{R}$ 
+apply. Strictly monotonously increasing behaviour is given when 
+$a>1$, strictly monotonously decreasing behaviour when $0<a<1$. In 
+general, the $x$-intercept is located at $x=1$.
+
+\medskip
+\noindent
+\underline{Special case:} The {\bf natural logarithmic function} 
+(lat.: logarithmus naturalis) obtains when the constant basis 
+number is set to $a=e$. This yields
+%
+\be
+y=f(x)=\log_{e}(x):=\ln(x) \ .
+\ee
+%
+
+%------------------------------------------------------------------
+\subsection{Concatenations of real-valued functions}
+\lb{subsec:kombfkt}
+%------------------------------------------------------------------
+Real-valued functions from all five categories considered in the 
+previous sections may be combined arbitrarily (respecting relevant 
+computational rules), either via the four {\bf fundamental 
+arithmetical operations}, or via {\bf concatenations}.
+
+\medskip
+\noindent
+\underline{\bf Theorem:} Let real-valued functions $f$ and $g$ be continuous on domains $D(f)$ resp.\ $D(g)$. Then the combined real-valued functions
+%
+\begin{enumerate}
+	\item {\bf sum/difference} $f \pm g$, where $(f \pm g)(x)
+	:=f(x) \pm g(x)$ with $D(f) \cap D(g)$,
+	
+	\item {\bf product} $f \cdot g$, where  $(f\cdot g)(x):=f(x)g(x)$
+	with $D(f) \cap D(g)$,
+	
+	\item {\bf quotient} ${\displaystyle\frac{f}{g}}$, where 
+	${\displaystyle\left(\frac{f}{g}\right)(x):=\frac{f(x)}{g(x)}}$ 
+	with $g(x) \neq 0$ and $D(f) \cap D(g)
+	\backslash\{x|g(x)=0\}$,
+	
+	\item {\bf concatenation} $f \circ g$, where
+	$(f\circ g)(x):=f(g(x))$ mit $\{x \in D(g)|g(x) \in D(f)\}$,
+\end{enumerate}
+%
+are also continuous on the respective domains.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Derivation of differentiable real-valued functions]%
+{Derivation of differentiable real-valued functions}
+\lb{sec:ablt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The central theme of this chapter is the mathematical description 
+of the {\bf local variability} of \emph{continuous} real-valued 
+function of one real variable, $f:D\subseteq\mathbb{R} \rightarrow 
+W\subseteq\mathbb{R}$. To this end, let us consider the effect on 
+$f$ of a small change of its argument $x$. Supposing we affect a 
+change $x \rightarrow x+\Delta x$, with $\Delta x \in \mathbb{R}$, 
+what are the resultant consequences for $f$? We immediately find 
+that $y \rightarrow y+\Delta y = f(x+\Delta x)$, with $\Delta y
+\in \mathbb{R}$, obtains. Hence, a prescribed change of the 
+argument~$x$ by a (small) value $\Delta x$ triggers in $f$ a 
+change by the amount $\Delta y = f(x+\Delta x)-f(x)$. It is of 
+general quantitative interest to compare the {\bf sizes} of these 
+two changes. This is accomplished by forming the respective {\bf 
+difference quotient}
+%
+\[
+\frac{\Delta y}{\Delta x} = \frac{f(x+\Delta x)-f(x)}{\Delta x}
+\ .
+\]
+%
+It is then natural, for given $f$, to investigate the limit 
+behaviour of this difference quotient as the change $\Delta x$ of 
+the argument of $f$ is made successively smaller.
+
+\medskip
+\noindent
+\underline{\bf Def.:}
+A continuous real-valued function $f$ of one real variable is 
+called {\bf differentiable at} $\boldsymbol{x \in D(f)}$, when for 
+arbitrary $\Delta x \in \mathbb{R}$ the limit
+%
+\be
+\fbox{$\displaystyle
+f^{\prime}(x) := \lim_{\Delta x \to 0}
+\frac{\Delta y}{\Delta x}
+= \lim_{\Delta x \to 0}
+\frac{f(x+\Delta x)-f(x)}{\Delta x}
+$}
+\ee
+%
+exists and is unique. When $f$ is differentiable \emph{for all} $x 
+\in D(f)$, then $f$ as such is referred to as being {\bf 
+differentiable}.
+
+\medskip
+\noindent
+The existence of this limit in a point $(x,f(x))$ for a 
+real-valued function $f$ requires that the latter exhibits neither 
+``jumps'' nor ``kinks,'' i.e., that at $(x,f(x))$ the function is 
+sufficiently ``smooth.'' The quantity $f^{\prime}(x)$ is referred 
+to as the {\bf first derivative} of the (differentiable) 
+function~$f$ at position~$x$. It provides a quantitative measure 
+for the {\bf local rate of change} of the function~$f$ in the 
+point~$(x,f(x))$. In general one interprets the first 
+derivative~$f^{\prime}(x)$ as follows: an increase of the 
+argument~$x$ of a differentiable real-valued function~$f$ by $1$ 
+(one) unit leads to a change in the value of~$f$ by approximately 
+$f^{\prime}(x)\cdot 1$ units.
+
+\medskip
+\noindent
+Alternative notation for the first derivative of $f$:
+%
+$$
+f^{\prime}(x) \equiv \frac{{\rm d}f(x)}{{\rm d}x} \ .
+$$
+%
+
+\medskip
+\noindent
+The differential calculus was developed in parallel with the 
+integral calculus (see Ch.~\ref{ch7}) during the second half of 
+the $17^{\rm th}$ Century, independent of one another by the 
+English physicist, mathematiccian, astronomer and philosopher
+\href{http://turnbull.mcs.st-and.ac.uk/history/Biographies/Newton.html}{Sir Isaac Newton (1643--1727)} and the German philosopher,
+mathematician and physicist
+\href{http://turnbull.mcs.st-and.ac.uk/history/Biographies/Leibniz.html}{Gottfried Wilhelm Leibniz (1646--1716)}.
+
+\medskip
+\noindent
+Via the first derivative of a differentiable function~$f$ at an 
+argument $x_{0} \in D(f)$, i.e., $f^{\prime}(x_{0})$, one defines 
+the so-called {\bf linearisation} of~$f$ in a neighbourhood 
+of~$x_{0}$. The equation describing the associated {\bf tangent} 
+to~$f$ in the point~$(x_{0},f(x_{0}))$ is given by
+%
+\be
+\lb{ftangente}
+\fbox{$\displaystyle
+y = f(x_{0}) + f^{\prime}\left(x_{0})(x-x_{0}\right) \ .
+$}
+\ee
+%
+
+\medskip
+\noindent
+\underline{\bf GDC:} Local values~$f^{\prime}(x_{0})$ of first 
+derivatives can be computed for given function~$f$ in mode~{\tt 
+CALC} using the interactive routine~{\tt dy/dx}.
+
+\medskip
+\noindent
+The following rules of differentiation apply for the five families 
+of elementary real-valued functions discussed in 
+Sec.~\ref{sec:fkt}, as well as concatenations thereof:
+
+\medskip
+\noindent
+{\bf Rules of differentiation}
+%
+\begin{enumerate}
+\item $(c)^{\prime} = 0$ for $c = \text{constant} \in \mathbb{R}$
+\hfill ({\bf constants})
+\item $(x)^{\prime} = 1$ \hfill ({\bf linear function})
+\item $(x^{n})^{\prime} = nx^{n-1}$ for $n \in \mathbb{N}$
+\hfill ({\bf natural power-law functions})
+\item $(x^{\alpha})^{\prime} = \alpha x^{\alpha-1}$ for
+$\alpha \in \mathbb{R}$ and $x \in \mathbb{R}_{> 0}$
+\hfill ({\bf general power-law functions})
+\item $(a^{x})^{\prime} = \ln(a)a^{x}$ for
+$a \in \mathbb{R}_{> 0}\backslash\{1\}$
+\hfill ({\bf exponential functions})
+\item $(e^{ax})^{\prime} = ae^{ax}$ for $a \in \mathbb{R}$
+\hfill ({\bf natural exponential functions})
+\item $\displaystyle (\log_{a}(x))^{\prime} = \frac{1}{x\ln(a)}$
+for $a \in \mathbb{R}_{> 0}\backslash\{1\}$ and $x \in
+\mathbb{R}_{> 0}$ \hfill ({\bf logarithmic functions})
+\item $(\displaystyle \ln(x))^{\prime} = \frac{1}{x}$
+for $x \in \mathbb{R}_{> 0}$
+\hfill ({\bf natural logarithmic function}).
+\end{enumerate}
+%
+For differentiable real-valued functions~$f$ and~$g$ it holds that:
+%
+\begin{enumerate}
+\item $(cf(x))^{\prime} = cf^{\prime}(x)$ for
+$c = \text{constant} \in \mathbb{R}$
+\item $(f(x) \pm g(x))^{\prime} = f^{\prime}(x) \pm g^{\prime}(x)$
+\hfill ({\bf summation rule})
+\item $(f(x)g(x))^{\prime} = f^{\prime}(x)g(x) + f(x)g^{\prime}(x)$
+\hfill ({\bf product rule})
+\item $\displaystyle \left(\frac{f(x)}{g(x)}\right)^{\prime}
+= \frac{f^{\prime}(x)g(x) - f(x)g^{\prime}(x)}{(g(x))^{2}}$
+\hfill ({\bf quotient rule})
+\item $((f \circ g)(x))^{\prime}
+%= (f(g(x)))^{\prime}
+= \left.f^{\prime}(g)\right|_{g=g(x)}\cdot
+g^{\prime}(x)$ \hfill ({\bf chain rule})
+\item $\displaystyle (\ln(f(x)))^{\prime}
+= \frac{f^{\prime}(x)}{f(x)}$ for $f(x) > 0$
+\hfill ({\bf logarithmic differentiation})
+\item $\displaystyle (f^{-1}(x))^{\prime}
+= \left.\frac{1}{f^{\prime}(y)}
+\right|_{y=f^{-1}(x)}$, if $f$ is one-to-one and onto.
+
+\hfill ({\bf differentiation of inverse functions}).
+\end{enumerate}
+%
+
+\medskip
+\noindent
+The methods of differential calculus just introduced shall now be 
+employed to describe the local change behaviour of a few simple 
+examples of functions in {\bf economic theory}, and also to 
+determine their local extremal values. The following section 
+provides an overview of such frequently occurring {\bf economic 
+functions}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Common functions in economic theory]%
+{Common functions in economic theory}
+\lb{sec:oekfkt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\begin{enumerate}
+
+\item {\bf total cost function} $K(x) \geq 
+0$ \hfill (dim: CU) \\
+argument: level of physical output $x 
+\geq 0$ (dim: units)
+
+\item {\bf marginal cost function}
+$K^{\prime}(x) > 0$ \hfill (dim: CU/unit) \\
+argument: level of physical output $x \geq 0$ (dim: units)
+
+\item {\bf average cost function} $K(x)/x > 0$
+\hfill (dim: CU/unit) \\
+argument: level of physical output $x > 0$ (dim: units)
+
+\item {\bf unit price function}
+$p(x) \geq 0$ \hfill (dim: CU/unit) \\
+argument: level of physical output $x > 0$ (dim: units)
+
+\item {\bf total revenue function} $E(x) 
+:= xp(x) \geq 0$ \hfill (dim: CU) \\
+argument: level of physical output $x > 0$ (dim: units)
+
+\item {\bf marginal revenue function}
+$E^{\prime}(x) = xp^{\prime}(x)+p(x)$
+\hfill (dim: CU/unit) \\
+argument: level of physical output $x > 0$ (dim: units)
+
+\item {\bf profit function}
+$G(x) := E(x)-K(x)$
+\hfill (dim: CU) \\
+argument: level of physical output $x > 0$ (dim: units)
+
+\item {\bf marginal profit function}
+$G^{\prime}(x) := E^{\prime}(x)-K^{\prime}(x)
+= xp^{\prime}(x)+p(x)-K^{\prime}(x)$
+\hfill (dim: CU/unit) \\
+argument: level of physical output $x > 0$ (dim: units)
+
+\item {\bf utility function}
+%\footnote{In economic theory utility functions are not
+% necessarily assumed to be differentiable everywhere.}
+$U(x)$ \hfill (dim: case dependent) \\
+argument: material wealth, opportunity, action $x$ 
+(dim: case dependent)
+
+The fundamental concept of a utility function as a means to 
+capture in quantitative terms the psychological value (happiness) 
+assigned by an economic agent to a certain amount of money, or to 
+owning a specific good, was introduced to {\bf economic theory} in 
+1738 by the Swiss mathematician and physicist
+\href{http://www-history.mcs.st-and.ac.uk/Biographies/Bernoulli_Daniel.html}{Daniel Bernoulli FRS (1700--1782)}; cf. Bernoulli 
+(1738)~\ct{ber1738}. The utility function is part of the folklore 
+of the theory, and often taken to be a piecewise differentiable, 
+right-handedly curved (concave) function, i.e., 
+$U^{\prime\prime}(x) < 0$, on the grounds of the \emph{assumption} 
+of diminishing marginal utility (happiness) with increasing 
+material wealth.
+
+\item {\bf economic efficiency}
+$W(x) := E(x)/K(x) \geq 0$
+\hfill (dim: 1) \\
+argument: level of physical output $x > 0$ (dim: units)
+
+\item {\bf demand function} $N(p) \geq 
+0$, monotonously decreasing \hfill (dim: units) \\
+argument: unit price $p$, ($0 \leq p \leq p_{\rm max}$)
+(dim: CU/unit)
+
+\item {\bf supply function} $A(p) \geq 
+0$, monotonously increasing \hfill (dim: units) \\
+argument: unit price $p$, ($p_{\rm min} \leq p$)
+(dim: CU/units).
+
+\end{enumerate}
+%
+
+\medskip
+\noindent
+A particularly prominent example of a real-valued economic 
+function of one real variable constitutes the {\bf psychological 
+value function}, devised by the Israeli--US-American experimental 
+psychologists Daniel Kahneman and Amos Tversky (1937--1996) in the 
+context of their {\bf Prospect Theory} (a pillar of {\bf 
+Behavioural Economics}), which was later awarded a 
+\href{http://www.nobelprize.org/nobel_prizes/economics/laureates/2002/}{Sveriges Riksbank Prize in Economic Sciences in Memory of 
+Alfred Nobel} in 2002 (cf. Kahneman and Tversky 
+(1979)~\ct[p~279]{kahtve1979}, and Kahneman 
+(2011)~\ct[p~282f]{kah2011}). A possible representation of this 
+function is given by the piecewise description
+%
+\be
+\lb{psychvaluefct}
+v(x)=
+\begin{cases}
+a\log_{10}\left(1+x\right) & \text{for}\quad
+x \in \mathbb{R}_{\geq 0} \\
+\\
+-2a\log_{10}\left(1-x\right) & \text{for}\quad
+x \in \mathbb{R}_{< 0}
+\end{cases} \ ,
+\ee
+%
+with parameter $a \in \mathbb{R}_{>0}$. Overcoming a conceptual 
+problem of Bernoulli's utility function, here, in contrast, the 
+argument~$x$ quantifies a \emph{change in wealth (or welfare)}
+with respect to some given reference point (rather than a specific 
+value of wealth itself).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Curve sketching}
+\lb{sec:kurvdisk}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Before we turn to discuss applications of {\bf differential 
+calculus} to simple quantitative problems in {\bf economic 
+theory}, we briefly summarize the main steps of {\bf curve 
+sketching} for a real-valued function of one real variable, also 
+referred to as {\bf analysis} of the properties of 
+differentiability of a real-valued function.
+%
+\begin{enumerate}
+
+\item {\bf domain}: $D(f)=\{x \in 
+\mathbb{R}|f(x) \ \text{is regular}\}$
+
+\item {\bf symmetries}: for all $x \in D(f)$, is
+\begin{itemize}
+\item[(i)] $f(-x) = f(x)$, i.e., is $f$ {\bf even}, 
+or
+\item[(ii)] $f(-x) = -f(x)$, i.e., is $f$ {\bf odd}, 
+or
+\item[(iii)] $f(-x) \neq f(x) \neq -f(x)$, i.e., $f$ exhibits {\bf 
+no symmetries}?
+\end{itemize}
+
+\item {\bf roots}: identify all $x_{N} \in D(f)$ that satisfy the 
+condition $f(x) \stackrel{!}{=} 0$.
+
+\item {\bf local extremal values}:
+\begin{itemize}
+\item[(i)] {\bf local minima} of $f$ exist at all $x_{E} \in 
+D(f)$, for which the
+
+necessary condition $f^{\prime}(x) \stackrel{!}{=} 0$, and the
+
+sufficient condition $f^{\prime\prime}(x) \stackrel{!}{>} 0$ are 
+satisfied simultaneously.
+
+\item[(ii)] {\bf local maxima} of $f$ exist at all $x_{E} \in 
+D(f)$, for which the
+
+necessary condition $f^{\prime}(x) \stackrel{!}{=} 0$, and the
+
+sufficient condition $f^{\prime\prime}(x) \stackrel{!}{<} 0$ are 
+satisfied simultaneously.
+\end{itemize}
+
+\item {\bf points of inflection}: find all $x_{W} 
+\in D(f)$, for which the
+
+necessary condition $f^{\prime\prime}(x) \stackrel{!}{=} 0$, and 
+the
+
+sufficient condition $f^{\prime\prime\prime}(x) 
+\stackrel{!}{\neq} 0$ are satisfied simultaneously.
+
+\item {\bf monotonous behaviour}:
+\begin{itemize}
+\item[(i)] $f$ is {\bf monotonously 
+increasing} for all $x \in D(f)$ with $f^{\prime}(x) > 0$
+\item[(ii)] $f$ is {\bf monotonously 
+decreasing} for all $x \in D(f)$ with $f^{\prime}(x) < 0$
+\end{itemize}
+
+\item {\bf local curvature}:
+\begin{itemize}
+\item[(i)] $f$ behaves {\bf left-handedly curved}
+for $x \in D(f)$ with $f^{\prime\prime}(x) > 0$
+\item[(ii)] $f$ behaves {\bf right-handedly 
+curved} for $x \in D(f)$ with $f^{\prime\prime}(x) < 0$
+\end{itemize}
+
+\item {\bf asymptotic behaviour}:
+
+asymptotes to $f$ are constituted by
+\begin{itemize}
+\item[(i)] straight lines $y=ax+b$ with the property
+$\lim_{x \to +\infty}[f(x)-ax-b]=0$
+or $\lim_{x \to -\infty}[f(x)-ax-b]=0$
+\item[(ii)] straight lines $x=x_{0}$ at poles
+$x_{0} \notin D(f)$
+\end{itemize}
+
+\item {\bf range}: $W(f)=\{y \in 
+\mathbb{R}|y=f(x)\}$.
+
+\end{enumerate}
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Analytic investigations of economic functions]%
+{Analytic investigations of economic functions}
+\lb{sec:extroekfkt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------------------------------------------------------------------
+\subsection{Total cost functions according to Turgot and von 
+Th\"unen}
+%------------------------------------------------------------------
+According to the {\bf law of diminishing returns}, which was 
+introduced to {\bf economic theory} by the French economist and 
+statesman 
+\href{http://en.wikipedia.org/wiki/Anne-Robert-Jacques_Turgot,_Baron_de_Laune}{Anne Robert Jacques Turgot (1727--1781)} and also by 
+the German economist 
+\href{http://en.wikipedia.org/wiki/Johann_Heinrich_von_Thünen}{Johann Heinrich von Th\"unen (1783--1850)}, it is meaningful to 
+model non-negative {\bf total cost functions}~$K(x)$ (in CU) 
+relating to typical production processes, with argument {\bf 
+level of physical output}~$x \geq 0~\text{units}$, as 
+a mathematical mapping in terms of a special \emph{polynomial of 
+degree 3} [cf.\ Eq.~(\ref{npol})], which is given by
+%
+\be
+\lb{totalcostfct}
+\fbox{$\displaystyle\begin{array}{c}
+K(x) = \underbrace{a_{3}x^{3}
++ a_{2}x^{2} + a_{1}x}_{=K_{v}(x)}
++ \underbrace{a_{0}}_{=K_{f}} \\[10mm]
+\text{with}\ a_{3},a_{1} > 0,\, a_{2} < 0,
+\, a_{0} \geq 0,
+\, a_{2}^{2}-3a_{3}a_{1} < 0 \ .
+\end{array}
+$}
+\ee
+%
+The model thus contains a total of four free parameters. It is 
+the outcome of a systematic {\bf regression analysis} of 
+agricultural quantitative--empirical data with the aim to describe 
+an inherently {\bf non-linear functional relationship} between a 
+few economic variables. As such, the functional relationship 
+for~$K(x)$ expressed in Eq.~(\ref{totalcostfct}) was derived from a
+practical consideration. It is a reflection of the following 
+observed features:
+%
+\begin{itemize}
+\item[(i)]~for levels of physical output~$x \geq 
+0~\text{units}$, the total costs relating to typical production 
+processes exhibit strictly monotonously increasing behaviour; thus 
+
+\item[(ii)]~for the total costs there do \emph{not} exist neither 
+roots nor local extremal values;\footnote{The last condition in 
+Eq.~(\ref{totalcostfct}) ensures a first derivative of~$K(x)$ that 
+does \emph{not} possess any roots; cf. the case of a quadratic 
+algebraic equation $0\stackrel{!}{=}ax^{2}+bx+c$, with 
+discriminant $b^{2}-4ac<0$.} however,
+
+\item[(iii)]~the total costs display \emph{exactly one} point of 
+inflection.
+\end{itemize}
+%
+The continuous curve for~$K(x)$ resulting from these 
+considerations exhibits the characteristic shape of an inverted 
+capital letter ``S'': beginning at a positive value corresponding 
+to fixed costs, the total costs  first increase degressively up to 
+a point of inflection, whereafter they continue to increase, but 
+in a progressive fashion.
+
+\medskip
+\noindent
+In broad terms, the functional expression given in 
+Eq.~(\ref{totalcostfct}) to model totals costs in dependence of 
+the level of physical output is the sum of two contributions, 
+the {\bf variable costs}~$K_{v}(x)$ and the {\bf fixed 
+costs}~$K_{f}=a_{0}$, viz.
+%
+\be
+K(x)=K_{v}(x)+K_{f} \ .
+\ee
+%
+
+\medskip
+\noindent
+In {\bf economic theory}, it is commonplace to partition {\bf 
+total cost functions} in the diminishing returns picture into 
+\emph{four phases}, the boundaries of which are designated by 
+special values of the level of physical output of a production 
+process: 
+%
+\begin{itemize}
+
+\item {\bf phase I} (interval $0~\text{units} \leq x \leq 
+x_{W}$):
+
+the total costs~$K(x)$ possess at a level of physical 
+output~$x_{W} = -a_{2}/(3a_{3}) > 0~\text{units}$ a {\bf point of 
+inflection}. For values of $x$ smaller than $x_{W}$, one 
+obtains~$K^{\prime\prime}(x) < 0~\text{CU}/\text{unit}^{2}$, 
+i.e., $K(x)$ increases in a degressive fashion. For values of $x$ 
+larger than $x_{W}$, the opposite applies, $K^{\prime\prime}(x) > 
+0~\text{CU}/\text{unit}^{2}$, i.e., $K(x)$ increases in a 
+progressive fashion. The {\bf marginal costs}, given by
+%
+\be
+K^{\prime}(x) = 3a_{3}x^{2}+2a_{2}x+a_{1}
+> 0~\text{CU}/\text{unit}
+\quad\quad \text{for\ all} \quad x \geq 0~\text{units} \ ,
+\ee
+%
+attain a {\bf minimum} at the same level of physical output, 
+$x_{W} = -a_{2}/(3a_{3})$.
+
+\item {\bf phase II} (interval $x_{W} < x \leq x_{g_{1}}$):
+
+the {\bf variable average costs}
+%
+\be
+\frac{K_{v}(x)}{x} = a_{3}x^{2} + a_{2}x + a_{1}
+\ ,\quad\quad x > 0~\text{units}
+\ee
+%
+become {\bf minimal} at a level of physical 
+output~$x_{g_{1}}=-a_{2}/(2a_{3}) > 0~\text{units}$. At this value 
+of~$x$, \emph{equality of variable average costs and marginal 
+costs} applies, i.e.,
+%
+\be
+\lb{betrmin}
+\frac{K_{v}(x)}{x} = K^{\prime}(x) \ ,
+\ee
+%
+which follows by the quotient rule of differentiation from the 
+necessary condition for an extremum of the variable average costs,
+%
+\[
+0 \stackrel{!}{=} \left(\frac{K_{v}(x)}{x}\right)^{\prime}
+= \frac{(K(x)-K_{f})^{\prime}\cdot x - K_{v}(x)\cdot 1}{x^{2}}
+\ ,
+\]
+%
+and the fact that $K_{f}^{\prime}=0~\text{CU/unit}$. Taking care 
+of the equality~(\ref{betrmin}), one finds for the tangent 
+to~$K(x)$ in the point~$(x_{g_{1}},K(x_{g_{1}}))$ the equation 
+[cf. Eq.~(\ref{ftangente})] 
+%
+\[
+T(x) = K(x_{g_{1}}) + K^{\prime}(x_{g_{1}})(x-x_{g_{1}})
+= K_{v}(x_{g_{1}}) + K_{f} + \frac{K_{v}(x_{g_{1}})}{x_{g_{1}}}\,
+(x-x_{g_{1}})
+= K_{f} + \frac{K_{v}(x_{g_{1}})}{x_{g_{1}}}\,x \ .
+\]
+%
+Its intercept with the $K$-axis is at~$K_{f}$.
+
+\item {\bf phase III} (interval $x_{g_{1}} < x \leq x_{g_{2}}$):
+
+The {\bf average costs}
+%
+\be
+\frac{K(x)}{x} = a_{3}x^{2} + a_{2}x + a_{1}
++ \frac{a_{0}}{x} \ ,\quad\quad x > 0~\text{units}
+\ee
+%
+attain a {\bf minimum} at a level of physical output~$x_{g_{2}} > 
+0~\text{units}$, the defining equation of which is given by
+$0~\text{CU}\stackrel{!}{=}2a_{3}x_{g_{2}}^{3}+a_{2}x_{g_{2}}^{2}
+-a_{0}$. At this value of~$x$, \emph{equality of average costs and marginal costs} obtains, viz.
+%
+\be
+\lb{betropt1}
+\frac{K(x)}{x} = K^{\prime}(x) \ ,
+\ee
+%
+which follows by the quotient rule of differentiation from the necessary condition for an extremum of the average costs,
+%
+\[
+0 \stackrel{!}{=} \left(\frac{K(x)}{x}\right)^{\prime}
+= \frac{K^{\prime}(x)\cdot x - K(x)\cdot 1}{x^{2}} \ .
+\]
+%
+Since a quotient can be zero only when its numerator vanishes (and 
+its denominator remains non-zero), one finds from re-arranging the 
+numerator expression equated to zero the property
+%
+\be
+\lb{betropt2}
+\frac{K^{\prime}(x)}{K(x)/x}
+=x\,\frac{K^{\prime}(x)}{K(x)}=1
+\quad\quad\text{for}\quad x=x_{g_{2}} \ .
+\ee
+%
+The corresponding extremal value pair~$(x_{g_{2}},K(x_{g_{2}}))$ 
+is referred to in {\bf economic theory} as the {\bf minimum 
+efficient scale (MES)}. From a business economics perspective, at 
+a level of physical output~$x=x_{g_{2}}$ the (compared to our 
+remarks in the Introduction inverted) ratio ``INPUT over OUTPUT,'' 
+i.e., $\displaystyle\frac{K(x)}{x}$, becomes most favourable. By 
+respecting the property~(\ref{betropt1}), the equation for the 
+tangent to~$K(x)$ in this point [cf. Eq.~(\ref{ftangente})] 
+becomes 
+%
+\[
+T(x) = K(x_{g_{2}}) + K^{\prime}(x_{g_{2}})(x-x_{g_{2}})
+= K(x_{g_{2}}) + \frac{K(x_{g_{2}})}{x_{g_{2}}}\,(x-x_{g_{2}})
+= \frac{K(x_{g_{2}})}{x_{g_{2}}}\,x \ .
+\]
+%
+Its intercept with the $K$-axis is thus at~$0~\text{CU}$.
+
+\item {\bf phase IV} (half-interval $x > x_{g_{2}}$):
+
+In this phase $K^{\prime}(x)/K(x)/x>1$ obtains; the costs 
+associated with the production of one additional unit of a good, 
+approximately the marginal costs~$K^{\prime}(x)$, now exceed the 
+average costs, $K(x)/x$. This situation is considered unfavourable 
+from a business economics perspective.
+\end{itemize}
+%
+
+%------------------------------------------------------------------
+\subsection{Profit functions in the diminishing returns picture}
+%------------------------------------------------------------------
+In this section, we confine our considerations, for reasons of 
+\emph{simplicity}, to a market sitution with only a single 
+supplier of a good in demand. The price policy that this single 
+supplier may thus inact defines a state of {\bf monopoly}. 
+Moreover, in addition we want to \emph{assume} that for the market 
+situation considered {\bf economic equilibrium} obtains. This
+manifests itself in equality of {\bf supply} and {\bf demand}, viz.
+%
+\be
+\lb{eq:ecoequil}
+x(p) = N(p) \ ,
+\ee
+%
+wherein~$x$ denotes a non-negative {\bf supply function} (in 
+$\text{units}$) (which is synonymous with the supplier's level of 
+physical output) and $N$ a non-negative {\bf demand function} (in 
+$\text{units}$), both of which are taken to depend on the positive 
+{\bf unit price}~$p$ (in $\text{CU}/\text{unit}$) of the good in 
+question. The {\bf supply function}, and with it the {\bf unit 
+price}, can, of course, be prescribed by the monopolistic supplier 
+in an arbitrary fashion. In a specific quantitative economic 
+model, for instance, the {\bf demand function}~$x(p)$ (recall that 
+by Eq.~(\ref{eq:ecoequil}) $x(p) = N(p)$ obtains) could be assumed 
+to be either a linear or a quadratic function of~$p$. In any case, 
+in order for~$x(p)$ to realistically describe an actual 
+demand--unit price relationship, it should be chosen as a 
+strictly monotonously decreasing function, and as such it is 
+\emph{invertible}. The non-negative {\bf demand function}~$x(p)$ 
+features two characteristic points, signified by its intercepts 
+with the $x$- and the $p$-axes. The {\bf prohibitive 
+price}~$p_{\rm proh}$ is to be determined from the condition 
+$x(p_{\rm proh}) \stackrel{!}{=} 0~\text{units}$; therefore, it 
+constitutes a root of~$x(p)$. The {\bf saturation 
+quantity}~$x_{\rm sat}$, on the other hand, is defined by $x_{\rm 
+sat}:=x(0~\text{CU/unit})$.
+
+\medskip
+\noindent
+The inverse function associated with the strictly monotonously 
+decreasing non-negative {\bf demand function}~$x(p)$, the {\bf 
+unit price function}~$p(x)$ (in $\text{CU}/\text{unit}$), is 
+likewise strictly monotonously decreasing. Via $p(x)$, one 
+calculates, in dependence on a known amount~$x$ of units 
+supplied/demanded (i.e., sold), the {\bf total revenue} (in 
+$\text{CU}$) made by a monopolist according to (cf. 
+Sec.~\ref{sec:oekfkt})
+%
+\be
+\lb{eq:ertrag}
+E(x) = xp(x) \ .
+\ee
+%
+Under the \emph{assumption} that the non-negative {\bf total 
+costs}~$K(x)$ (in $\text{CU}$) underlying the production process 
+of the good in demand can be modelled according to the diminishing 
+returns picture of Turgot and von Th\"unen, the {\bf profit 
+function} (in $\text{CU}$) of the monopolist in dependence on the 
+level of physical output takes the form
+%
+\be
+\lb{eq:gewinn}
+G(x) = E(x) - K(x)
+= \underbrace{x\overbrace{p(x)}^{\text{unit\ price}}}_{
+\text{total\ revenue}}
+- \underbrace{\left[a_{3}x^{3}+a_{2}x^{2}
++a_{1}x+a_{0}\right]}_{\text{total\ costs}} \ .
+\ee
+%
+
+\medskip
+\noindent
+The first two derivatives of $G(x)$ with respect to its 
+argument~$x$ are given by
+%
+\begin{eqnarray}
+G^{\prime}(x) = E^{\prime}(x) - K^{\prime}(x)
+& = & xp^{\prime}(x)+p(x)
+-\left[3a_{3}x^{2}+2a_{2}x+a_{1}\right] \\
+%
+G^{\prime\prime}(x) = E^{\prime\prime}(x) - K^{\prime\prime}(x)
+& = & xp^{\prime\prime}(x)
++2p^{\prime}(x)-\left[6a_{3}x+2a_{2}\right] \ .
+\end{eqnarray}
+%
+Employing the principles of curve sketching set out in 
+Sec.~\ref{sec:kurvdisk}, the following characteristic values 
+of~$G(x)$ can thus be identified:
+%
+\begin{itemize}
+
+\item {\bf break-even point}
+
+$x_{S} > 0~\text{units}$, as the unique solution to the conditions
+%
+\be
+G(x) \stackrel{!}{=} 0~\text{CU} \quad\quad\text{(necessary 
+condition)}
+\ee
+%
+and
+%
+\be
+G^{\prime}(x) \stackrel{!}{>} 0~\text{CU}/\text{unit}
+\quad\quad\text{(sufficient condition)} \ ,
+\ee
+%
+
+\item {\bf end of the profitable zone}
+
+$x_{G} > 0~\text{units}$, as the unique solution to the conditions
+%
+\be
+G(x) \stackrel{!}{=} 0~\text{CU} \quad\quad\text{(necessary 
+condition)}
+\ee
+%
+and
+%
+\be
+G^{\prime}(x) \stackrel{!}{<} 0~\text{CU}/\text{unit}
+\quad\quad\text{(sufficient condition)} \ ,
+\ee
+%
+
+\item {\bf maximum profit}
+
+$x_{M} > 0~\text{CU}$, as the unique solution to the conditions
+%
+\be
+G^{\prime}(x) \stackrel{!}{=} 0~\text{CU}/\text{unit}
+\quad\quad\text{(necessary condition)}
+\ee
+%
+and
+%
+\be
+G^{\prime\prime}(x) \stackrel{!}{<} 0~\text{CU}/\text{unit}^{2}
+\quad\quad\text{(sufficient condition)} \ .
+\ee
+%
+\end{itemize}
+%
+At this point, we like to draw the reader's attention to a special 
+geometric property of the quantitative model for {\bf profit} that 
+we just have outlined: at maximum profit, the {\bf total revenue 
+function}~$E(x)$ and the {\bf total cost function}~$K(x)$ always 
+possess \emph{parallel tangents}. This is due to the fact that by 
+the necessary condition for an extremum to exist, one finds that
+%
+\be
+0~\text{CU}/\text{unit} \stackrel{!}{=} G^{\prime}(x)
+= E^{\prime}(x) - K^{\prime}(x)
+\qquad\Leftrightarrow\qquad
+E^{\prime}(x) \stackrel{!}{=} K^{\prime}(x) \ .
+\ee
+%
+
+\medskip
+\noindent
+\underline{\bf GDC:} Roots and local maxima resp.\ minima can be 
+easily determined for a given stored function in mode {\tt CALC} 
+by employing the interactive routines {\tt zero} and
+{\tt maximum} resp.\ {\tt minimum}.
+
+\leftout{
+\medskip
+\noindent
+Von besonderem mathematischen Interesse ist in diesem Zusammenhang
+die folgende Betrachtung. Bekannt sei eine Gewinnfunktion $G(x)$
+der polynomialen Form
+%
+\be
+G(x) = -a_{3}(x+a)(x-b)(x-c)
+= a_{3}\left[-x^{3}+(b+c-a)x^{2}+(ab-bc+ca)x-abc\right] \ ,
+\ee
+%
+mit $a,b,c > 0$, $b < c$ und $x \geq 0~\text{ME}$, der nach Gln. 
+(\ref{eq:ertrag}) und (\ref{eq:gewinn}) eine {\em lineare\/} 
+Preis--Absatz--Funktion $p(x)$ zugrunde liegt. Dann
+\"uberf\"uhren die simultanen {\bf Skalentransformationen} (engl.: 
+scale transformation)
+%
+\be
+x \mapsto \lambda x \ , \qquad
+G(x) \mapsto \frac{1}{\lambda^{3}}\,G(\lambda x) \ ,
+\qquad
+\lambda > 0
+\ee
+%
+von unabh\"angiger und abh\"angiger Variable die
+Gewinnfunktion $G(x)$ in eine zweite, zu $G(x)$
+{\bf selbst\"ahnliche} (engl.: self-similar) Gewinnfunktion
+%
+\bea
+\tilde{G}(x) & = & -a_{3}\left(x+\frac{a}{\lambda}\right)
+\left(x-\frac{b}{\lambda}\right)\left(x-\frac{c}{\lambda}\right)
+\nonumber \\
+& = & a_{3}\left[-x^{3}+\frac{(b+c-a)}{\lambda}\,x^{2}
++\frac{(ab-bc+ca)}{\lambda^{2}}\,x
+-\frac{abc}{\lambda^{3}}\right] \ .
+\eea
+%
+Analog l\"asst sich mit polynomialen \"okonomischen 
+Funktionen $p(x)$, $E(x)$ und $K(x)$ verfahren.
+}
+
+\medskip
+\noindent
+To conclude these considerations, we briefly turn to elucidate the 
+technical term {\bf Cournot's point}, which frequently arises in 
+quantitative discussions in {\bf economic theory}; this is named 
+after the French mathematician and economist 
+\href{http://turnbull.mcs.st-and.ac.uk/history/Biographies/Cournot.html}{Antoine--Augustin Cournot (1801--1877)}. {\bf Cournot's 
+point} simply labels the profit-optimal combination of the level 
+of physical output and the associated unit price, $(x_{M}, 
+p(x_{M}))$, for the {\bf unit price function}~$p(x)$ of a good in 
+a monopolistic market situation. Note that for this specific 
+combination of optimal values the {\bf Amoroso--Robinson formula} 
+applies, which was developed by the Italian mathematician and 
+economist \href{http://en.wikipedia.org/wiki/Luigi_Amoroso}{Luigi 
+Amoroso (1886--1965)} and the British economist
+\href{http://en.wikipedia.org/wiki/Joan_Robinson}{Joan Violet
+Robinson (1903--1983)}. This states that
+%
+\be
+p(x_{M}) = \frac{K^{\prime}(x_{M})}{1+\varepsilon_{p}(x_{M})} \ ,
+\ee
+%
+with $K^{\prime}(x_{M})$ the value of the marginal costs 
+at~$x_{M}$, and $\varepsilon_{p}(x_{M})$ the value of the {\bf  
+elasticity} of the unit price function at~$x_{M}$ (see the 
+following Sec.~\ref{sec:elast}). Starting from the defining 
+equation of the {\bf total revenue}~$E(x)=xp(x)$, the {\bf 
+Amoroso--Robinson formula} is derived by evaluating the first 
+derivative of~$E(x)$ at $x_{M}$, so
+%
+\[
+E^{\prime}(x_{M}) = p(x_{M}) + x_{M}p^{\prime}(x_{M})
+= p(x_{M})\left[1
++ x_{M}\,\frac{p^{\prime}(x_{M})}{p(x_{M})}\right]
+\overbrace{=}^{\text{Sec.~\ref{sec:elast}}}= p(x_{M})\left[1 + 
+\varepsilon_{p}(x_{M})\right] \ ,
+\]
+%
+and then re-arranging to solve for $p(x_{M})$, using the fact that 
+$E^{\prime}(x_{M})=K^{\prime}(x_{M})$.
+
+\medskip
+\noindent
+\underline{\bf Remark:} In a market situation where {\bf perfect 
+competition} applies, one \emph{assumes} that the {\bf unit price 
+function} has settled to a \emph{constant} value~$p(x) = p = 
+\text{constant}>0~\text{CU/unit}$ (and, hence, $p^{\prime}(x) = 
+0~\text{CU/unit}^{2}$ obtains).
+
+%------------------------------------------------------------------
+\subsection{Extremal values of rational economic functions}
+%------------------------------------------------------------------
+Now we want to address the determination of extremal values of 
+economic functions that constitute ratios in the sense of the 
+construction
+%
+\[
+\frac{\text{OUTPUT}}{\text{INPUT}} \ ,
+\]
+%
+a topic raised in the Introduction.
+
+\medskip
+\noindent
+Let us consider two examples for determining {\bf local maxima} of 
+ratios of this kind.
+%
+\begin{itemize}
+\item[(i)]
+We begin with the {\bf average profit} in dependence on the level 
+of physical output~$x \geq 0~\text{units}$,
+%
+\be
+\frac{G(x)}{x} \ .
+\ee
+%
+The conditions that determine a local maximum are 
+$[G(x)/x]^{\prime} \stackrel{!}{=} 0~\text{CU}/\text{unit}^{2}$ 
+and $[G(x)/x]^{\prime\prime} \stackrel{!}{<} 
+0~\text{CU}/\text{unit}^{3}$. Respecting the quotient rule of 
+differentiation (cf. Sec.~\ref{sec:ablt}), the first condition 
+yields
+%
+\be
+\frac{G^{\prime}(x)x-G(x)}{x^{2}} = 0~\text{GE}/\text{ME}^{2} \ .
+\ee
+%
+Since a quotient can only be zero when its numerator vanishes 
+while its denominator remains non-zero, it immediately follows that
+%
+\be
+\lb{dgextr2}
+G^{\prime}(x)x-G(x) = 0~\text{CU}
+\quad\Rightarrow\quad
+x\,\frac{G^{\prime}(x)}{G(x)} = 1 \ .
+\ee
+%
+The task at hand now is to find a (unique) value of the level of 
+physical output~$x$ which satisfies this last condition, and for 
+which the second derivative of the average profit becomes negative.
+
+\item[(ii)]
+To compare the performance of two companies over a given period of 
+time in a meaningful way, it is recommended to adhere only to 
+measures that are \emph{dimensionless ratios}, and so independent 
+of {\bf scale}. An example of such a dimensionless ratio is the 
+measure referred to as {\bf economic efficiency},
+%
+\be
+W(x)=\frac{E(x)}{K(x)} \ ,
+\ee
+%
+which expresses the {\bf total revenue} (in $\text{CU}$) of a 
+company for a given period as a multiple of the {\bf total costs} 
+(in $\text{CU}$) it had to endure during this period, both as 
+functions of the {\bf level of physical output}. In analogy to our 
+discussion in~(i), the conditions for the existence of a local 
+maximum amount to $[E(x)/K(x)]^{\prime} \stackrel{!}{=} 0 \times 
+1/\text{unit}$ and $[E(x)/K(x)]^{\prime\prime} \stackrel{!}{<} 0 
+\times 1/\text{unit}^{2}$. By the quotient rule of differentiation 
+(see Sec.~\ref{sec:ablt}), the first condition leads to
+%
+\be
+\frac{E^{\prime}(x)K(x)-E(x)K^{\prime}(x)}{K^{2}(x)}
+= 0\times 1/\text{unit} \ ,
+\ee
+%
+i.e., for $K(x) > 0~\text{CU}$,
+%
+\be
+\lb{wirtextr1}
+E^{\prime}(x)K(x)-E(x)K^{\prime}(x) = 0~\text{CU}^{2}/\text{unit}
+\ .
+\ee
+%
+By re-arranging and multiplication with~$x > 0~\text{unit}$, this 
+can be cast into the particular form
+%
+\be
+\lb{wirtextr2}
+x\,\frac{E^{\prime}(x)}{E(x)} = x\,\frac{K^{\prime}(x)}{K(x)} \ .
+\ee
+%
+The reason for this special kind of representation of the 
+necessary condition for a local maximum to exist [and also for 
+Eq.~(\ref{dgextr2})] will be clarified in the subsequent section.
+Again, a value of the level of physical output which satisfies 
+Eq.~(\ref{wirtextr2}) must in addition lead to a negative second 
+derivative of the {\bf economic efficiency} in order to satisfy 
+the sufficient condition for a local maximum to exist.
+\end{itemize}
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Elasticities]{Elasticities}
+\lb{sec:elast}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Finally, we pick up once more the discussion on quantifying the 
+{\bf local variability} of differentiable real-valued functions of 
+one real variable, $f:D\subseteq\mathbb{R} \rightarrow 
+W\subseteq\mathbb{R}$, though from a slightly different 
+perspective. For reasons to be elucidated shortly, we confine 
+ourselves to considerations of 
+regimes of $f$ with \emph{positive} values of the argument~$x$ and 
+also \emph{positive} values $y=f(x) > 0$ of the function itself.
+
+\medskip
+\noindent 
+As before in Sec.~\ref{sec:ablt}, we want to assume a small change 
+of the value of the argument~$x$ and evaluate its resultant effect 
+on the value~$y=f(x)$. This yields
+%
+\be
+x \stackrel{\Delta x \in \mathbb{R}}{\longrightarrow} x+\Delta x
+\qquad \Longrightarrow \qquad
+y=f(x) \stackrel{\Delta y \in \mathbb{R}}{\longrightarrow}
+y+\Delta y=f(x+\Delta x) \ .
+\ee
+%
+We remark in passing that {\bf relative changes} of non-negative 
+quantities are defined by the quotient
+%
+\[
+\displaystyle
+\frac{\text{new\ value}-\text{old\ value}}{\text{old\ value}}
+\]
+%
+under the prerequisite that ``$\text{old\ value}>0$'' applies. It 
+follows from this specific construction that the minimum value a 
+relative change can possibly attain amounts to ``$-1$'' 
+(corresponding to a decrease of the ``$\text{old\ value}$'' by 
+100\%).
+
+%\pagebreak
+\medskip
+\noindent
+Related to this consideration we identify the following terms:
+%
+\begin{itemize}
+\item a prescribed {\bf absolute change} of the independent 
+variable~$x$: \qquad $\Delta x$\ ,
+\item the resultant {\bf absolute change} of the function $f$:
+\qquad $\Delta y=f(x+\Delta x)-f(x)$\ ,
+\item the associated {\bf relative change} of the independent 
+variable~$x$:
+\qquad $\displaystyle \frac{\Delta x}{x}$\ ,
+\item the associated resultant {\bf relative change} of the 
+function~$f$:
+\qquad $\displaystyle \frac{\Delta y}{y}
+=\frac{f(x+\Delta x)-f(x)}{f(x)}$\ .
+\end{itemize}
+%
+
+\medskip
+\noindent
+Now let us compare the {\bf order-of-magnitudes} of the two 
+relative changes just envisaged, $\displaystyle \frac{\Delta 
+x}{x}$ and $\displaystyle \frac{\Delta y}{y}$. This is realised by 
+considering the value of their quotient, ``resultant relative 
+change of~$f$ divided by the prescribed relative change of~$x$"':
+%
+\[
+\frac{\displaystyle\frac{\Delta y}{y}}{\displaystyle\frac{\Delta 
+x}{x}}
+=\frac{\displaystyle\frac{f(x+\Delta 
+x)-f(x)}{f(x)}}{\displaystyle\frac{\Delta x}{x}} \ .
+\]
+%
+Since we assumed $f$ to be differentiable, it is possible to 
+investigate the behaviour of this quotient of relative changes in 
+the limit of increasingly smaller prescribed relative 
+changes~$\displaystyle \frac{\Delta x}{x} \to 0 \Rightarrow \Delta 
+x \to 0$ near some $x > 0$. One thus defines:
+
+\medskip
+\noindent
+\underline{\bf Def.:}
+For a differentiable real-valued function~$f$ of one real 
+variable~$x$, the \emph{dimensionless} (i.e., units-independent) 
+quantity
+%
+\be
+\fbox{$\displaystyle
+\varepsilon_{f}(x)
+:=\lim_{\Delta x\to 0}\frac{\displaystyle\frac{\Delta 
+y}{y}}{\displaystyle\frac{\Delta x}{x}}
+= \lim_{\Delta x\to 0}\frac{\displaystyle\frac{f(x+\Delta 
+x)-f(x)}{f(x)}}{\displaystyle\frac{\Delta x}{x}}
+= x\,\frac{f^{\prime}(x)}{f(x)}
+$}
+\ee
+%
+is referred to as the {\bf elasticity} of the function~$f$ at position~$x$.
+
+\medskip
+\noindent
+The elasticity of~$f$ quantifies its resultant relative change in 
+response to a prescribed infinitesimally small relative change of 
+its argument~$x$, starting from some positive initial value $x>0$. 
+As such it constitutes a measure for the {\bf relative local rate 
+of change} of a function~$f$ in a point~$(x,f(x))$. In {\bf 
+economic theory}, in particular, one adheres to the following 
+interpretation of the elasticity~$\varepsilon_{f}(x)$: when the 
+postive argument~$x$ of some positive differentiable real-valued 
+function~$f$ is increased by $1~\%$, then in consequence $f$ will 
+change approximately by~$\varepsilon_{f}(x)\times
+1~\%$.
+
+\medskip
+\noindent
+In the scientific literature one often finds the elasticity of a 
+positive differentiable function~$f$ of a positive argument~$x$ 
+expressed in terms of logarithmic differentiation. That is,
+%
+$$
+\varepsilon_{f}(x)
+:= \frac{{\rm d}\ln[f(x)]}{{\rm d}\ln(x)}
+\qquad\text{for}\ x>0 \ \text{and} \ f(x)>0 \ ,
+$$
+%
+since by the chain rule of differentiation it holds that
+%
+$$
+\frac{{\rm d}\ln[f(x)]}{{\rm d}\ln(x)}
+= \frac{\displaystyle\frac{{\rm 
+d}f(x)}{f(x)}}{\displaystyle\frac{{\rm d}x}{x}}
+= x\,\frac{\displaystyle\frac{{\rm d}f(x)}{{\rm d}x}}{f(x)}
+= x\,\frac{f^{\prime}(x)}{f(x)} \ .
+$$
+%
+The logarithmic representation of the elasticity of a 
+differentiable function~$f$ immediately explains why, at the 
+beginning, we confined our considerations to positive 
+differentiable functions of positive arguments only.\footnote{To 
+extend the regime of applicability of the 
+measure~$\varepsilon_{f}$, one may consider working in terms of 
+absolute values~$|x|$ and $|f(x)|$. Then one has to distinguish 
+between four cases, which need to be looked at separately: 
+(i)~$x>0$, $f(x)>0$, (ii)~$x<0$, $f(x)>0$, (iii)~$x<0$,
+$f(x)<0$ and (iv) $x>0$, $f(x)<0$.} A brief look at the list of 
+standard economic functions provided in Sec.~\ref{sec:oekfkt} 
+reveals that most of these (though not all) are positive functions 
+of non-negative arguments.
+
+%\pagebreak
+\medskip
+\noindent
+For the elementary classes of real-valued functions of one real 
+variable discussed in Sec.~\ref{sec:fkt} one finds:
+
+\medskip
+\noindent
+{\bf Standard elasticities}
+%
+\begin{enumerate}
+\item $f(x)=x^{n}$ for $n \in \mathbb{N}$
+and $x \in \mathbb{R}_{> 0}
+\ \Rightarrow\ \varepsilon_{f}(x)=n$
+\hfill ({\bf natural power-law functions})
+\item $f(x)=x^{\alpha}$ for $\alpha \in \mathbb{R}$
+and $x \in \mathbb{R}_{> 0}
+\ \Rightarrow\ \varepsilon_{f}(x)=\alpha$
+\hfill ({\bf general power-law functions})
+\item $f(x)=a^{x}$ for $a \in \mathbb{R}_{> 0}\backslash\{1\}$
+and $x \in \mathbb{R}_{> 0}
+\ \Rightarrow\ \varepsilon_{f}(x)=\ln(a)x$
+\hfill ({\bf exponential functions})
+\item $f(x)=e^{ax}$ for $a \in \mathbb{R}$
+and $x \in \mathbb{R}_{> 0}
+\ \Rightarrow\ \varepsilon_{f}(x)=ax$
+\hfill ({\bf natural exponential functions})
+\item $f(x)=\log_{a}(x)$ for $a \in \mathbb{R}_{> 0}
+\backslash\{1\}$ and $x \in \mathbb{R}_{> 0}$
+
+\hfill\hfill$\displaystyle \quad\Rightarrow\quad
+\varepsilon_{f}(x)=\frac{1}{\ln(a)\log_{a}(x)}$
+\hfill ({\bf logarithmic functions})
+\item $f(x)=\ln(x)$ for $\displaystyle
+x \in \mathbb{R}_{> 0}
+\quad\Rightarrow\quad \varepsilon_{f}(x)=\frac{1}{\ln(x)}$
+\hfill ({\bf natural logarithmic function}).
+\end{enumerate}
+%
+
+\medskip
+\noindent
+In view of these results, we would like to emphasise the fact that 
+for the entire family of {\bf general power-law functions} the 
+elasticity~$\varepsilon_{f}(x)$ has a \emph{constant value}, 
+independent of the value of the argument~$x$. It is this very 
+property which classifies {\bf general power-law functions} as 
+{\bf scale-invariant}. When {\bf scale-invariance} obtains, 
+dimensionless ratios, i.e., quotients of variables of the same 
+physical dimension, reduce to \emph{constants}. In this context, 
+we would like to remark that scale-invariant (fractal) power-law 
+functions of the form $f(x)=Kx^{\alpha}$, with $K > 0$ and $\alpha 
+\in \mathbb{R}_{<0}\backslash \{-1\}$, are frequently employed in 
+{\bf Economics} and the {\bf Social Sciences} for modelling {\bf 
+uncertainty} of {\bf economic agents} in {\bf decision-making 
+processes}, or for describing probability distributions of {\bf 
+rare event phenomena}; see, e.g., Taleb 
+(2007)~\ct[p~326ff]{tal2007} or Gleick 
+(1987)~\ct[Chs.~5~and~6]{gle1987}. This is due, in part, to 
+the curious property that for certain values of the 
+exponent~$\alpha$ general power-law probability distributions 
+attain unbounded variance; cf. Ref.~\ct[Sec.~8.9]{hve2015}.
+
+\medskip
+\noindent
+Practical applications in {\bf economic theory} of the concept of 
+an elasticty as a measure of relative change of a differentiable 
+real-valued function~$f$ of one real variable~$x$ are generally 
+based on the following \emph{linear (!)} approximation: beginning 
+at~$x_{0}>0$, for small prescribed percentage changes of the 
+argument~$x$ in the interval $0~\% < {\displaystyle\frac{\Delta 
+x}{x_{0}}} \leq 5~\%$, the resultant percentage changes of~$f$ 
+amount approximately to
+%
+\be
+(\text{percentage\ change\ of}\ f)
+\approx (\text{elasticity\ of}\ f\ \text{at}\ x_{0}) \times
+(\text{percentage\ change\ of}\ x) \ ,
+\ee
+%
+or, in terms of a mathematical formula, to
+%
+\be
+\frac{f(x_{0}+\Delta x)-f(x_{0})}{f(x_{0})}
+\approx \varepsilon_{f}(x_{0})
+\frac{\Delta x}{x_{0}} \ .
+\ee
+%
+
+\medskip
+\noindent
+We now draw the reader's attention to a special kind of 
+terminology developed in {\bf economic theory} to describe the 
+{\bf relative local change behaviour} of economic functions in 
+qualitative terms. For $x \in D(f)$, the relative local change 
+behaviour of a function~$f$ is called
+%
+\begin{itemize}
+	\item {\bf inelastic}, whenever $|\varepsilon_{f}(x)|<1$,
+	\item {\bf unit elastic}, when $|\varepsilon_{f}(x)|=1$, and
+	\item {\bf elastic}, whenever $|\varepsilon_{f}(x)|>1$.
+\end{itemize}
+%
+For example, a total cost function~$K(x)$ in the diminishing 
+returns picture exhibits unit elastic behaviour at the minimum 
+efficient scale~$x=x_{g_{2}}$ where, by Eq.~(\ref{betropt2}), 
+$\varepsilon_{K}(x_{g_{2}})=1$. Also, at the local maximum of an 
+average profit function~$G(x)/x$, the property
+$\varepsilon_{G}(x)=1$ applies; cf. Eq.~(\ref{dgextr2}).
+
+%\pagebreak
+\medskip
+\noindent
+Next, we review the computational rules one needs to adhere to 
+when calculating elasticities for combinations of two real-valued 
+functions of one real variable in the sense of 
+Sec.~\ref{subsec:kombfkt}:
+
+%\pagebreak
+\medskip
+\noindent
+{\bf Computational rules for elasticities}
+
+\noindent
+If $f$ and $g$ are differentiable real-valued functions of one 
+real variable, with elasticities~$\varepsilon_{f}$ and 
+$\varepsilon_{g}$, it holds that:
+%
+\begin{enumerate}
+	\item {\bf product} $f \cdot g$: \qquad\qquad
+	$\varepsilon_{f \cdot g}(x)
+	= \varepsilon_{f}(x) + \varepsilon_{g}(x)$,
+	\item {\bf quotient} ${\displaystyle\frac{f}{g}}$, $g \neq 0$: 
+	\qquad\qquad 	$\varepsilon_{f/g}(x)
+	= \varepsilon_{f}(x) - \varepsilon_{g}(x)$,
+	\item {\bf concatenation} $f \circ g$: \qquad\qquad
+	$\varepsilon_{f \circ g}(x)
+	= \varepsilon_{f}(g(x))\cdot\varepsilon_{g}(x)$,
+	\item {\bf inverse function} $f^{-1}$: \qquad\qquad
+	$\displaystyle \varepsilon_{f^{-1}}(x)
+	= \left.\frac{1}{\varepsilon_{f}(y)}\right|_{y=f^{-1}(x)}$.
+	%= 1/\varepsilon_{f}(f^{-1}(x))$
+\end{enumerate}
+%
+
+\medskip
+\noindent
+To end this chapter, we remark that for a positive differentiable 
+real-valued function~$f$ of one positive real variable~$x$, a 
+second elasticity may be defined according to
+%
+\be
+\lb{eq:secondelasticity}
+\varepsilon_{f}\left[\varepsilon_{f}(x)\right]
+:= x\,\frac{{\rm d}}{{\rm d}x}\left[\frac{x}{f(x)}\,\frac{{\rm 
+d}f(x)}{{\rm d}x}\right] \ .
+\ee
+%
+Of course, by analogy this procedure may be generalised to higher 
+derivatives of~$f$ still.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
